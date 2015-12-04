@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 基本颜色定义 -->
+    <color name="red">#FF0000</color>
+    <color name="grey">#B2B2B2</color>
+    <color name="lgrey">#d6d6d6</color>
+    <color name="dgrey">#C9C9C9</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#ffff00</color>
+    <color name="orange">#FDBB2B</color>
+    <color name="dorange">#FF5722</color>
+    <color name="golden">#ff6600</color>
+    <color name="poloere">#F8F3F0</color>
+    <color name="theme_color">#198ABF</color>
+    <color name="more_bg_color">#F3F6F8</color>
+
+</resources>
