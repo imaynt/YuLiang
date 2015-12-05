@@ -155,7 +155,7 @@ public class CommonUtils {
 	 * @param tv_time
 	 * 调用时间控件,格式:yyyy-MM-dd HH:mm
 	 */
-	public static View showDateTimePicker(Context context, final TextView tv_time){
+	public static void showDateTimePicker(Context context, final TextView tv_time){
 		Calendar calendar = Calendar.getInstance();
 		int year = calendar.get(Calendar.YEAR);
 		int month = calendar.get(Calendar.MONTH);
@@ -174,14 +174,14 @@ public class CommonUtils {
 		dialog.setTitle("请选择日期与时间");
 		// 找到dialog的布局文件
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService("layout_inflater");
-		View view = inflater.inflate(R.layout.ui_b3_time_layout, null);
+		View view = inflater.inflate(R.layout.ui_time_layout, null);
 
 		// 年
 		final WheelView wv_year = (WheelView) view.findViewById(R.id.year);
-		wv_year.setAdapter(new NumericWheelAdapter(1990, 2100));// 设置"年"的显示数据
+		wv_year.setAdapter(new NumericWheelAdapter(1900, 2100));// 设置"年"的显示数据
 		wv_year.setCyclic(true);// 可循环滚动
 		wv_year.setLabel("年");// 添加文字
-		wv_year.setCurrentItem(year - 1990);// 初始化时显示的数据
+		wv_year.setCurrentItem(year - 1900);// 初始化时显示的数据
 
 		// 月
 		final WheelView wv_month = (WheelView) view.findViewById(R.id.month);
@@ -208,22 +208,22 @@ public class CommonUtils {
 		wv_day.setLabel("日");
 		wv_day.setCurrentItem(day - 1);
 
-		// 时
-		final WheelView wv_hours = (WheelView) view.findViewById(R.id.hour);
-		wv_hours.setAdapter(new NumericWheelAdapter(0, 23));
-		wv_hours.setCyclic(true);
-		wv_hours.setCurrentItem(hour);
-
-		// 分
-		final WheelView wv_mins = (WheelView) view.findViewById(R.id.mins);
-		wv_mins.setAdapter(new NumericWheelAdapter(0, 59, "%02d"));
-		wv_mins.setCyclic(true);
-		wv_mins.setCurrentItem(minute);
+//		// 时
+//		final WheelView wv_hours = (WheelView) view.findViewById(R.id.hour);
+//		wv_hours.setAdapter(new NumericWheelAdapter(0, 23));
+//		wv_hours.setCyclic(true);
+//		wv_hours.setCurrentItem(hour);
+//
+//		// 分
+//		final WheelView wv_mins = (WheelView) view.findViewById(R.id.mins);
+//		wv_mins.setAdapter(new NumericWheelAdapter(0, 59, "%02d"));
+//		wv_mins.setCyclic(true);
+//		wv_mins.setCurrentItem(minute);
 
 		// 添加"年"监听
 		OnWheelChangedListener wheelListener_year = new OnWheelChangedListener() {
 			public void onChanged(WheelView wheel, int oldValue, int newValue) {
-				int year_num = newValue + 1990;
+				int year_num = newValue + 1900;
 				// 判断大小月及是否闰年,用来确定"日"的数据
 				if (list_big.contains(String
 						.valueOf(wv_month.getCurrentItem() + 1))) {
@@ -250,9 +250,9 @@ public class CommonUtils {
 				} else if (list_little.contains(String.valueOf(month_num))) {
 					wv_day.setAdapter(new NumericWheelAdapter(1, 30));
 				} else {
-					if (((wv_year.getCurrentItem() + 1990) % 4 == 0 && (wv_year
-							.getCurrentItem() + 1990) % 100 != 0)
-							|| (wv_year.getCurrentItem() + 1990) % 400 == 0)
+					if (((wv_year.getCurrentItem() + 1900) % 4 == 0 && (wv_year
+							.getCurrentItem() + 1900) % 100 != 0)
+							|| (wv_year.getCurrentItem() + 1900) % 400 == 0)
 						wv_day.setAdapter(new NumericWheelAdapter(1, 29));
 					else
 						wv_day.setAdapter(new NumericWheelAdapter(1, 28));
@@ -268,8 +268,8 @@ public class CommonUtils {
 		textSize = 28;
 
 		wv_day.TEXT_SIZE = textSize;
-		wv_hours.TEXT_SIZE = textSize;
-		wv_mins.TEXT_SIZE = textSize;
+//		wv_hours.TEXT_SIZE = textSize;
+//		wv_mins.TEXT_SIZE = textSize;
 		wv_month.TEXT_SIZE = textSize;
 		wv_year.TEXT_SIZE = textSize;
 
@@ -285,17 +285,13 @@ public class CommonUtils {
 				String parten = "00";
 				DecimalFormat decimal = new DecimalFormat(parten);
 				// 设置日期的显示
-				String date = (wv_year.getCurrentItem() + 1990) + "-"
-						 + decimal.format((wv_month.getCurrentItem() + 1)) + "-"
-						 + decimal.format((wv_day.getCurrentItem() + 1));
-				String hours = wv_hours.getVisibility() == View.GONE?"":" " + decimal.format(wv_hours.getCurrentItem());
-				String mins = wv_mins.getVisibility() == View.GONE?"":":" + decimal.format(wv_mins.getCurrentItem());
-				tv_time.setText(date + hours + mins);
-				if(wv_hours.getVisibility() == View.GONE){
-					tv_time.setTag(date + hours + mins+((String)tv_time.getTag()).substring(10));
-				}else{
-					tv_time.setTag(date + hours + mins);
-				}
+				 tv_time.setText((wv_year.getCurrentItem() + 1900) + "-"
+				 + decimal.format((wv_month.getCurrentItem() + 1)) + "-"
+				 + decimal.format((wv_day.getCurrentItem() + 1))) ;
+//				 + " "
+//				 + decimal.format(wv_hours.getCurrentItem()) + ":"
+//				 + decimal.format(wv_mins.getCurrentItem()));
+
 				dialog.dismiss();
 			}
 		});
@@ -310,22 +306,5 @@ public class CommonUtils {
 		// 设置dialog的布局,并显示
 		dialog.setContentView(view);
 		dialog.show();
-		return view;
-	}
-	
-	public static boolean hasSDCard() {
-		String status = Environment.getExternalStorageState();
-		if (!status.equals(Environment.MEDIA_MOUNTED)) {
-			return false;
-		} 
-		return true;
-	}
-	
-	public static String getRootFilePath() {
-		if (hasSDCard()) {
-			return Environment.getExternalStorageDirectory().getAbsolutePath() + "/";// filePath:/sdcard/
-		} else {
-			return Environment.getDataDirectory().getAbsolutePath() + "/data/"; // filePath: /data/data/
-		}
 	}
 }
