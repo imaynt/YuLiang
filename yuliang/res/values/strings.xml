@@ -20,12 +20,12 @@
     <string name="chongzhi_mobile">手机号码：</string>
     <string name="chongzhi_account">充值金额：</string>
     <!-- 兑换         提现 -->
-    <string name="tixian_ID">账&#8211;&#8211;&#8211;&#8211;号：</string>
-    <string name="tixian_name">姓&#8211;&#8211;&#8211;&#8211;名：</string>
+    <string name="tixian_ID">账&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;号：</string>
+    <string name="tixian_name">姓&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名：</string>
     <string name="tixian_account">提现金额：</string>
     <!-- 兑换         兑换币兑换 -->
     <string name="duihuan_desp">兑换到夺宝账户中，参与1元夺宝。</string>
-    <string name="duihuan_account">金额：</string>
+    <string name="duihuan_account">金&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;额：</string>
 
     <!-- 更多 -->
     <string name="app_name">yuliang</string>
