@@ -18,7 +18,6 @@
         android:orientation="vertical" >
 
         <LinearLayout
-            android:id="@+id/ll_nick"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
@@ -30,16 +29,24 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="15dp"
                 android:singleLine="true"
-                android:text="@string/nick" />
+                android:text="@string/used_days" />
 
-            <EditText
-                android:id="@+id/ed_user_nick"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_used_days"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
+                android:layout_weight="1"
                 android:background="@drawable/bg_null_white"
                 android:gravity="center_vertical|right"
-                android:hint="@string/input_nick" />
+                android:textColor="@color/score_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:singleLine="true"
+                android:text="@string/tian" />
         </LinearLayout>
 
         <View
@@ -49,11 +56,9 @@
             android:background="@color/more_bg_color" />
 
         <LinearLayout
-            android:id="@+id/ll_avatar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:background="@color/white"
+            android:gravity="center"
             android:orientation="horizontal" >
 
             <TextView
@@ -61,21 +66,25 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="15dp"
-                android:text="@string/avatar" />
+                android:singleLine="true"
+                android:text="@string/task_shouru" />
 
-            <View
+            <TextView
+                android:id="@+id/tv_task_shouru"
                 android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_null_white"
+                android:gravity="center_vertical|right"
+                android:textColor="@color/score_red" />
 
-            <com.zykj.yuliang.view.RoundImageView
-                android:id="@+id/img_avatar"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="25dp"
-                android:src="@drawable/touxiang" />
+                android:layout_marginRight="15dp"
+                android:singleLine="true"
+                android:text="@string/yuan" />
         </LinearLayout>
 
         <View
@@ -85,86 +94,175 @@
             android:background="@color/more_bg_color" />
 
         <LinearLayout
-            android:id="@+id/ll_sex"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:singleLine="true"
+                android:text="@string/xuetu_jiangli" />
+
+            <TextView
+                android:id="@+id/tv_xuetu_jl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_null_white"
+                android:gravity="center_vertical|right"
+                android:textColor="@color/score_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:singleLine="true"
+                android:text="@string/yuan" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/more_bg_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:singleLine="true"
+                android:text="@string/tudi_number" />
+
+            <TextView
+                android:id="@+id/tv_tudi_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_null_white"
+                android:gravity="center_vertical|right"
+                android:textColor="@color/score_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:singleLine="true"
+                android:text="@string/ren" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/more_bg_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:singleLine="true"
+                android:text="@string/tudi_jiangli" />
+
+            <TextView
+                android:id="@+id/tv_tudi_jl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_null_white"
+                android:gravity="center_vertical|right"
+                android:textColor="@color/score_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:singleLine="true"
+                android:text="@string/yuan" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/more_bg_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:singleLine="true"
+                android:text="@string/tusun_jiangli" />
+
+            <TextView
+                android:id="@+id/tv_tusun_jl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_null_white"
+                android:gravity="center_vertical|right"
+                android:textColor="@color/score_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:singleLine="true"
+                android:text="@string/yuan" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/more_bg_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_submit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center|right"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/white"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp"
-                android:text="@string/sex" />
-
-            <TextView
-                android:id="@+id/tv_sex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="25dp"
-                android:gravity="center_vertical|right" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
             android:layout_marginLeft="15dp"
-            android:background="@color/more_bg_color" />
-
-        <LinearLayout
-            android:id="@+id/ll_birthday"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/white"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp"
-                android:text="@string/birthday" />
-
-            <TextView
-                android:id="@+id/tv_birthday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
-                android:gravity="center_vertical|right" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginLeft="15dp"
-            android:background="@color/more_bg_color" />
-
-        <LinearLayout
-            android:id="@+id/ll_profession"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/white"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp"
-                android:text="@string/profession" />
-
-            <TextView
-                android:id="@+id/tv_profession"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
-                android:gravity="center_vertical|right" />
-        </LinearLayout>
+            android:text="@string/score_desp"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -173,7 +271,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="25dp"
         android:background="@color/red"
-        android:gravity="center"
+        android:gravity="center|bottom"
         android:orientation="horizontal" >
 
         <TextView
@@ -182,8 +280,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
             android:text="@string/shaidan"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>
