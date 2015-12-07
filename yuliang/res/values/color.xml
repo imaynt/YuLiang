@@ -13,7 +13,7 @@
     <color name="dorange">#FF5722</color>
     <color name="golden">#ff6600</color>
     <color name="poloere">#F8F3F0</color>
-    <color name="theme_color">#50bf83</color>
+    <color name="theme_color">#198ABF</color>
     <color name="more_bg_color">#F3F6F8</color>
 
     <!-- 按钮背景颜色定义 -->
@@ -53,4 +53,23 @@
     <color name="blend_item_divider_color">#ffededed</color>
     <color name="blend_item_pressed_color_transparent">#19000000</color>
     <color name="blend_item_theme_color_black">#ff393d43</color>
+    
+    <!-- yuliang配色 -->
+    
+    <!-- 顶部背景色 -->
+	<color name="background_title">#4fbf84</color>
+	<color name="background_rectangles">#8dd5af</color>
+	
+	<!-- 颜色 -->
+	<!-- 深灰 -->
+	<color name="ole_gray">#323232</color>
+	<!-- 灰色 -->
+	<color name="gray">#7f8085</color>
+	<!-- 浅灰 -->
+	<color name="baby_gray">#e5e5e5</color>
+	<color name="old_blue">#48667c</color>
+	<color name="money_color">#dd9014</color>
+	<!-- 透明 -->
+	<color name="transparent">#00000000</color>
+	<!--  <color name="orange">#f5a82c</color>   -->
 </resources>
