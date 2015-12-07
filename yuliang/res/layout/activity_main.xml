@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-   <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/more_bg_color"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -56,7 +57,7 @@
                         android:layout_marginTop="-10dp"
                         android:text="2.00"
                         android:textColor="@color/white"
-                        android:textSize="45dp" />
+                        android:textSize="45sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -118,7 +119,7 @@
                 android:background="@color/transparent"
                 android:text="明细"
                 android:textColor="@color/ole_gray"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -134,223 +135,355 @@
                 android:background="@color/transparent"
                 android:text="更多"
                 android:textColor="@color/ole_gray"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/main_line_rectangles"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
             android:orientation="vertical"
-            android:paddingLeft="15dp"
-            android:layout_marginTop="15dp" >
-            
-            
-            
-            
-			<!-- 列表开始 -->
+            android:paddingLeft="15dp" >
+
+            <!-- 列表开始 -->
+
             <LinearLayout
-                android:id="@+id/ll_makemoney"
+                android:id="@+id/ll_zhuanqian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/stroke_rectangles_list"              
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white" >
 
-                    <!-- 圆形直角图 -->
+                    <com.zykj.yuliang.utils.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pic_zhuanqian"
+                        app:border_color="@color/transparent"
+                        app:border_width="0dp" />
 
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:layout_marginRight="12dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@color/white" >
+                </FrameLayout>
 
-                        <com.zykj.yuliang.utils.CircleImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/icon_1"
-                            app:border_color="@color/transparent"
-                            app:border_width="0dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/zhuanqian"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                        <com.zykj.yuliang.utils.ShapeImageView
-                            android:layout_width="35dip"
-                            android:layout_height="35dip"
-                            android:src="@drawable/icon_1" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="赚钱"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
                     android:gravity="right|center_vertical"
-                    android:orientation="horizontal" >
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="累计2809万人参与"
-                        android:textColor="@color/gray" />
-                    
-                    <ImageButton 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/symbol_right"
-                        android:background="@color/white"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp"
-                        />
-                    
-                </LinearLayout>
+                    android:text="@string/zhuanqian_num"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/app_name"
+                    android:gravity="right|center_vertical"
+                    android:src="@drawable/symbol_right" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/more_bg_color" />
+
             <LinearLayout
-                android:id="@+id/ll_apprentice"
+                android:id="@+id/ll_shoutu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/stroke_rectangles_list"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white" >
 
-                    <!-- 圆形直角图 -->
+                    <com.zykj.yuliang.utils.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pic_shoutu"
+                        app:border_color="@color/transparent"
+                        app:border_width="0dp" />
 
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:layout_marginRight="12dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@color/white" >
+                </FrameLayout>
 
-                        <com.zykj.yuliang.utils.CircleImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/icon_1"
-                            app:border_color="@color/transparent"
-                            app:border_width="0dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/shoutu"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                        <com.zykj.yuliang.utils.ShapeImageView
-                            android:layout_width="35dip"
-                            android:layout_height="35dip"
-                            android:src="@drawable/icon_1" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="收徒"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
                     android:gravity="right|center_vertical"
-                    android:orientation="horizontal" >
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="超高奖励，上不封顶"
-                        android:textColor="@color/gray" />
-                    
-                    <ImageButton 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/symbol_right"
-                        android:background="@color/white"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp"
-                        />
-                    
-                </LinearLayout>
+                    android:text="@string/shoutu_num"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/app_name"
+                    android:gravity="right|center_vertical"
+                    android:src="@drawable/symbol_right" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/more_bg_color" />
+
             <LinearLayout
+                android:id="@+id/ll_yiyuanduobao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white" >
 
-                    <!-- 圆形直角图 -->
+                    <com.zykj.yuliang.utils.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pic_yiyuanduobao"
+                        app:border_color="@color/transparent"
+                        app:border_width="0dp" />
 
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:layout_marginRight="12dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@color/white" >
+                </FrameLayout>
 
-                        <com.zykj.yuliang.utils.CircleImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/icon_1"
-                            app:border_color="@color/transparent"
-                            app:border_width="0dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/yiyuanduobao"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                        <com.zykj.yuliang.utils.ShapeImageView
-                            android:layout_width="35dip"
-                            android:layout_height="35dip"
-                            android:src="@drawable/icon_1" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="一元夺宝"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
                     android:gravity="right|center_vertical"
-                    android:orientation="horizontal" >
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="一元买iPhone"
-                        android:textColor="@color/gray" />
-                    
-                    <ImageButton 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/symbol_right"
-                        android:background="@color/white"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp"
-                        />
-                    
-                </LinearLayout>
-            
+                    android:text="@string/yiyuanduobao_num"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/app_name"
+                    android:gravity="right|center_vertical"
+                    android:src="@drawable/symbol_right" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/more_bg_color" />
+
+            <LinearLayout
+                android:id="@+id/ll_youhuiquan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white" >
+
+                    <com.zykj.yuliang.utils.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pic_youhuiquan"
+                        app:border_color="@color/transparent"
+                        app:border_width="0dp" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/youhuiquan"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/youhuiquan_num"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/app_name"
+                    android:gravity="right|center_vertical"
+                    android:src="@drawable/symbol_right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/more_bg_color" />
+
+            <LinearLayout
+                android:id="@+id/ll_shengqian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <com.zykj.yuliang.utils.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pic_shengqian"
+                        app:border_color="@color/transparent"
+                        app:border_width="0dp" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/shengqian"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/shengqian_num"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/app_name"
+                    android:gravity="right|center_vertical"
+                    android:src="@drawable/symbol_right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/more_bg_color" />
+
+            <LinearLayout
+                android:id="@+id/ll_duihuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp" >
+
+                    <com.zykj.yuliang.utils.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/pic_duihuan"
+                        app:border_color="@color/transparent"
+                        app:border_width="0dp" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/duihuan"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/duihuan_num"
+                    android:textColor="@color/gray" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/app_name"
+                    android:gravity="right|center_vertical"
+                    android:src="@drawable/symbol_right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/more_bg_color" />
         </LinearLayout>
     </LinearLayout>
 

@@ -48,7 +48,7 @@ public class ScoreListActivity extends BaseActivity {
 		super.onClick(view);
 		switch (view.getId()) {
 		case R.id.ll_submit:
-			CommonUtils.showShare(this, "ÓàÁ¸×¬Ç®", "ÓàÁ¸×¬Ç®ÓàÁ¸×¬Ç®", "http://fir.im");
+//			CommonUtils.showShare(this, "ÓàÁ¸×¬Ç®", "ÓàÁ¸×¬Ç®ÓàÁ¸×¬Ç®", "http://fir.im");
 			break;
 		default:
 			break;
