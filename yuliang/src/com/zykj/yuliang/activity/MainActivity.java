@@ -1,8 +1,13 @@
 package com.zykj.yuliang.activity;
 
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.R.layout;
 import com.zykj.yuliang.R.menu;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -84,8 +89,25 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(intent);
 			break;
 		case R.id.ll_youhuiquan:
-			intent = new Intent(MainActivity.this, ApprenticeActivity.class);
-			startActivity(intent);
+			/***
+			 * 临时代码,待修改...................................
+			 */
+			RequestParams params=new RequestParams();
+			params.put("uid", "1");
+			params.put("points", "2");
+			HttpUtils.getLoginUrl(new HttpErrorHandler() {
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					String url = json.getJSONObject(UrlContants.jsonData)
+							.getString("url");
+					Intent intent = new Intent().setClass(MainActivity.this,
+							CreditActivity.class);
+					intent.putExtra("navColor", "#50bf83");// 配置导航条的背景颜色，请用#ffffff长格式。
+					intent.putExtra("titleColor", "#ffffff");// 配置导航条标题的颜色，请用#ffffff长格式。
+					intent.putExtra("url", url);// 配置自动登陆地址，每次需服务端动态生成。
+					startActivity(intent);
+				}
+			}, params);
 			break;
 		case R.id.ll_shengqian:
 			intent = new Intent(MainActivity.this, ApprenticeActivity.class);

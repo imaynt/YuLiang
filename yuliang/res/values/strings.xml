@@ -14,6 +14,9 @@
     <string name="shengqian">省钱</string>
     <string name="duihuan">兑换</string>
     <string name="duihuan_num">累计兑换18888万元</string>
+    
+    
+    <string name="load_data">正在加载,请稍候&#8230;</string>
 
     <!-- 兑换         充值 -->
     <string name="chongzhi_desp">一个工作日内到账，法定节假日三天内到账。</string>

@@ -73,4 +73,5 @@
 	<!-- 透明 -->
 	<color name="transparent">#00000000</color>
 	<!--  <color name="orange">#f5a82c</color>   -->
+	<color name="dialog_color">#73498b</color>
 </resources>
