@@ -47,6 +47,7 @@
             android:paddingLeft="15dp">
 
             <LinearLayout
+                android:id="@+id/ll_lianmeng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stroke_rectangles_list"              
@@ -173,6 +174,7 @@
             </LinearLayout>
             
             <LinearLayout
+                android:id="@+id/ll_ziliao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/stroke_rectangles_list"              
@@ -236,6 +238,7 @@
             </LinearLayout>
             
             <LinearLayout
+                android:id="@+id/ll_youchang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"             
                 android:orientation="horizontal" >

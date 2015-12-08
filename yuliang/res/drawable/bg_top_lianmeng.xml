@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 联盟任务上虚线 -->
+    <item
+        android:bottom="-2dp"
+        android:left="-2dp"
+        android:right="-2dp"
+        android:top="0dp">
+        <shape>
+            <stroke
+                android:dashGap="2dp"
+                android:dashWidth="3dp"
+                android:width="0.5dp"
+                android:color="@color/gray" />
+            
+            <corners android:topLeftRadius="7dp"
+             android:topRightRadius="7dp"
+             android:bottomRightRadius="0dp"
+             android:bottomLeftRadius="0dp"/>
+        </shape>
+    </item>
+
+</layer-list>
