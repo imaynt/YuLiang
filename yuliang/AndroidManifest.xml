@@ -38,6 +38,43 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 优惠券            兑吧 -->
+        <activity android:name=".activity.CreditActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+
+        <!-- 兑换 -->
+        <activity
+            android:name=".activity.DuiHuanActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 兑换         充值 -->
+        <activity
+            android:name=".activity.DuiHuanChongZhiActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 兑换     提现 -->
+        <activity
+            android:name=".activity.DuiHuanTiXianiActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 兑换      兑换币兑换 -->
+        <activity
+            android:name=".activity.DuiHuanDuiHuanActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <!-- 更多 -->
         <activity
             android:name=".activity.MoreActivity"
@@ -94,7 +131,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
         <activity android:name="com.zykj.yuliang.activity.DetailActivity" />
         <activity android:name="com.zykj.yuliang.activity.DetailContentActivity" />
         <activity android:name="com.zykj.yuliang.activity.MakeMoneyActivity" />
@@ -103,7 +139,5 @@
         <activity android:name="com.zykj.yuliang.activity.ZiLiaoActivity" />
         <activity android:name="com.zykj.yuliang.activity.YouChangActivity" />
     </application>
-    
-    
 
 </manifest>

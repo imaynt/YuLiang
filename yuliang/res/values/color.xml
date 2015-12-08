@@ -2,6 +2,7 @@
 <resources>
 
     <!-- 基本颜色定义 -->
+    <color name="score_red">#EB5F5F</color>
     <color name="red">#FF0000</color>
     <color name="grey">#B2B2B2</color>
     <color name="lgrey">#d6d6d6</color>
@@ -57,7 +58,7 @@
     <!-- yuliang配色 -->
     
     <!-- 顶部背景色 -->
-	<color name="background_title">#4fbf84</color>
+	<color name="background_title">#50bf83</color>
 	<color name="background_rectangles">#8dd5af</color>
 	
 	<!-- 颜色 -->
@@ -72,4 +73,5 @@
 	<!-- 透明 -->
 	<color name="transparent">#00000000</color>
 	<!--  <color name="orange">#f5a82c</color>   -->
+	<color name="dialog_color">#73498b</color>
 </resources>
