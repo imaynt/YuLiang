@@ -99,6 +99,9 @@
         <activity android:name="com.zykj.yuliang.activity.DetailContentActivity" />
         <activity android:name="com.zykj.yuliang.activity.MakeMoneyActivity" />
         <activity android:name="com.zykj.yuliang.activity.ApprenticeActivity" />
+        <activity android:name="com.zykj.yuliang.activity.LianMengActivity" />
+        <activity android:name="com.zykj.yuliang.activity.ZiLiaoActivity" />
+        <activity android:name="com.zykj.yuliang.activity.YouChangActivity" />
     </application>
     
     
