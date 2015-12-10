@@ -137,10 +137,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:background="@drawable/bg_line_topbottom"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="17dp" >
 
         <LinearLayout
+            android:id="@+id/ll_new_app"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/orange"
@@ -164,6 +165,98 @@
                 android:text="最新徒弟"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <!-- 圆形图 -->
+
+                <com.zykj.yuliang.utils.CircleImageView
+                    android:id="@+id/civ_yuanjiao"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/icon_1"
+                    app:border_color="@color/transparent"
+                    app:border_width="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="测试人员" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <!-- 圆形图 -->
+
+                <com.zykj.yuliang.utils.CircleImageView
+                    android:id="@+id/civ_yuanjiao"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/icon_1"
+                    app:border_color="@color/transparent"
+                    app:border_width="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="测试人员" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <!-- 圆形图 -->
+
+                <com.zykj.yuliang.utils.CircleImageView
+                    android:id="@+id/civ_yuanjiao"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/icon_1"
+                    app:border_color="@color/transparent"
+                    app:border_width="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="测试人员" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ac_more"
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/iv_symbol_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/symbol_right" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -198,14 +291,15 @@
             android:layout_height="wrap_content"
             android:background="@drawable/stroke_rectangles_list"
             android:orientation="horizontal"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp" >
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -229,19 +323,20 @@
                     android:src="@drawable/symbol_right" />
             </LinearLayout>
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp" >
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

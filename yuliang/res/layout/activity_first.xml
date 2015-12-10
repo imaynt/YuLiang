@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/xinfeng" />
+
+        <TextView
+            android:id="@+id/tv_o"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="新来的，送你个红包！"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/ll_text_t"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        
+        android:orientation="vertical">
+        
+        <TextView
+    
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="别着急，这仅仅是开始..."
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="今天还有许多任务等您来挑战"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+ 
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/ll_text_s"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginTop="15dp"
+        android:padding="15dp"
+        >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="使用说明："
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+        <TextView
+    
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="1.做任务下载App，平均下载一个App可赚2元左右，满10元即可提现。"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="2.提现时不需要任何手续，提现额度越大，奖励越丰厚。"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+ 		
+        <RelativeLayout
+            
+            android:id="@+id/rl_huodeyes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_orange" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </RelativeLayout>
+        
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_youyaoqing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_orange" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="有邀请ID（送3元）"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_yaoqingid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_margin="20dp" >
+
+        <EditText
+            android:id="@+id/et_inputid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_border"
+            android:hint="输入邀请ID"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/rl_yaoqingyes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_orange" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_wuyaoqing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_orange" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="无邀请ID（送2元）"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

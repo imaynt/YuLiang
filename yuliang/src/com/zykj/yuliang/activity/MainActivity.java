@@ -28,11 +28,15 @@ public class MainActivity extends Activity implements OnClickListener {
 	private LinearLayout ll_apprentice;// 收徒
 	private LinearLayout ll_duobao, ll_youhuiquan, ll_shengqian, ll_duihuan;// 一元夺宝,优惠券,省钱,兑换
 	private Intent intent;
-
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main);  
+		
+		Intent i=new Intent(MainActivity.this,FirstLoginActivity.class);
+		startActivity(i);
 		initViews();
 		initClick();
 		initEvents();
