@@ -90,7 +90,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.ll_youhuiquan:
 			/***
-			 * 临时代码,待修改...................................
+			 * 临时代码,参数(uid,points)待修改...................................
 			 */
 			RequestParams params=new RequestParams();
 			params.put("uid", "1");

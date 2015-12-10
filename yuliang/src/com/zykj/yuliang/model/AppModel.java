@@ -14,7 +14,7 @@ public class AppModel {
     public static String PHONE = "phone";
 	
 	
-	
+	private String deviceId;//Éè±¸ID
     private String username;//µÇÂ¼ÕËºÅ
     private String password;//µÇÂ¼ÃÜÂë
     private String userid;//ÓÃ»§Id
@@ -31,7 +31,10 @@ public class AppModel {
     public static AppModel init(Context context){
         AppModel model =new AppModel();
         utils = SharedPreferenceUtils.init(context);
-
+        
+		if (utils.getDeviceId() !=null){
+	        model.deviceId = utils.getDeviceId();
+        }
         if(utils.getUsername()!=null){
             model.username = utils.getUsername();
         }
@@ -75,6 +78,15 @@ public class AppModel {
         return model;
     }
     
+	public String getDeviceId() {
+		return deviceId;
+	}
+
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
+		utils.setDeviceId(deviceId);
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -124,6 +136,8 @@ public class AppModel {
 		this.integral = integral;
         utils.setIntegral(integral);
 	}
+	
+	
 	public String getLatitude() {
 		return latitude;
 	}
@@ -142,7 +156,10 @@ public class AppModel {
 	public void setSign(String sign) {
 		this.sign = sign;
 	}
+
+
 	public void clear(){
+		this.setDeviceId("");
 		this.setUsername("");
 		this.setPassword("");
 		this.setUserid("");

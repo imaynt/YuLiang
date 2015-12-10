@@ -21,9 +21,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.utils.CommonUtils;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
@@ -94,9 +99,9 @@ public class UserInfoActivity extends BaseActivity {
 					}).show();
 			break;
 		case R.id.ll_birthday:// 生日
-			 CommonUtils.showDateTimePicker(this, tv_birthday);
-//			 startView.findViewById(R.id.hour).setVisibility(View.GONE);
-//			 startView.findViewById(R.id.mins).setVisibility(View.GONE);
+			CommonUtils.showDateTimePicker(this, tv_birthday);
+			// startView.findViewById(R.id.hour).setVisibility(View.GONE);
+			// startView.findViewById(R.id.mins).setVisibility(View.GONE);
 			break;
 		case R.id.ll_profession:// 职业
 			list = new ArrayList<String>();
@@ -126,10 +131,6 @@ public class UserInfoActivity extends BaseActivity {
 				Tools.toast(UserInfoActivity.this, "昵称不能为空");
 				return;
 			}
-			if (file == null) {
-				Tools.toast(UserInfoActivity.this, "头像不能为空");
-				return;
-			}
 			if (StringUtil.isEmpty(sex)) {
 				Tools.toast(UserInfoActivity.this, "性别不能为空");
 				return;
@@ -142,23 +143,28 @@ public class UserInfoActivity extends BaseActivity {
 				Tools.toast(UserInfoActivity.this, "职业不能为空");
 				return;
 			}
+//			submitData();
 			RequestParams params = new RequestParams();
-			try {
-				params.put("", nick);
-				params.put("", file);
-				params.put("", sex);
-				params.put("", birth);
-				params.put("", profession);
-				/**
-				 * 提交数据............
-				 */
+			/**
+			 * 因为deviceId为空所以提交数据错误,待传deviceId.............................................
+			 */
+//			params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
+			params.put("username", nick);// username必须，新的会员昵称
+			params.put("sex", sex);// sex必须, 性别
+			params.put("birthday", birth);// birthday必须, 生日
+			params.put("profession", profession);// profession必须, 职业
+			HttpUtils.updateUserInfo(new HttpErrorHandler() {
 
-				setResult(RESULT_OK);
-				finish();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(UserInfoActivity.this, "资料更新成功!");
+					
+					setResult(RESULT_OK);
+					finish();
+					
+				}
+			}, params);
+			
 			break;
 		case R.id.dialog_modif_1:// 启动相机拍照
 			/* 拍照 */
@@ -188,6 +194,13 @@ public class UserInfoActivity extends BaseActivity {
 		default:
 			break;
 		}
+	}
+
+	/**
+	 * 提交数据............
+	 */
+	private void submitData() {
+
 	}
 
 	@Override

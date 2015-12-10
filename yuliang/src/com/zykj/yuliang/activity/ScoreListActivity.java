@@ -10,13 +10,14 @@ import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.utils.CommonUtils;
 import com.zykj.yuliang.view.MyCommonTitle;
+import com.zykj.yuliang.view.RoundImageView;
 
 public class ScoreListActivity extends BaseActivity {
 	private MyCommonTitle myCommonTitle;
-	private TextView used_days, task_income, xuetu_jl, tudi_number, tudi_jl,
+	private TextView tv_income,tv_id,used_days, task_income, xuetu_jl, tudi_number, tudi_jl,
 			tusun_jl;
+	private RoundImageView img_avatar;
 	private LinearLayout btn_submit;
-	private ListView score_list;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,10 @@ public class ScoreListActivity extends BaseActivity {
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("≥…º®µ•");
 		
+		tv_income=(TextView) findViewById(R.id.tv_score_income);
+		img_avatar=(RoundImageView) findViewById(R.id.img_score_avatar);
+		tv_id=(TextView) findViewById(R.id.tv_score_id);
+		
 		used_days = (TextView) findViewById(R.id.tv_used_days);// π”√ÃÏ ˝
 		task_income = (TextView) findViewById(R.id.tv_task_shouru);//»ŒŒÒ ’»Î
 		xuetu_jl = (TextView) findViewById(R.id.tv_xuetu_jl);//—ßÕΩΩ±¿¯
@@ -38,7 +43,7 @@ public class ScoreListActivity extends BaseActivity {
 		tudi_jl = (TextView) findViewById(R.id.tv_tudi_jl);//ÕΩµ‹Ω±¿¯
 		tusun_jl = (TextView) findViewById(R.id.tv_tusun_jl);//ÕΩÀÔΩ±¿¯
 		
-		btn_submit=(LinearLayout) findViewById(R.id.ll_submit);
+		btn_submit=(LinearLayout) findViewById(R.id.ll_shaiyishai);
 		
 		setListener(btn_submit);
 	}
@@ -47,8 +52,8 @@ public class ScoreListActivity extends BaseActivity {
 	public void onClick(View view) {
 		super.onClick(view);
 		switch (view.getId()) {
-		case R.id.ll_submit:
-//			CommonUtils.showShare(this, "”‡¡∏◊¨«Æ", "”‡¡∏◊¨«Æ”‡¡∏◊¨«Æ", "http://fir.im");
+		case R.id.ll_shaiyishai:
+			CommonUtils.showShare(this, "”‡¡∏◊¨«Æ", "”‡¡∏◊¨«Æ”‡¡∏◊¨«Æ", "http://fir.im");
 			break;
 		default:
 			break;

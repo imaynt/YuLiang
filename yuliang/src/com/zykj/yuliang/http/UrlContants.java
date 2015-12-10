@@ -5,13 +5,17 @@ package com.zykj.yuliang.http;
  */
 public class UrlContants {
 
-	public static final String SERVERIP = "121.42.194.222";
+//	public static final String SERVERIP = "121.42.194.222";
+	public static final String SERVERIP = "192.168.1.176";
 
-	public static final String BASE_URL = "http://121.42.194.222/api.php?";
+//	public static final String BASE_URL = "http://121.42.194.222/api.php?";
+	public static final String BASE_URL = "http://192.168.1.176/api.php?";
 
-	public static final String IMAGE_URL = "http://121.42.194.222/Uploads/";
+//	public static final String IMAGE_URL = "http://121.42.194.222/Uploads/";
+	public static final String IMAGE_URL = "http://192.168.1.176/Uploads/";
 
-	public static final String ORDERPAY = "http://121.42.194.222/pingxx/api/pay.php";// 支付
+//	public static final String ORDERPAY = "http://121.42.194.222/pingxx/api/pay.php";// 支付
+	public static final String ORDERPAY = "http://192.168.1.176/pingxx/api/pay.php";// 支付
 
 	public static final String BASEURL = BASE_URL + "%s";
 
@@ -20,6 +24,20 @@ public class UrlContants {
 	public static final String ERROR = "{\"code\":400,\"message\":\"请求失败\",\"datas\":null}";
 
 	public static final String ZERODATA = "{\"code\":200,\"message\":\"没有数据\",\"datas\":\"\"}";
+	
+	public static final String AUTOREG = "c=user&a=auto_reg";// 自动注册
+	
+	public static final String GETLOGINURL = "c=points&a=getLoginUrl";// 优惠券
+	
+	public static final String UPDATEUSERINFO = "c=user&a=resetUsername";// 修改个人资料
+	
+	public static final String BINDMOBILE = "c=user&a=bindphone";// 绑定手机
+	
+	
+	
+	
+	
+	
 
 	public static final String GETADSLIST = "c=public&a=getAdsList&type=slideFocus";// 轮播图
 
@@ -95,7 +113,6 @@ public class UrlContants {
 
 	public static final String SUBMITSHOPORDER = "c=info&a=postShopOrder";// 提交团购
 
-	public static final String GETLOGINURL = "c=points&a=getLoginUrl";// 积分商城
 
 	public static final String GETDRAWURL = "c=points&a=getDrawUrl";// 幸运大抽奖
 
