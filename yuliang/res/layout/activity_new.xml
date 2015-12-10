@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app1="http://schemas.android.com/apk/res/com.yuliang"
+    xmlns:app2="http://schemas.android.com/apk/res/com.zykj.yuliang"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 顶部返回栏 -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/activity_header" />
+
+        <TextView
+            android:id="@+id/title_detail"
+            style="@style/title_head"
+            android:text="@string/title_xinshou" />
+
+        <ImageButton
+            android:id="@+id/btn_new_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:src="@drawable/symbol_left" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- 顶部问题开始 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp" >
+
+                <TextView
+                    android:id="@+id/tv_answer_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="钱咖是用来做什么的？" />
+            </LinearLayout>
+            <!-- 顶部公告结束 -->
+            <!-- 列表开始 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_line_topbottom"
+                android:orientation="vertical"
+                android:paddingLeft="15dp" >
+
+                <!-- 单列信息 -->
+
+                <RelativeLayout
+                    android:id="@+id/ll_answer_o"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke_rectangles_list"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="20dp" >
+
+
+                    <TextView
+                        android:id="@+id/tv_answer_o"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="帮助每个人利用空余时间赚钱，发挥自身的广告价值，使用越久收益越高。"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ll_answer_t"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="20dp" >
+
+                    
+
+                    <TextView
+                        android:id="@+id/tv_answer_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="一款游戏，让我打发空余时间。"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

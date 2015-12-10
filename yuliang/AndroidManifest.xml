@@ -23,6 +23,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        
         <activity
             android:name="com.zykj.yuliang.activity.MainActivity"
             android:label="@string/app_name" >
@@ -131,7 +133,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
+
         <!-- 明细 -->
         <activity
             android:name="com.zykj.yuliang.activity.DetailActivity"
@@ -139,23 +141,23 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
-        <!-- 明细  内容页-->
+
+        <!-- 明细  内容页 -->
         <activity
             android:name="com.zykj.yuliang.activity.DetailContentActivity"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
-        <!-- 赚钱-->
+
+        <!-- 赚钱 -->
         <activity
             android:name="com.zykj.yuliang.activity.MakeMoneyActivity"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
+
         <!-- 收徒 -->
         <activity
             android:name="com.zykj.yuliang.activity.ApprenticeActivity"
@@ -163,7 +165,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
+
         <!-- 联盟任务 -->
         <activity
             android:name="com.zykj.yuliang.activity.LianMengActivity"
@@ -171,7 +173,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
+
         <!-- 个人资料 -->
         <activity
             android:name="com.zykj.yuliang.activity.ZiLiaoActivity"
@@ -179,7 +181,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
+
         <!-- 有偿转发 -->
         <activity
             android:name="com.zykj.yuliang.activity.YouChangActivity"
@@ -187,6 +189,39 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 刷新按钮 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.RefreshActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 新手任务 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.NewActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 收徒徒弟详情页 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.ApprenticeContentActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
+        <!-- 首次领取奖金 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.FirstLoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
         
     </application>
 

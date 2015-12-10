@@ -2,7 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:orientation="vertical" 
+    android:background="@color/red" xmlns:app="http://schemas.android.com/apk/res/com.zykj.yuliang">
+    <com.zykj.yuliang.utils.CircleImageView
+                    android:id="@+id/iv_header"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerInParent="true"
+           			android:background="@color/background_title"
+           			android:src="@drawable/xuanzhuan"
+                    app:border_color="@color/background_rectangles"
+                    app:border_width="3dp" />
 
 </LinearLayout>
