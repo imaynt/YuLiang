@@ -47,29 +47,6 @@ public class BindMobileActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		mobile = getIntent().getStringExtra("mobile");
-//		//获得手机的唯一标识
-//		TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE); 
-//		String DEVICE_ID = tm.getDeviceId();
-//		
-//		RequestParams params=new RequestParams();
-//		params.put("deviceId", DEVICE_ID);
-//		HttpUtils.autoReg(new HttpErrorHandler() {
-//			
-//			@Override
-//			public void onRecevieSuccess(JSONObject json) {
-//				JSONObject jsonObject=json.getJSONObject(UrlContants.jsonData);
-//				String id=jsonObject.getString("id");
-//				Tools.toast(BindMobileActivity.this, "注册成功");
-//				
-//			}
-//			@Override
-//			public void onFailure(int statusCode, Header[] headers,
-//					byte[] responseBody, Throwable throwable) {
-//				super.onFailure(statusCode, headers, responseBody, throwable);
-//				Tools.toast(BindMobileActivity.this, "此手机已注册");
-//			}
-//		}, params);
-		
 		
 		setContentView(R.layout.ui_more_bind_mobile);
 		initView();

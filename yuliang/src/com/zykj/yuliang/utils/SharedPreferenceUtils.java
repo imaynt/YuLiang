@@ -12,7 +12,6 @@ public class SharedPreferenceUtils {
 	private static final String PREFERENCE_NAME = "_ZYKJMJ";
 	private static SharedPreferences mSharedPreference;
 	private SharedPreferences.Editor mEditor;
-
 	private static final String DEVICEID = "deviceId";
 	private static final String USERID = "userid";
 	private static final String USERNAME = "username";

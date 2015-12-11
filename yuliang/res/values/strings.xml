@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- 点入的appkey -->
+    <string name="app_key">0000B1422300006F</string>
     <!-- 主页 -->
     <string name="zhuanqian">赚钱</string>
     <string name="zhuanqian_num">累计9万人参与</string>
@@ -14,8 +16,6 @@
     <string name="shengqian">省钱</string>
     <string name="duihuan">兑换</string>
     <string name="duihuan_num">累计兑换18888万元</string>
-    
-    
     <string name="load_data">正在加载,请稍候&#8230;</string>
 
     <!-- 兑换         充值 -->
@@ -89,7 +89,7 @@
     <string name="title_apprentice">收徒</string>
     <string name="title_my_info">我的名片</string>
     <string name="title_lianmeng">联盟任务</string>
-	<string name="title_ziliao">资料</string>
-	<string name="title_xinshou">新手任务</string>
+    <string name="title_ziliao">资料</string>
+    <string name="title_xinshou">新手任务</string>
 
 </resources>
