@@ -1,32 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.zykj.yuliang"
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="19" />
+    <uses-sdk android:minSdkVersion="11" />
+    <!-- android:targetSdkVersion="19"/> -->
 
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- 读取手机状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 允许程序写入外部存储，如SD卡上读写文件 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 获取网络信息状态，如当前的网络连接是否有效 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 获取WIFI状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 访问网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- 允许程序获取当前或最近运行的应用 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 获取位置信息 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- 联盟任务       多盟 积分墙广告 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- 联盟任务       点乐 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 联盟任务       有米    权限和其他的有重叠,所以没有重复写 -->
+    <!-- 以下为可选权限 -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <!-- 联盟任务    点财 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 短信验证 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- 分享 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
-        
         <activity
-            android:name="com.zykj.yuliang.activity.MainActivity"
+            android:name="com.zykj.yuliang.activity.WelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +63,52 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- QQ -->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent2803689424" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 易信分享回调 -->
+        <activity
+            android:name=".yxapi.YXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 支付宝分享回调 -->
+        <activity
+            android:name=".apshare.ShareEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <!-- 短信验证 -->
         <activity
             android:name="cn.smssdk.SMSSDKUIShell"
@@ -48,6 +123,110 @@
                 android:value=".activity.MainActivity" />
         </activity>
 
+        <!-- 联盟任务    多盟 -->
+        <activity
+            android:name="cn.dow.android.DActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="cn.dow.android.DService" />
+        <!-- 96ZJ2b8QzehB3wTAwQ为测试ID ================================================================待替换 -->
+        <meta-data
+            android:name="D_PPID"
+            android:value="96ZJ2b8QzehB3wTAwQ" />
+
+        <!-- 联盟任务    点乐 -->
+        <activity
+            android:name="com.zykjyulia.DevNativeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service android:name="com.dlnetwork.DevNativeService" />
+
+        <!-- 联盟任务    有米     配置积分墙广告组件 -->
+        <activity
+            android:name="net.youmi.android.AdBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+
+        <service
+            android:name="net.youmi.android.AdService"
+            android:exported="false" >
+        </service>
+        <service
+            android:name="net.youmi.android.ExpService"
+            android:exported="false" >
+        </service>
+
+        <receiver android:name="net.youmi.android.AdReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 联盟任务    点入 -->
+        <!-- appkey须在string.xml中写 -->
+        <meta-data
+            android:name="DR_APPKEY"
+            android:value="@string/app_key" />
+
+        <activity
+            android:name="com.yql.dr.sdk.DRActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <service
+            android:name="com.yql.dr.sdk.ProcessService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+
+                <!-- <action android:name="您的包名+.ProcessService" /> -->
+                <action android:name="com.zykj.yuliang.ProcessService" />
+            </intent-filter>
+        </service>
+
+        <!-- 联盟任务    万普 -->
+        <!--
+		<meta-data android:name="APP_ID"android:value="应用标识"/>
+		<meta-data android:name="APP_PID"android:value="分发渠道标识"/>
+        -->
+
+
+        <!-- 联盟任务    点财 -->
+        <activity
+            android:name="com.dc.wall.DcActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <service android:name="com.dc.wall.DC" />
+
+        <!-- 轮播图 -->
+        <activity
+            android:name=".activity.IntroActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 欢迎 -->
+        <activity
+            android:name=".activity.FirstLoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 主界面 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <!-- 兑换 -->
         <activity
             android:name=".activity.DuiHuanActivity"
@@ -55,6 +234,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <!-- 兑换         充值 -->
         <activity
             android:name=".activity.DuiHuanChongZhiActivity"
@@ -213,44 +393,6 @@
             android:launchMode="standard"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        
-        <!-- 首次领取奖金 -->
-        <activity
-            android:name="com.zykj.yuliang.activity.FirstLoginActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:launchMode="standard"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        
-        <!-- 积分问题
-        	 android:configChanges="orientation|keyboardHidden"  键盘显隐状态
-        	 android:launchMode="standard"启动模式standard为默认
-        	 android:screenOrientation="portrait" 屏幕旋转模式portrait锁定垂直
-        	 android:windowSoftInputMode="stateHidden|adjustResize" 输入时界面重置
-         -->
-        <activity
-            android:name="com.zykj.yuliang.activity.JiFenActivity"
-            android:configChanges="orientation|keyboardHidden"  
-            android:launchMode="standard"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        
-        <!-- 积分问题内容页 -->
-        <activity
-            android:name="com.zykj.yuliang.activity.JiFenProblemActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:launchMode="standard"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        
-        <!-- 常见问题 -->
-        <activity
-            android:name="com.zykj.yuliang.activity.CommonQuestionActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:launchMode="standard"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        
     </application>
 
 </manifest>

@@ -4,38 +4,42 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * @author Administrator
- * 保存用户信息搭配本地
+ * @author Administrator 保存用户信息搭配本地
  */
 public class SharedPreferenceUtils {
 
-    private static SharedPreferenceUtils mUtil;
-    private static final String PREFERENCE_NAME="_ZYKJMJ";
-    private static SharedPreferences mSharedPreference;
-    private SharedPreferences.Editor mEditor;
+	private static SharedPreferenceUtils mUtil;
+	private static final String PREFERENCE_NAME = "_ZYKJMJ";
+	private static SharedPreferences mSharedPreference;
+	private SharedPreferences.Editor mEditor;
+	private static final String DEVICEID = "deviceId";
+	private static final String USERID = "userid";
+	private static final String USERNAME = "username";
+	private static final String PASSWORD = "password";
+	private static final String AVATAR = "avatar";
+	private static final String MOBILE = "mobile";
+	private static final String MONEY = "money";
+	private static final String INTEGRAL = "integral";
+	private static final String LATITUDE = "latitude";
+	private static final String LONGITUDE = "longitude";
+	private static final String SIGN = "sign";
 
-    private static final String USERID="userid";
-    private static final String USERNAME="username";
-    private static final String PASSWORD="password";
-    private static final String AVATAR="avatar";
-    private static final String MOBILE="mobile";
-    private static final String MONEY="money";
-    private static final String INTEGRAL="integral";
-    private static final String LATITUDE="latitude";
-    private static final String LONGITUDE="longitude";
-    private static final String SIGN="sign";
-	
-    private SharedPreferenceUtils(Context context){
-        mSharedPreference=context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
-        mEditor=mSharedPreference.edit();
-    }
-    
-    public static synchronized SharedPreferenceUtils init(Context context){
-        if(mUtil==null){
-            mUtil=new SharedPreferenceUtils(context);
-        }
-        return mUtil;
-    }
+	private SharedPreferenceUtils(Context context) {
+		mSharedPreference = context.getSharedPreferences(PREFERENCE_NAME,
+				Context.MODE_PRIVATE);
+		mEditor = mSharedPreference.edit();
+	}
+
+	public static synchronized SharedPreferenceUtils init(Context context) {
+		if (mUtil == null) {
+			mUtil = new SharedPreferenceUtils(context);
+		}
+		return mUtil;
+	}
+
+	public String getDeviceId() {
+		return mSharedPreference.getString(DEVICEID, null);
+	}
 
 	public String getUserid() {
 		return mSharedPreference.getString(USERID, null);
@@ -77,57 +81,62 @@ public class SharedPreferenceUtils {
 		return mSharedPreference.getString(SIGN, null);
 	}
 
-    public void setUserid(String userid){
-        mEditor.putString(USERID, userid);
-        mEditor.commit();
-    }
-    
-    public void setUsername(String username){
-        mEditor.putString(USERNAME, username);
-        mEditor.commit();
-    }
+	public void setDeviceId(String deviceId) {
+		mEditor.putString(DEVICEID, deviceId);
+		mEditor.commit();
+	}
 
-    public void setPassword(String password){
-        mEditor.putString(PASSWORD, password);
-        mEditor.commit();
-    }
+	public void setUserid(String userid) {
+		mEditor.putString(USERID, userid);
+		mEditor.commit();
+	}
 
-    public void setAvatar(String avatar){
-        mEditor.putString(AVATAR,avatar);
-        mEditor.commit();
-    }
+	public void setUsername(String username) {
+		mEditor.putString(USERNAME, username);
+		mEditor.commit();
+	}
 
-    public void setMobile(String mobile){
-        mEditor.putString(MOBILE,mobile);
-        mEditor.commit();
-    }
+	public void setPassword(String password) {
+		mEditor.putString(PASSWORD, password);
+		mEditor.commit();
+	}
 
-    public void setMoney(String money){
-        mEditor.putString(MONEY,money);
-        mEditor.commit();
-    }
+	public void setAvatar(String avatar) {
+		mEditor.putString(AVATAR, avatar);
+		mEditor.commit();
+	}
 
-    public void setIntegral(String integral){
-        mEditor.putString(INTEGRAL,integral);
-        mEditor.commit();
-    }
+	public void setMobile(String mobile) {
+		mEditor.putString(MOBILE, mobile);
+		mEditor.commit();
+	}
 
-    public void setLatitude(String latitude){
-        mEditor.putString(LATITUDE,latitude);
-        mEditor.commit();
-    }
+	public void setMoney(String money) {
+		mEditor.putString(MONEY, money);
+		mEditor.commit();
+	}
 
-    public void setLongitude(String longitude){
-        mEditor.putString(LONGITUDE,longitude);
-        mEditor.commit();
-    }
+	public void setIntegral(String integral) {
+		mEditor.putString(INTEGRAL, integral);
+		mEditor.commit();
+	}
 
-    public void setSign(String sign){
-        mEditor.putString(SIGN,sign);
-        mEditor.commit();
-    }
-    
-    public void clear(){
-        mEditor.clear();
-    }
+	public void setLatitude(String latitude) {
+		mEditor.putString(LATITUDE, latitude);
+		mEditor.commit();
+	}
+
+	public void setLongitude(String longitude) {
+		mEditor.putString(LONGITUDE, longitude);
+		mEditor.commit();
+	}
+
+	public void setSign(String sign) {
+		mEditor.putString(SIGN, sign);
+		mEditor.commit();
+	}
+
+	public void clear() {
+		mEditor.clear();
+	}
 }

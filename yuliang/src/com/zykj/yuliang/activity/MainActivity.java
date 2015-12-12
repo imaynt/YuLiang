@@ -1,26 +1,22 @@
 package com.zykj.yuliang.activity;
 
-import com.alibaba.fastjson.JSONObject;
-import com.loopj.android.http.RequestParams;
-import com.zykj.yuliang.R;
-import com.zykj.yuliang.R.layout;
-import com.zykj.yuliang.R.menu;
-import com.zykj.yuliang.http.HttpErrorHandler;
-import com.zykj.yuliang.http.HttpUtils;
-import com.zykj.yuliang.http.UrlContants;
-
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 
-public class MainActivity extends Activity implements OnClickListener {
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
+import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
+import com.zykj.yuliang.utils.Tools;
+
+public class MainActivity extends BaseActivity implements OnClickListener {
 
 	private Button btn_detail;
 	private Button btn_more;
@@ -28,15 +24,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	private LinearLayout ll_apprentice;// 收徒
 	private LinearLayout ll_duobao, ll_youhuiquan, ll_shengqian, ll_duihuan;// 一元夺宝,优惠券,省钱,兑换
 	private Intent intent;
+	private String userId;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);  
-		
-		Intent i=new Intent(MainActivity.this,FirstLoginActivity.class);
-		startActivity(i);
+//		userId=getIntent().getStringExtra("userId");
 		initViews();
 		initClick();
 		initEvents();
@@ -94,7 +89,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.ll_youhuiquan:
 			/***
-			 * 临时代码,待修改...................................
+			 * 临时代码,参数(uid,points)待修改...................................
 			 */
 			RequestParams params=new RequestParams();
 			params.put("uid", "1");
@@ -127,5 +122,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 
 	}
-
+	@SuppressWarnings("deprecation")
+	@Override
+	protected void onDestroy() {
+		Tools.Log("当前tabActivity退出");
+		super.onDestroy();
+	}
 }

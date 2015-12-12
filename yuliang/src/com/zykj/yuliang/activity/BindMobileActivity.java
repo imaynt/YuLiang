@@ -1,11 +1,16 @@
 package com.zykj.yuliang.activity;
 
 import static cn.smssdk.framework.utils.R.getStringRes;
+
+import org.apache.http.Header;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -14,10 +19,15 @@ import android.widget.TextView;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
+import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.R.id;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.TextUtil;
 import com.zykj.yuliang.utils.Tools;
@@ -29,15 +39,15 @@ public class BindMobileActivity extends BaseActivity {
 	private TextView bind_descrip,identify_code, binded_mobile, bind_new_mobile;
 	private EditText mobile_number, mobile_code;
 	public String mobile, mobileCode;
-	private static String APPKEY = "cff7289b85e8";
-	private static String APPSECRET = "d21bb73534593769b4ba2c3b45a4b2c6";
+	private static String APPKEY = "d1ff3bafe382";
+	private static String APPSECRET = "6cb8331f1f929ec5de0c3b79e484a21a";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		mobile = getIntent().getStringExtra("mobile");
-
+		
 		setContentView(R.layout.ui_more_bind_mobile);
 		initView();
 
@@ -168,23 +178,19 @@ public class BindMobileActivity extends BaseActivity {
 
 		private void registerNewUser() {
 			RequestParams params = new RequestParams();
-
-			params.put("mob", mobile);
-			params.put("code", mobileCode);
-			// HttpUtils.register(new HttpErrorHandler() {
-			// @Override
-			// public void onRecevieSuccess(JSONObject json) {
-			// MyRequestDailog.closeDialog();
-			// Tools.toast(BindMobileActivity.this, json.getString("message"));
-			// finish();
-			// }
-			// @Override
-			// public void onRecevieFailed(String status, JSONObject json) {
-			// Tools.toast(BindMobileActivity.this, json.getString("message"));
-			// }
-			// }, params);
-			setResult(RESULT_OK);
-			finish();
+			
+			//deviceId没有获取到所以提交数据不成功
+//			params.put("deviceId", BaseApp.getModel().getDeviceId());//deviceId设备id
+			params.put("mob", mobile);//mobile要绑定的手机号
+			HttpUtils.bindMObile(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					
+					setResult(RESULT_OK);
+					finish();
+				}
+			}, params);
 		}
 	};
 

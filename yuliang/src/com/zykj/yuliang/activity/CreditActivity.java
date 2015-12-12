@@ -246,7 +246,7 @@ public class CreditActivity extends Activity {
 		mWebView.loadUrl(url);
 	}
 
-	// 配置分享信息
+	// 配置分享信息.........................
 	protected void setShareInfo(String shareUrl, String shareThumbnail,
 			String shareTitle, String shareSubtitle) {
 		this.shareUrl = shareUrl;
@@ -261,7 +261,7 @@ public class CreditActivity extends Activity {
 		finishActivity(this);
 	}
 
-	// 初始化页面
+	// 初始化页面....................................
 	protected void initView() {
 		mLinearLayout = new LinearLayout(this);
 		mLinearLayout.setBackgroundColor(Color.GRAY);
@@ -284,7 +284,7 @@ public class CreditActivity extends Activity {
 
 	}
 
-	// 自定义导航栏，包含 后退按钮，页面标题，分享按钮（默认隐藏）
+	// 自定义导航栏，包含 后退按钮，页面标题，分享按钮（默认隐藏）.........................
 	protected void initNavigationBar() {
 		int dp200 = dip2px(this, 200);
 		int dp50 = dip2px(this, 50);
@@ -329,7 +329,7 @@ public class CreditActivity extends Activity {
 		mShare.setVisibility(View.INVISIBLE);
 	}
 
-	// 初始化WebView配置
+	// 初始化WebView配置......................................
 	protected void initWebView() {
 		mWebView = new WebView(this);
 		mWebView.setLayoutParams(new ViewGroup.LayoutParams(
@@ -363,13 +363,13 @@ public class CreditActivity extends Activity {
 		settings.setDatabaseEnabled(true);
 		settings.setDomStorageEnabled(true);
 	}
-
+//.........................
 	protected void onReceivedTitle(WebView view, String title) {
 		mTitle.setText(title);
 	}
 
 	/**
-	 * 拦截url请求，根据url结尾执行相应的动作。 用途：模仿原生应用体验，管理页面历史栈。（重要）
+	 * 拦截url请求，根据url结尾执行相应的动作。 用途：模仿原生应用体验，管理页面历史栈。（重要）................................
 	 * 
 	 * @param view
 	 * @param url
@@ -485,7 +485,7 @@ public class CreditActivity extends Activity {
 	// --------------------------------------------以下为工具方法----------------------------------------------
 
 	/**
-	 * 结束除了最底部一个以外的所有Activity
+	 * 结束除了最底部一个以外的所有Activity....................
 	 */
 	public void finishUpActivity() {
 		int size = activityStack.size();
@@ -495,7 +495,7 @@ public class CreditActivity extends Activity {
 	}
 
 	/**
-	 * 结束指定的Activity
+	 * 结束指定的Activity............................
 	 */
 	public void finishActivity(Activity activity) {
 		if (activity != null) {
@@ -505,7 +505,7 @@ public class CreditActivity extends Activity {
 	}
 
 	/**
-	 * 设置栈内所有Activity为返回待刷新。 作用：未登录用户唤起登录后，将所有栈内的Activity设置为onResume时刷新页面。
+	 * 设置栈内所有Activity为返回待刷新。 作用：未登录用户唤起登录后，将所有栈内的Activity设置为onResume时刷新页面。..................
 	 */
 	public void setAllActivityDelayRefresh() {
 		int size = activityStack.size();
@@ -517,7 +517,7 @@ public class CreditActivity extends Activity {
 	}
 
 	/**
-	 * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+	 * 根据手机的分辨率从 dp 的单位 转成为 px(像素)..........................
 	 */
 	public static int dip2px(Context context, float dpValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;

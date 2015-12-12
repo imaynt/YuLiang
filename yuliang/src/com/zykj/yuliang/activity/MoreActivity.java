@@ -143,12 +143,12 @@ public class MoreActivity extends BaseActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case 11:
-			if(data!=null){
+			if(data!=null){//绑定手机
 			//	.MoreActivity.....................
 			}
 			break;
 		case 22:
-			if(data!=null){
+			if(data!=null){//个人资料,获取头像和昵称
 			//	.UserInfoActivity.....................
 			}
 			break;
