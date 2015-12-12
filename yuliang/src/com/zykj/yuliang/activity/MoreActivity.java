@@ -132,6 +132,7 @@ public class MoreActivity extends BaseActivity {
 			});
 			builder.create().show();
 			break;
+		
 		default:
 			break;
 		}

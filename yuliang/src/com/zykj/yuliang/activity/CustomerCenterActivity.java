@@ -1,5 +1,6 @@
 package com.zykj.yuliang.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -37,13 +38,15 @@ public class CustomerCenterActivity extends BaseActivity {
 
 		switch (view.getId()) {
 		case R.id.ll_score_question:
-
+			Intent intent=new Intent(CustomerCenterActivity.this,JiFenActivity.class);
+			startActivity(intent);
 			break;
 		case R.id.ll_wx_custom:
 
 			break;
 		case R.id.ll_common_question:
-
+			Intent i=new Intent(CustomerCenterActivity.this,CommonQuestionActivity.class);
+			startActivity(i);
 			break;
 		default:
 			break;

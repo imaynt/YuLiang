@@ -91,5 +91,8 @@
     <string name="title_lianmeng">联盟任务</string>
 	<string name="title_ziliao">资料</string>
 	<string name="title_xinshou">新手任务</string>
+	<string name="title_jifen">积分问题</string>
+	<string name="title_jifenproblem">联盟免费任务积分未到账</string>
+	<string name="title_common_question">常见问题</string>
 
 </resources>
