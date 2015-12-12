@@ -23,6 +23,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        
         <activity
             android:name="com.zykj.yuliang.activity.MainActivity"
             android:label="@string/app_name" >
@@ -131,10 +133,124 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name="com.zykj.yuliang.activity.DetailActivity" />
-        <activity android:name="com.zykj.yuliang.activity.DetailContentActivity" />
-        <activity android:name="com.zykj.yuliang.activity.MakeMoneyActivity" />
-        <activity android:name="com.zykj.yuliang.activity.ApprenticeActivity" />
+
+        <!-- 明细 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.DetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 明细  内容页 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.DetailContentActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 赚钱 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.MakeMoneyActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 收徒 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.ApprenticeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 联盟任务 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.LianMengActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 个人资料 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.ZiLiaoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 有偿转发 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.YouChangActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 刷新按钮 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.RefreshActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 新手任务 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.NewActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 收徒徒弟详情页 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.ApprenticeContentActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
+        <!-- 首次领取奖金 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.FirstLoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
+        <!-- 积分问题
+        	 android:configChanges="orientation|keyboardHidden"  键盘显隐状态
+        	 android:launchMode="standard"启动模式standard为默认
+        	 android:screenOrientation="portrait" 屏幕旋转模式portrait锁定垂直
+        	 android:windowSoftInputMode="stateHidden|adjustResize" 输入时界面重置
+         -->
+        <activity
+            android:name="com.zykj.yuliang.activity.JiFenActivity"
+            android:configChanges="orientation|keyboardHidden"  
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
+        <!-- 积分问题内容页 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.JiFenProblemActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
+        <!-- 常见问题 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.CommonQuestionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
     </application>
 
 </manifest>

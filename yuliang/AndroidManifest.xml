@@ -192,7 +192,7 @@
         <!-- 联盟任务    万普 -->
         <!--
 		<meta-data android:name="APP_ID"android:value="应用标识"/>
-		<meta-data android:name="APP_PID"android:value="分发渠道标识"/>
+		<meta-data android:name="APP_PID"android:value="分发渠道标识"/>
         -->
 
 
@@ -389,6 +389,36 @@
         <!-- 收徒徒弟详情页 -->
         <activity
             android:name="com.zykj.yuliang.activity.ApprenticeContentActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!--
+             积分问题
+        	 android:configChanges="orientation|keyboardHidden"  键盘显隐状态
+        	 android:launchMode="standard"启动模式standard为默认
+        	 android:screenOrientation="portrait" 屏幕旋转模式portrait锁定垂直
+        	 android:windowSoftInputMode="stateHidden|adjustResize" 输入时界面重置
+        -->
+        <activity
+            android:name="com.zykj.yuliang.activity.JiFenActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 积分问题内容页 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.JiFenProblemActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 常见问题 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.CommonQuestionActivity"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="standard"
             android:screenOrientation="portrait"
