@@ -13,6 +13,9 @@ public class SharedPreferenceUtils {
 	private static SharedPreferences mSharedPreference;
 	private SharedPreferences.Editor mEditor;
 	private static final String DEVICEID = "deviceId";
+	private static final String SEX = "sex";
+	private static final String BIRTH = "birth";
+	private static final String PROFESSION = "profession";
 	private static final String USERID = "userid";
 	private static final String USERNAME = "username";
 	private static final String PASSWORD = "password";
@@ -39,6 +42,18 @@ public class SharedPreferenceUtils {
 
 	public String getDeviceId() {
 		return mSharedPreference.getString(DEVICEID, null);
+	}
+
+	public String getSex() {
+		return mSharedPreference.getString(SEX, null);
+	}
+
+	public String getBirth() {
+		return mSharedPreference.getString(BIRTH, null);
+	}
+
+	public String getPrefession() {
+		return mSharedPreference.getString(PROFESSION, null);
 	}
 
 	public String getUserid() {
@@ -79,6 +94,21 @@ public class SharedPreferenceUtils {
 
 	public String getSign() {
 		return mSharedPreference.getString(SIGN, null);
+	}
+
+	public void setSex(String sex) {
+		mEditor.putString(SEX, sex);
+		mEditor.commit();
+	}
+
+	public void setBirth(String birth) {
+		mEditor.putString(BIRTH, birth);
+		mEditor.commit();
+	}
+
+	public void setPrefession(String prefession) {
+		mEditor.putString(PROFESSION, prefession);
+		mEditor.commit();
 	}
 
 	public void setDeviceId(String deviceId) {

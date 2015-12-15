@@ -6,22 +6,22 @@ package com.zykj.yuliang.http;
 public class UrlContants {
 
 //	public static final String SERVERIP = "121.42.194.222";
-	public static final String SERVERIP = "192.168.1.176";
+	public static final String SERVERIP = "192.168.1.175";
 
 //	public static final String BASE_URL = "http://121.42.194.222/api.php?";
-	public static final String BASE_URL = "http://192.168.1.176/api.php?";
+	public static final String BASE_URL = "http://192.168.1.175/api.php?";
 
 //	public static final String IMAGE_URL = "http://121.42.194.222/Uploads/";
-	public static final String IMAGE_URL = "http://192.168.1.176/Uploads/";
+	public static final String IMAGE_URL = "http://192.168.1.175/Uploads/";
 
 //	public static final String ORDERPAY = "http://121.42.194.222/pingxx/api/pay.php";// 支付
-	public static final String ORDERPAY = "http://192.168.1.176/pingxx/api/pay.php";// 支付
+	public static final String ORDERPAY = "http://192.168.1.175/pingxx/api/pay.php";// 支付
 
 	public static final String BASEURL = BASE_URL + "%s";
 
 	public static final String jsonData = "datas";
 
-	public static final String ERROR = "{\"code\":400,\"message\":\"请求失败\",\"datas\":null}";
+	public static final String ERROR = "{\"code\":\"400\",\"message\":\"请求失败\",\"datas\":null}";
 
 	public static final String ZERODATA = "{\"code\":200,\"message\":\"没有数据\",\"datas\":\"\"}";
 	
@@ -29,9 +29,12 @@ public class UrlContants {
 	
 	public static final String GETLOGINURL = "c=points&a=getLoginUrl";// 优惠券
 	
+	public static final String BINDMOBILE = "c=user&a=bindphone";// 绑定手机
+
+	public static final String POSTUSERAVATAR = "c=user&a=postUserAvatar";// 上传头像
+	
 	public static final String UPDATEUSERINFO = "c=user&a=resetUsername";// 修改个人资料
 	
-	public static final String BINDMOBILE = "c=user&a=bindphone";// 绑定手机
 	
 	
 	

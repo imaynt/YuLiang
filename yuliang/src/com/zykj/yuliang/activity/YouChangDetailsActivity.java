@@ -8,11 +8,12 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.utils.CommonUtils;
 import com.zykj.yuliang.view.MyCommonTitle;
 
-public class YouChangDetailsActivity extends Activity implements
-		OnClickListener {
+public class YouChangDetailsActivity extends BaseActivity {
 	private MyCommonTitle myCommonTitle;
 	private LinearLayout ll_zhuanfa;
 
@@ -30,7 +31,9 @@ public class YouChangDetailsActivity extends Activity implements
 		myCommonTitle=(MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("点击一下，现金到手！");
 		
-		ll_zhuanfa=(LinearLayout) findViewById(R.id.ll_yiyuan);//转发
+		ll_zhuanfa=(LinearLayout) findViewById(R.id.ll_zhuanfa);//转发
+		
+		setListener(ll_zhuanfa);
 	}
 
 
@@ -38,8 +41,8 @@ public class YouChangDetailsActivity extends Activity implements
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.ll_yiyuan:
-
+		case R.id.ll_zhuanfa:
+			CommonUtils.showShare(this, "余粮赚钱", "余粮赚钱余粮赚钱", "http://fir.im");
 			break;
 		default:
 			break;

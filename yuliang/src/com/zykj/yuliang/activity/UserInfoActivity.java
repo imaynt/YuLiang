@@ -24,11 +24,13 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.CommonUtils;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
@@ -42,7 +44,7 @@ public class UserInfoActivity extends BaseActivity {
 	private MyCommonTitle myCommonTitle;
 	private LinearLayout ll_nick, ll_avatar, ll_sex, ll_birth, ll_prefession,
 			ll_submit;
-	private TextView tv_sex, tv_birthday, tv_profession;
+	private TextView tv_sex, tv_birthday, tv_profession, tv_mobile;
 	private RoundImageView img_avatar;
 	private EditText user_nick;
 	private String timeString;// 上传头像字段
@@ -52,10 +54,10 @@ public class UserInfoActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.ui_more_user_info);
 
 		initView();
+		requestData();
 	}
 
 	private void initView() {
@@ -75,6 +77,27 @@ public class UserInfoActivity extends BaseActivity {
 		ll_submit = (LinearLayout) findViewById(R.id.ll_submit);// 提交
 
 		setListener(ll_avatar, ll_sex, ll_birth, ll_prefession, ll_submit);
+	}
+
+	/**
+	 * 请求服务器数据
+	 */
+	private void requestData() {
+		String nick = BaseApp.getModel().getUsername();
+		user_nick.setText(StringUtil.isEmpty(nick) ? "" : nick);
+
+		String avatar = BaseApp.getModel().getAvatar();
+		ImageLoader.getInstance().displayImage(
+				StringUtil.toString(avatar, "http://"), img_avatar);
+
+		String sex = BaseApp.getModel().getSex();
+		tv_sex.setText(StringUtil.isEmpty(sex) ? "" : sex);
+
+		String birth = BaseApp.getModel().getBirth();
+		tv_birthday.setText(StringUtil.isEmpty(birth) ? "" : birth);
+
+		String prefession = BaseApp.getModel().getPrefession();
+		tv_profession.setText(StringUtil.isEmpty(prefession) ? "" : prefession);
 	}
 
 	@Override
@@ -123,10 +146,10 @@ public class UserInfoActivity extends BaseActivity {
 					}).show();
 			break;
 		case R.id.ll_submit:
-			String nick = user_nick.getText().toString().trim();
-			String sex = tv_sex.getText().toString().trim();
-			String birth = tv_birthday.getText().toString().trim();
-			String profession = tv_profession.getText().toString().trim();
+			final String nick = user_nick.getText().toString().trim();
+			final String sex = tv_sex.getText().toString().trim();
+			final String birth = tv_birthday.getText().toString().trim();
+			final String profession = tv_profession.getText().toString().trim();
 			if (StringUtil.isEmpty(nick)) {
 				Tools.toast(UserInfoActivity.this, "昵称不能为空");
 				return;
@@ -143,12 +166,13 @@ public class UserInfoActivity extends BaseActivity {
 				Tools.toast(UserInfoActivity.this, "职业不能为空");
 				return;
 			}
-//			submitData();
+			// submitData();
 			RequestParams params = new RequestParams();
 			/**
-			 * 因为deviceId为空所以提交数据错误,待传deviceId.............................................
+			 * 因为deviceId为空所以提交数据错误,待传deviceId.................................
+			 * ............
 			 */
-//			params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
+			params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
 			params.put("username", nick);// username必须，新的会员昵称
 			params.put("sex", sex);// sex必须, 性别
 			params.put("birthday", birth);// birthday必须, 生日
@@ -158,13 +182,16 @@ public class UserInfoActivity extends BaseActivity {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					Tools.toast(UserInfoActivity.this, "资料更新成功!");
-					
+					BaseApp.getModel().setUsername(nick);
+					BaseApp.getModel().setBirth(birth);
+					BaseApp.getModel().setSex(sex);
+					BaseApp.getModel().setPrefession(profession);
 					setResult(RESULT_OK);
 					finish();
-					
+
 				}
 			}, params);
-			
+
 			break;
 		case R.id.dialog_modif_1:// 启动相机拍照
 			/* 拍照 */
@@ -309,7 +336,9 @@ public class UserInfoActivity extends BaseActivity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		img_avatar.setImageBitmap(bitmap);// 头像
+		img_avatar.setImageBitmap(bitmap);// 把头像设置到本地
+		updateUserAvatar(file);// 提交数据,更新头像
+
 		// if (type == 1) {
 		// img_avator.setImageBitmap(bitmap);//头像
 		// file1=file;
@@ -318,5 +347,31 @@ public class UserInfoActivity extends BaseActivity {
 		// files.add(file);
 		// imgAdapter.notifyDataSetChanged();//详情
 		// }
+	}
+
+	/**
+	 * 更新服务器头像
+	 */
+	private void updateUserAvatar(File file) {
+		try {
+			RequestParams params = new RequestParams();
+			params.put("id", BaseApp.getModel().getUserid());
+			params.put("imgURL", file);
+			HttpUtils.postUserAvatar(new HttpErrorHandler() {
+
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(UserInfoActivity.this, "上传头像成功");
+					String imgurl = json.getJSONObject(UrlContants.jsonData)
+							.getString("avatar");
+					BaseApp.getModel()
+							.setAvatar(UrlContants.IMAGE_URL + imgurl);
+					setResult(RESULT_OK);
+					finish();
+				}
+			}, params);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }

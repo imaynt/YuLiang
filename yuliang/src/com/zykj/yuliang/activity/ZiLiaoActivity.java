@@ -25,8 +25,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.CommonUtils;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
@@ -36,85 +43,87 @@ import com.zykj.yuliang.view.RoundImageView;
 import com.zykj.yuliang.view.UIDialog;
 import com.zykj.yuliang.view.PickDialog.PickDialogListener;
 
-public class ZiLiaoActivity extends Activity implements OnClickListener {
+public class ZiLiaoActivity extends BaseActivity {
 
-	private ImageButton btn_ziliao_back;		//返回按钮
-	
-	private LinearLayout ll_weixin, ll_bind_mobile;
-	
+	private ImageButton btn_ziliao_back; // 返回按钮
+
 	private MyCommonTitle myCommonTitle;
 	private LinearLayout ll_nick, ll_avatar, ll_sex, ll_birth, ll_prefession,
-			ll_submit;
-	private TextView tv_sex, tv_birthday, tv_profession;
+	ll_weixin, ll_bind_mobile,ll_submit;
+	private TextView tv_sex, tv_birthday, tv_profession, tv_mobile;
 	private RoundImageView img_avatar;
 	private EditText user_nick;
 	private String timeString;// 上传头像字段
 	private File file;
 	private List<String> list;
-	
 	private Intent intent;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_geren);
-		initViews();
-		initClick();
-		initEvents();
-		
-		
-	}
 
-	protected void initClick() {
-		btn_ziliao_back.setOnClickListener(this);
-		ll_weixin.setOnClickListener(this);
-		ll_bind_mobile.setOnClickListener(this);
-		
-	}
-	
-	public void setListener(View... view) {
-		for (int i = 0; i < view.length; i++) {
-			view[i].setOnClickListener(this);
-		}
+		initViews();
+		requstData();
+
 	}
 
 	protected void initViews() {
-		btn_ziliao_back=(ImageButton)findViewById(R.id.btn_ziliao_back);
-		ll_weixin=(LinearLayout)findViewById(R.id.ll_weixin_ziliao);
-		ll_bind_mobile=(LinearLayout)findViewById(R.id.ll_bind_mobile_ziliao);
+		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
+		myCommonTitle.setTitle("个人资料");
 
+		ll_weixin = (LinearLayout) findViewById(R.id.ll_weixin_ziliao);
+		ll_bind_mobile = (LinearLayout) findViewById(R.id.ll_bind_mobile_ziliao);
 
 		user_nick = (EditText) findViewById(R.id.ed_user_nick);// 昵称
 		img_avatar = (RoundImageView) findViewById(R.id.img_avatar);// 头像
 		tv_sex = (TextView) findViewById(R.id.tv_sex);// 性别
 		tv_birthday = (TextView) findViewById(R.id.tv_birthday);// 生日
 		tv_profession = (TextView) findViewById(R.id.tv_profession);// 职业
+		tv_mobile = (TextView) findViewById(R.id.tv_mobile);
 
 		ll_avatar = (LinearLayout) findViewById(R.id.ll_avatar);// 头像
 		ll_sex = (LinearLayout) findViewById(R.id.ll_sex);// 性别
 		ll_birth = (LinearLayout) findViewById(R.id.ll_birthday);// 生日
 		ll_prefession = (LinearLayout) findViewById(R.id.ll_profession);// 职业
+		ll_weixin = (LinearLayout) findViewById(R.id.ll_weixin_ziliao);// 职业;
+		ll_bind_mobile = (LinearLayout) findViewById(R.id.ll_bind_mobile_ziliao);// 职业;
 		ll_submit = (LinearLayout) findViewById(R.id.ll_submit);// 提交
-		
-		setListener(ll_avatar, ll_sex, ll_birth, ll_prefession, ll_submit);
+
+		setListener(ll_avatar, ll_sex, ll_birth, ll_prefession, ll_weixin,ll_bind_mobile,ll_submit);
 	}
 
-	protected void initEvents() {
+	private void requstData() {
+		String nick = BaseApp.getModel().getUsername();
+		user_nick.setText(StringUtil.isEmpty(nick) ? "" : nick);
 
+		String avatar = BaseApp.getModel().getAvatar();
+		ImageLoader.getInstance().displayImage(
+				StringUtil.toString(avatar, "http://"), img_avatar);
+
+		String sex = BaseApp.getModel().getSex();
+		tv_sex.setText(StringUtil.isEmpty(sex) ? "" : sex);
+
+		String birth = BaseApp.getModel().getBirth();
+		tv_birthday.setText(StringUtil.isEmpty(birth) ? "" : birth);
+
+		String prefession = BaseApp.getModel().getPrefession();
+		tv_profession.setText(StringUtil.isEmpty(prefession) ? "" : prefession);
+
+		String mobile = BaseApp.getModel().getMobile();
+		tv_mobile.setText(StringUtil.isEmpty(mobile) ? "" : mobile);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_ziliao_back:
-			this.finish();
-			break;
 		case R.id.ll_weixin_ziliao:
 			intent = new Intent(ZiLiaoActivity.this, WeiXinActivity.class);
 			startActivity(intent);
 			break;
 		case R.id.ll_bind_mobile_ziliao:
 			intent = new Intent(ZiLiaoActivity.this, BindMobileActivity.class);
+			intent.putExtra("mobile", tv_mobile.getText().toString().trim());
 			startActivity(intent);
 			break;
 
@@ -136,9 +145,9 @@ public class ZiLiaoActivity extends Activity implements OnClickListener {
 					}).show();
 			break;
 		case R.id.ll_birthday:// 生日
-			 CommonUtils.showDateTimePicker(this, tv_birthday);
-//			 startView.findViewById(R.id.hour).setVisibility(View.GONE);
-//			 startView.findViewById(R.id.mins).setVisibility(View.GONE);
+			CommonUtils.showDateTimePicker(this, tv_birthday);
+			// startView.findViewById(R.id.hour).setVisibility(View.GONE);
+			// startView.findViewById(R.id.mins).setVisibility(View.GONE);
 			break;
 		case R.id.ll_profession:// 职业
 			list = new ArrayList<String>();
@@ -339,6 +348,7 @@ public class ZiLiaoActivity extends Activity implements OnClickListener {
 			e.printStackTrace();
 		}
 		img_avatar.setImageBitmap(bitmap);// 头像
+		updateUserAvatar(file);
 		// if (type == 1) {
 		// img_avator.setImageBitmap(bitmap);//头像
 		// file1=file;
@@ -348,7 +358,29 @@ public class ZiLiaoActivity extends Activity implements OnClickListener {
 		// imgAdapter.notifyDataSetChanged();//详情
 		// }
 	}
+	/**
+	 * 更新服务器头像
+	 */
+	private void updateUserAvatar(File file) {
+		try {
+			RequestParams params = new RequestParams();
+			params.put("id", BaseApp.getModel().getUserid());
+			params.put("imgURL", file);
+			HttpUtils.postUserAvatar(new HttpErrorHandler() {
 
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(ZiLiaoActivity.this, "上传头像成功");
+					String imgurl = json.getJSONObject(UrlContants.jsonData)
+							.getString("avatar");
+					BaseApp.getModel()
+							.setAvatar(UrlContants.IMAGE_URL + imgurl);
+					setResult(RESULT_OK);
+					finish();
+				}
+			}, params);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }
-
-

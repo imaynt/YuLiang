@@ -24,22 +24,34 @@ public class HttpUtils {
 	}
 
 	/* 自动注册 */
-	public static void autoReg(AsyncHttpResponseHandler handler,RequestParams params) {
+	public static void autoReg(AsyncHttpResponseHandler handler,
+			RequestParams params) {
 		client.get(UrlContants.getUrl(UrlContants.AUTOREG), params, handler);
 	}
 
 	/* 优惠券 */
-	public static void getLoginUrl(AsyncHttpResponseHandler handler,RequestParams params) {
+	public static void getLoginUrl(AsyncHttpResponseHandler handler,
+			RequestParams params) {
 		client.get(UrlContants.getUrl(UrlContants.GETLOGINURL), params, handler);
 	}
 
 	/* 修改个人资料 */
-	public static void updateUserInfo(AsyncHttpResponseHandler handler,RequestParams params) {
-		client.get(UrlContants.getUrl(UrlContants.UPDATEUSERINFO), params,handler);
+	public static void updateUserInfo(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.get(UrlContants.getUrl(UrlContants.UPDATEUSERINFO), params,
+				handler);
 	}
-	
+
 	/* 绑定手机 */
-	public static void bindMObile(AsyncHttpResponseHandler handler,RequestParams params) {
-		client.get(UrlContants.getUrl(UrlContants.BINDMOBILE), params,handler);
+	public static void bindMobile(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.BINDMOBILE), params, handler);
+	}
+
+	/* 上传头像 */
+	public static void postUserAvatar(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.POSTUSERAVATAR), params,
+				handler);
 	}
 }

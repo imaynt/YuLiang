@@ -1,30 +1,41 @@
 package com.zykj.yuliang.activity;
 
+import java.io.File;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.content.DialogInterface.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.http.UrlContants;
+import com.zykj.yuliang.utils.CircleImageView;
 import com.zykj.yuliang.utils.Tools;
 
-public class MainActivity extends BaseActivity implements OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 	private Button btn_detail;
 	private Button btn_more;
+	private CircleImageView iv_header;
 	private LinearLayout ll_makemaoney;// 赚钱
 	private LinearLayout ll_apprentice;// 收徒
 	private LinearLayout ll_duobao, ll_youhuiquan, ll_shengqian, ll_duihuan;// 一元夺宝,优惠券,省钱,兑换
 	private Intent intent;
 	private String userId;
+	private TextView tv_yue;
 	
 	
 	@Override
@@ -50,6 +61,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	}
 
 	protected void initViews() {
+		iv_header=(CircleImageView) findViewById(R.id.iv_header);
 		btn_detail = (Button) findViewById(R.id.btn_detail);//明细
 		btn_more = (Button) findViewById(R.id.more);//更多
 		ll_makemaoney = (LinearLayout) findViewById(R.id.ll_zhuanqian);//赚钱
@@ -58,6 +70,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		ll_youhuiquan = (LinearLayout) findViewById(R.id.ll_youhuiquan);//优惠券
 		ll_shengqian = (LinearLayout) findViewById(R.id.ll_shengqian);//省钱
 		ll_duihuan = (LinearLayout) findViewById(R.id.ll_duihuan);//兑换
+		tv_yue=(TextView) findViewById(R.id.tv_yue);
+		tv_yue.setText(BaseApp.getModel().getMoney());
 	}
 
 	protected void initEvents() {
@@ -92,13 +106,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			 * 临时代码,参数(uid,points)待修改...................................
 			 */
 			RequestParams params=new RequestParams();
-			params.put("uid", "1");
-			params.put("points", "2");
+			params.put("uid", BaseApp.getModel().getUserid());
+			params.put("points", BaseApp.getModel().getIntegral());
 			HttpUtils.getLoginUrl(new HttpErrorHandler() {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
-					String url = json.getJSONObject(UrlContants.jsonData)
-							.getString("url");
+					String url = json.getJSONObject(UrlContants.jsonData).getString("url");
 					Intent intent = new Intent().setClass(MainActivity.this,
 							CreditActivity.class);
 					intent.putExtra("navColor", "#50bf83");// 配置导航条的背景颜色，请用#ffffff长格式。
@@ -127,5 +140,51 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	protected void onDestroy() {
 		Tools.Log("当前tabActivity退出");
 		super.onDestroy();
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {// 返回按钮
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("提示")
+					.setMessage("您确定退出当前应用")
+					.setNegativeButton("取消", new OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					})
+					.setPositiveButton("确定", new OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							try {
+								// 判断是否存在临时创建的文件
+								File temp_file = new File(Environment
+										.getExternalStorageDirectory()
+										+ File.separator
+										+ BaseApp.FILE_DIR);
+								Tools.Log("文件是否存在：" + temp_file.exists());
+								if (temp_file.exists()) {
+									File[] file_detail = temp_file.listFiles();
+									for (File file_del : file_detail) {
+										file_del.delete();
+									}
+									temp_file.delete();
+								}
+
+							} catch (Exception e) {
+
+							}
+							System.exit(0);
+						}
+					})
+					.setOnCancelListener(
+							new DialogInterface.OnCancelListener() {
+								public void onCancel(DialogInterface dialog) {
+									dialog.dismiss();
+								}
+
+							}).show();
+		}
+
+		return super.onKeyDown(keyCode, event);
 	}
 }

@@ -107,7 +107,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginRight="15dp"
-                        android:src="@drawable/icon_1"
+                        android:src="@drawable/pic_duobao"
                         app:border_color="@color/transparent"
                         app:border_width="0dp" />
 
@@ -156,7 +156,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginRight="15dp"
-                        android:src="@drawable/icon_1"
+                        android:src="@drawable/pic_duomeng"
                         app:border_color="@color/transparent"
                         app:border_width="0dp" />
 
@@ -205,7 +205,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginRight="15dp"
-                        android:src="@drawable/icon_1"
+                        android:src="@drawable/pic_dianle"
                         app:border_color="@color/transparent"
                         app:border_width="0dp" />
 
@@ -254,7 +254,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginRight="15dp"
-                        android:src="@drawable/icon_1"
+                        android:src="@drawable/pic_youmi"
                         app:border_color="@color/transparent"
                         app:border_width="0dp" />
 
@@ -303,7 +303,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginRight="15dp"
-                        android:src="@drawable/icon_1"
+                        android:src="@drawable/pic_dianru"
                         app:border_color="@color/transparent"
                         app:border_width="0dp" />
 
@@ -352,7 +352,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginRight="15dp"
-                        android:src="@drawable/icon_1"
+                        android:src="@drawable/pic_wanpu"
                         app:border_color="@color/transparent"
                         app:border_width="0dp" />
 
@@ -400,7 +400,7 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_marginRight="15dp"
-                        android:src="@drawable/icon_1"
+                        android:src="@drawable/pic_diancai"
                         app:border_color="@color/transparent"
                         app:border_width="0dp" />
 

@@ -1,7 +1,10 @@
 package com.zykj.yuliang.activity;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.view.MyCommonTitle;
 import com.zykj.yuliang.view.RoundImageView;
 
@@ -21,7 +24,7 @@ public class MoreActivity extends BaseActivity {
 	private LinearLayout ll_user_info, ll_weixin, ll_bind_mobile,
 			ll_score_list, ll_customer_center, ll_new_notice,
 			ll_business_coopration, ll_check_update, ll_change_userId;
-	private TextView user_nick, user_mobile, version_code;
+	private TextView user_id, user_nick, user_mobile, version_code;
 	private RoundImageView img_avatar;
 	private AlertDialog.Builder builder;
 
@@ -31,6 +34,7 @@ public class MoreActivity extends BaseActivity {
 		setContentView(R.layout.ui_more);
 
 		initView();
+		requestData();
 	}
 
 	private void initView() {
@@ -47,6 +51,7 @@ public class MoreActivity extends BaseActivity {
 		ll_check_update = (LinearLayout) findViewById(R.id.ll_check_version);// 检查版本
 		ll_change_userId = (LinearLayout) findViewById(R.id.ll_change_userId);// 切换账号
 
+		user_id = (TextView) findViewById(R.id.tv_user_id);// 昵称
 		user_nick = (TextView) findViewById(R.id.tv_user_nick);// 昵称
 		img_avatar = (RoundImageView) findViewById(R.id.img_avatar);// 头像
 		user_mobile = (TextView) findViewById(R.id.tv_mobile);// 手机号
@@ -65,14 +70,27 @@ public class MoreActivity extends BaseActivity {
 			/**
 			 * 请求数据获得 昵称 和 头像 传 给user_nick和img_avatar
 			 */
-			startActivityForResult((new Intent(MoreActivity.this, UserInfoActivity.class)),22);
+			startActivityForResult((new Intent(MoreActivity.this,
+					UserInfoActivity.class)), 22);
 			break;
 		case R.id.ll_weixin:
-			startActivity(new Intent(MoreActivity.this, WeiXinActivity.class));
+			AlertDialog.Builder builder = new Builder(MoreActivity.this);
+			builder.setTitle("温馨提示");
+			builder.setMessage("由于该软件未申请微信公众号，暂不支持此功能！还请谅解！");
+			builder.setPositiveButton("确定", new OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+			builder.create().show();
+			// startActivity(new Intent(MoreActivity.this,
+			// WeiXinActivity.class));
 			break;
 		case R.id.ll_bind_mobile:
 			/**
-			 * 请求数据获得 手机号 传给 user_mobile
+			 * 请求数据获得 手机号 传给 user_mobile 如果已绑定,则传mobile
 			 */
 			String mobile = user_mobile.getText().toString().trim();
 			startActivityForResult(new Intent(MoreActivity.this,
@@ -127,12 +145,11 @@ public class MoreActivity extends BaseActivity {
 
 					startActivity(new Intent(MoreActivity.this,
 							BindMobileActivity.class));
-
 				}
 			});
 			builder.create().show();
 			break;
-		
+
 		default:
 			break;
 		}
@@ -140,20 +157,26 @@ public class MoreActivity extends BaseActivity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case 11:
-			if(data!=null){//绑定手机
-			//	.MoreActivity.....................
-			}
+			requestData();
 			break;
 		case 22:
-			if(data!=null){//个人资料,获取头像和昵称
-			//	.UserInfoActivity.....................
-			}
+			requestData();
 			break;
 		default:
 			break;
 		}
+	}
+
+	private void requestData() {
+		user_id.setText(BaseApp.getModel().getUserid());
+		String avatar = BaseApp.getModel().getAvatar();
+		ImageLoader.getInstance().displayImage(
+				StringUtil.toString(avatar, "http://"), img_avatar);
+		String nick = BaseApp.getModel().getUsername();
+		user_nick.setText(StringUtil.isEmpty(nick) ? "请输入昵称" : nick);
+		String mobile = BaseApp.getModel().getMobile();
+		user_mobile.setText(StringUtil.isEmpty(mobile) ? "请绑定手机号" : mobile);
 	}
 }

@@ -178,15 +178,15 @@ public class BindMobileActivity extends BaseActivity {
 
 		private void registerNewUser() {
 			RequestParams params = new RequestParams();
-			
 			//deviceId没有获取到所以提交数据不成功
-//			params.put("deviceId", BaseApp.getModel().getDeviceId());//deviceId设备id
-			params.put("mob", mobile);//mobile要绑定的手机号
-			HttpUtils.bindMObile(new HttpErrorHandler() {
+			params.put("deviceId", BaseApp.getModel().getDeviceId());//deviceId设备id
+			params.put("mobile", mobile);//mobile要绑定的手机号
+			HttpUtils.bindMobile(new HttpErrorHandler() {
 				
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
-					
+					Tools.toast(BindMobileActivity.this, "手机绑定成功");
+					BaseApp.getModel().setMobile(mobile);
 					setResult(RESULT_OK);
 					finish();
 				}

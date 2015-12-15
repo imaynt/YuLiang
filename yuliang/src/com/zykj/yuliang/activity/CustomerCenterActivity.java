@@ -1,6 +1,10 @@
 package com.zykj.yuliang.activity;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -38,14 +42,28 @@ public class CustomerCenterActivity extends BaseActivity {
 
 		switch (view.getId()) {
 		case R.id.ll_score_question:
-			Intent intent=new Intent(CustomerCenterActivity.this,JiFenActivity.class);
+			Intent intent = new Intent(CustomerCenterActivity.this,
+					JiFenActivity.class);
 			startActivity(intent);
 			break;
 		case R.id.ll_wx_custom:
-
+			AlertDialog.Builder builder=new Builder(CustomerCenterActivity.this);
+			builder.setTitle("温馨提示");
+			builder.setMessage("由于该软件未申请微信公众号，暂不支持此功能！还请谅解！");
+			builder.setPositiveButton("确定", new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+			builder.create().show();
+//			startActivity(new Intent(CustomerCenterActivity.this,
+//					WeiXinActivity.class));
 			break;
 		case R.id.ll_common_question:
-			Intent i=new Intent(CustomerCenterActivity.this,CommonQuestionActivity.class);
+			Intent i = new Intent(CustomerCenterActivity.this,
+					CommonQuestionActivity.class);
 			startActivity(i);
 			break;
 		default:

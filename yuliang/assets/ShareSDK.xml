@@ -75,7 +75,7 @@
     <Wechat
         AppId="wx5be25b5428c62494"
         AppSecret="00df05d60dbcd6457c6aa2e6307248d2"
-        BypassApproval="false"
+        BypassApproval="true"
         Enable="true"
         Id="1"
         SortId="1" />
@@ -83,7 +83,7 @@
     <WechatMoments
         AppId="wx5be25b5428c62494"
         AppSecret="00df05d60dbcd6457c6aa2e6307248d2"
-        BypassApproval="false"
+        BypassApproval="true"
         Enable="true"
         Id="2"
         SortId="2" />
@@ -108,7 +108,7 @@
         AppKey="aed9b0303e3ed1e27bae87c33761161d"
         Enable="true"
         Id="5"
-        ShareByAppClient="false"
+        ShareByAppClient="true"
         SortId="5" />
 
     <SinaWeibo
@@ -117,7 +117,7 @@
         Enable="true"
         Id="6"
         RedirectUrl="http://www.sharesdk.cn"
-        ShareByAppClient="false"
+        ShareByAppClient="true"
         SortId="6" />
 
     <TencentWeibo

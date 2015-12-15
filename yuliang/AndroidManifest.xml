@@ -50,8 +50,9 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
+		android:name="com.zykj.yuliang.BaseApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon_app"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -261,14 +262,14 @@
         <activity
             android:name=".activity.MoreActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask"
+            android:launchMode="standard"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 绑定手机 -->
         <activity
             android:name=".activity.BindMobileActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask"
+            android:launchMode="standard"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 微信 -->
@@ -310,7 +311,7 @@
         <activity
             android:name=".activity.UserInfoActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask"
+            android:launchMode="standard"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
@@ -370,6 +371,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
+        <!-- 有偿转发详细 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.YouChangDetailsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
         <!-- 刷新按钮 -->
         <activity
             android:name="com.zykj.yuliang.activity.RefreshActivity"

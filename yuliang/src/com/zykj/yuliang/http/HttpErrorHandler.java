@@ -5,8 +5,10 @@ import java.io.UnsupportedEncodingException;
 import org.apache.http.Header;
 import org.apache.http.protocol.HTTP;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -44,5 +46,7 @@ public abstract class HttpErrorHandler extends AbstractHttpHandler {
 
     public abstract void onRecevieSuccess(JSONObject json);
 
-    public void onRecevieFailed(String status,JSONObject json){};
+    public void onRecevieFailed(String status,JSONObject json){
+//    	onRecevieSuccess(json);
+    };
 }
