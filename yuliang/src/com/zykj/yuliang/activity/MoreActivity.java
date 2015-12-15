@@ -87,7 +87,7 @@ public class MoreActivity extends BaseActivity {
 			break;
 		case R.id.ll_news_notice:
 			startActivity(new Intent(MoreActivity.this,
-					NewsNoticeActivity.class));
+					NewsListActivity.class));
 			break;
 		case R.id.ll_business_coopration:
 			startActivity(new Intent(MoreActivity.this,

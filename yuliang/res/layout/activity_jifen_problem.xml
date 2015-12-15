@@ -134,8 +134,9 @@
                     android:layout_height="45dp"
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/line_rectangles"
-                    android:hint="钱咖ID"
-                    android:textColorHint="@color/gray" />
+                    android:hint="余粮ID"
+                    android:textColorHint="@color/gray"
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/et_jifen_name"
@@ -144,7 +145,8 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/line_rectangles"
                     android:hint="联盟商名称"
-                    android:textColorHint="@color/gray" />
+                    android:textColorHint="@color/gray"
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/et_jifen_renwu"
@@ -153,7 +155,8 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/line_rectangles"
                     android:hint="任务名称"
-                    android:textColorHint="@color/gray" />
+                    android:textColorHint="@color/gray"
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/et_jifen_data"
@@ -163,7 +166,7 @@
                     android:background="@drawable/line_rectangles"
                     android:hint="任务日期"
                     android:textColorHint="@color/gray" 
-                    android:textSize="14sp"/>
+                    android:textSize="16sp"/>
 
                 <RelativeLayout
                     android:id="@+id/rl_jifen_click"

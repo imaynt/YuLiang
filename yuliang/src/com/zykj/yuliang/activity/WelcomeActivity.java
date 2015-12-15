@@ -3,9 +3,13 @@ package com.zykj.yuliang.activity;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.apache.http.Header;
+
+import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
@@ -20,11 +24,42 @@ import com.zykj.yuliang.utils.Tools;
 
 public class WelcomeActivity extends BaseActivity {
 
+	private String userId;//用户的ID是服务器自动生成返回的
+	private boolean regState;//注册状态
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//在使用SDK各组件之前初始化context信息，传入ApplicationContext
         //注意该方法要再setContentView方法之前实现
 		initView(R.layout.ui_welcome);
+		// 获得手机的唯一标识
+		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+		final String DEVICE_ID = tm.getDeviceId();
+
+		RequestParams params = new RequestParams();
+		params.put("deviceId", DEVICE_ID);
+		HttpUtils.autoReg(new HttpErrorHandler() {
+
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				JSONObject jsonObject = json
+						.getJSONObject(UrlContants.jsonData);
+				userId = jsonObject.getString("id");
+				BaseApp.getModel().setUserid(userId);
+				BaseApp.getModel().setDeviceId(DEVICE_ID);
+				Tools.toast(WelcomeActivity.this, "注册成功");
+				regState=true;
+			}
+
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					byte[] responseBody, Throwable throwable) {
+				super.onFailure(statusCode, headers, responseBody, throwable);
+				Tools.toast(WelcomeActivity.this, "此手机已注册");
+				regState=false;
+				
+			}
+		}, params);
 		
 //		checkLogin();
 		Timer timer = new Timer();
@@ -47,14 +82,17 @@ public class WelcomeActivity extends BaseActivity {
 					Intent intent = new Intent(WelcomeActivity.this, IntroActivity.class);
 					startActivity(intent);
 				} else {
-					Intent intent = new Intent(WelcomeActivity.this, FirstLoginActivity.class);
-					startActivity(intent);
+					
+					if(regState)
+						startActivity(new Intent(WelcomeActivity.this,FirstLoginActivity.class));
+					else
+						startActivity(new Intent(WelcomeActivity.this,MainActivity.class).putExtra("userId", userId));
 				}
 				finish();
-
 			}
 		};
 		timer.schedule(task, 2000);
+		
 	}
 	
 //	private void checkLogin(){

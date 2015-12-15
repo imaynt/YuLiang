@@ -38,31 +38,31 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 		initClick();
 		initEvents();
 
-		// 获得手机的唯一标识
-		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-		final String DEVICE_ID = tm.getDeviceId();
-
-		RequestParams params = new RequestParams();
-		params.put("deviceId", DEVICE_ID);
-		HttpUtils.autoReg(new HttpErrorHandler() {
-
-			@Override
-			public void onRecevieSuccess(JSONObject json) {
-				JSONObject jsonObject = json
-						.getJSONObject(UrlContants.jsonData);
-				userId = jsonObject.getString("id");
-				BaseApp.getModel().setUserid(userId);
-				BaseApp.getModel().setDeviceId(DEVICE_ID);
-				Tools.toast(FirstLoginActivity.this, "注册成功");
-			}
-
-			@Override
-			public void onFailure(int statusCode, Header[] headers,
-					byte[] responseBody, Throwable throwable) {
-				super.onFailure(statusCode, headers, responseBody, throwable);
-				Tools.toast(FirstLoginActivity.this, "此手机已注册");
-			}
-		}, params);
+//		// 获得手机的唯一标识
+//		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+//		final String DEVICE_ID = tm.getDeviceId();
+//
+//		RequestParams params = new RequestParams();
+//		params.put("deviceId", DEVICE_ID);
+//		HttpUtils.autoReg(new HttpErrorHandler() {
+//
+//			@Override
+//			public void onRecevieSuccess(JSONObject json) {
+//				JSONObject jsonObject = json
+//						.getJSONObject(UrlContants.jsonData);
+//				userId = jsonObject.getString("id");
+//				BaseApp.getModel().setUserid(userId);
+//				BaseApp.getModel().setDeviceId(DEVICE_ID);
+//				Tools.toast(FirstLoginActivity.this, "注册成功");
+//			}
+//
+//			@Override
+//			public void onFailure(int statusCode, Header[] headers,
+//					byte[] responseBody, Throwable throwable) {
+//				super.onFailure(statusCode, headers, responseBody, throwable);
+//				Tools.toast(FirstLoginActivity.this, "此手机已注册");
+//			}
+//		}, params);
 	}
 
 	protected void initViews() {
