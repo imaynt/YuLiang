@@ -19,7 +19,7 @@
         <TextView
             android:id="@+id/title_detail"
             style="@style/title_head"
-            android:text="@string/title_lianmeng" />
+            android:text="@string/title_youchang" />
 
         <ImageButton
             android:id="@+id/btn_youchang_back"
@@ -138,7 +138,7 @@
                         android:layout_below="@+id/tv_title"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:text="钱咖全员活动！转发出去，有人看到您就有奖，新人进随机获现金，快来试试~"
+                        android:text="余粮全员活动！转发出去，有人看到您就有奖，新人进随机获现金，快来试试~"
                         android:textColor="@color/gray" />
                 </RelativeLayout>
 

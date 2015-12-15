@@ -11,7 +11,7 @@ import com.zykj.yuliang.R;
 
 public class JiFenProblemActivity extends BaseActivity{
 	
-	private EditText et_jifen_id,et_jifen_name,et_jifen_renwu,et_jifen_data;//钱咖id，联盟商名称，任务名称，日期
+	private EditText et_jifen_id,et_jifen_name,et_jifen_renwu,et_jifen_data;//余粮id，联盟商名称，任务名称，日期
 	private RelativeLayout rl_jifen_click;	//提交按钮
 	private ImageView iv_jifen_back;
 	
