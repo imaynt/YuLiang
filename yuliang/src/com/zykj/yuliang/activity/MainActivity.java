@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
@@ -23,6 +24,7 @@ import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.CircleImageView;
+import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -72,6 +74,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		ll_duihuan = (LinearLayout) findViewById(R.id.ll_duihuan);//¶Ò»»
 		tv_yue=(TextView) findViewById(R.id.tv_yue);
 		tv_yue.setText(BaseApp.getModel().getMoney());
+		String avatar=BaseApp.getModel().getAvatar();
+		ImageLoader.getInstance().displayImage(StringUtil.toString(avatar, "http://"), iv_header);
+		
 	}
 
 	protected void initEvents() {

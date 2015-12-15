@@ -24,7 +24,7 @@ import com.zykj.yuliang.utils.Tools;
 
 public class WelcomeActivity extends BaseActivity {
 
-	private String userId;//用户的ID是服务器自动生成返回的
+	private String userId,coins, points;//用户的ID是服务器自动生成返回的
 	private boolean regState;//注册状态
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,25 +39,30 @@ public class WelcomeActivity extends BaseActivity {
 		RequestParams params = new RequestParams();
 		params.put("deviceId", DEVICE_ID);
 		HttpUtils.autoReg(new HttpErrorHandler() {
-
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
-				JSONObject jsonObject = json
-						.getJSONObject(UrlContants.jsonData);
+				if (json.getString("code").equals("403")) {
+					Tools.toast(WelcomeActivity.this, "此手机已注册");
+					regState=false;
+				} else {
+					Tools.toast(WelcomeActivity.this, "注册成功");
+					regState=true;
+				}
+				JSONObject jsonObject = json.getJSONObject(UrlContants.jsonData);
+				BaseApp.getModel().setDeviceId(DEVICE_ID);
 				userId = jsonObject.getString("id");
 				BaseApp.getModel().setUserid(userId);
-				BaseApp.getModel().setDeviceId(DEVICE_ID);
-				Tools.toast(WelcomeActivity.this, "注册成功");
-				regState=true;
+				coins = jsonObject.getString("coins");
+				BaseApp.getModel().setMoney(coins);
+				points = jsonObject.getString("points");
+				BaseApp.getModel().setIntegral(points);
+				
 			}
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
 					byte[] responseBody, Throwable throwable) {
 				super.onFailure(statusCode, headers, responseBody, throwable);
-				Tools.toast(WelcomeActivity.this, "此手机已注册");
-				regState=false;
-				
 			}
 		}, params);
 		
