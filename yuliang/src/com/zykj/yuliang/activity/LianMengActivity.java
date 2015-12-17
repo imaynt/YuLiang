@@ -1,7 +1,8 @@
 package com.zykj.yuliang.activity;
 
-import net.youmi.android.AdManager;
-import net.youmi.android.offers.OffersManager;
+import ger.oiu.dsl.AdManager;
+import ger.oiu.dsl.os.OffersBrowserConfig;
+import ger.oiu.dsl.os.OffersManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -12,6 +13,7 @@ import cn.waps.AppConnect;
 
 import com.yql.dr.sdk.DRSdk;
 import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.view.MyCommonTitle;
 import com.zykjyulia.DevInit;
@@ -73,7 +75,7 @@ public class LianMengActivity extends BaseActivity {
 			break;
 		case R.id.ll_dianle:// 点乐
 			DevInit.initGoogleContext(this, DIANJOY_APP_ID);
-			DevInit.setCurrentUserID(this, "123456789");// 此处待修改,为设备ID................................
+			DevInit.setCurrentUserID(this, BaseApp.getModel().getDeviceId());// 此处为设备ID................................
 			DevInit.showOffers(this);
 			break;
 		case R.id.ll_youmi:// 有米
@@ -85,10 +87,16 @@ public class LianMengActivity extends BaseActivity {
 			 */
 			// AdManager.getInstance(Context context).init(String appId, String
 			// appSecret, boolean isTestModel);
-			AdManager.getInstance(this).init(YOUMIAPPID, YOUMIAPPSECRET, true);
+			AdManager.getInstance(this).init(YOUMIAPPID, YOUMIAPPSECRET, false);//通用初始化
+			OffersManager.getInstance(this).setCustomUserId(BaseApp.getModel().getDeviceId());
+			OffersManager.getInstance(this).setUsingServerCallBack(true);
 			OffersManager.getInstance(this).onAppLaunch();// 使用积分墙功能之前进行初始化
 			OffersManager.getInstance(this).showOffersWall();
-
+			// 设置积分余额区域是否显示
+			// true ：显示（默认值）
+			// false：不显示
+			OffersBrowserConfig.setPointsLayoutVisibility(true);
+			// 获取当前积分余额区域是否显示
 			break;
 		case R.id.ll_dianru:// 点入
 			/**
@@ -107,7 +115,7 @@ public class LianMengActivity extends BaseActivity {
 			 * APP_ID 为应用标识，该值由万普后台添加应用后自劢生成，点击“应用详情”获取； APP _PID
 			 * 为分发渠道标识，使用规则请参见本文档附表《常用渠道编码表》。hiapk 安卓市场
 			 */
-			//AppConnect.getInstance("APP_ID","APP_PID",this);
+			// AppConnect.getInstance("APP_ID","APP_PID",this);
 			AppConnect.getInstance(WAPAPPID, "360", this);
 			AppConnect.getInstance(this).showOffers(this);
 			break;

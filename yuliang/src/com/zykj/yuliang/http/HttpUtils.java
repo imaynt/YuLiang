@@ -54,4 +54,11 @@ public class HttpUtils {
 		client.post(UrlContants.getUrl(UrlContants.POSTUSERAVATAR), params,
 				handler);
 	}
+	/* 获取积分 */
+	public static void getPoints(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.GETPOINTS), params,
+				handler);
+	}
+	
 }

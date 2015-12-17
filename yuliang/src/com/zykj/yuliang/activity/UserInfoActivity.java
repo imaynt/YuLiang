@@ -88,7 +88,7 @@ public class UserInfoActivity extends BaseActivity {
 
 		String avatar = BaseApp.getModel().getAvatar();
 		ImageLoader.getInstance().displayImage(
-				StringUtil.toString(avatar, "http://"), img_avatar);
+				StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), img_avatar);
 
 		String sex = BaseApp.getModel().getSex();
 		tv_sex.setText(StringUtil.isEmpty(sex) ? "" : sex);

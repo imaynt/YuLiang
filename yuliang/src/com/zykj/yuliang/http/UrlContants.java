@@ -6,16 +6,20 @@ package com.zykj.yuliang.http;
 public class UrlContants {
 
 //	public static final String SERVERIP = "121.42.194.222";
-	public static final String SERVERIP = "192.168.1.175";
+//	public static final String SERVERIP = "192.168.1.175";
+	public static final String SERVERIP = "http://115.28.67.86/yl/";
 
 //	public static final String BASE_URL = "http://121.42.194.222/api.php?";
-	public static final String BASE_URL = "http://192.168.1.175/api.php?";
+//	public static final String BASE_URL = "http://192.168.1.175/api.php?";
+	public static final String BASE_URL = "http://115.28.67.86/yl/api.php?";
 
 //	public static final String IMAGE_URL = "http://121.42.194.222/Uploads/";
-	public static final String IMAGE_URL = "http://192.168.1.175/Uploads/";
+//	public static final String IMAGE_URL = "http://192.168.1.175/Uploads/";
+	public static final String IMAGE_URL = "http://115.28.67.86/yl/Uploads/";
 
 //	public static final String ORDERPAY = "http://121.42.194.222/pingxx/api/pay.php";// 支付
-	public static final String ORDERPAY = "http://192.168.1.175/pingxx/api/pay.php";// 支付
+//	public static final String ORDERPAY = "http://192.168.1.175/pingxx/api/pay.php";// 支付
+	public static final String ORDERPAY = "http://115.28.67.86/yl/pingxx/api/pay.php";// 支付
 
 	public static final String BASEURL = BASE_URL + "%s";
 
@@ -34,6 +38,39 @@ public class UrlContants {
 	public static final String POSTUSERAVATAR = "c=user&a=postUserAvatar";// 上传头像
 	
 	public static final String UPDATEUSERINFO = "c=user&a=resetUsername";// 修改个人资料
+	
+	public static final String GETPOINTS = "c=user&a=getPoints";// 获取实时积分
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
