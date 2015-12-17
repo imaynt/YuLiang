@@ -51,12 +51,11 @@
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="15dp" >
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
-                        android:text="200积分 = 1元，每天不定时更新"
+             			android:text="200积分 = 1元，每天不定时更新"
                         android:textColor="@color/gray"
                         android:textSize="12sp" />
 

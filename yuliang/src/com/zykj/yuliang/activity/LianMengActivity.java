@@ -3,12 +3,15 @@ package com.zykj.yuliang.activity;
 import net.youmi.android.AdManager;
 import net.youmi.android.offers.OffersManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.dc.wall.DianCai;
 import cn.dow.android.DOW;
 import cn.waps.AppConnect;
+import cn.waps.UpdatePointsNotifier;
 
 import com.yql.dr.sdk.DRSdk;
 import com.zykj.yuliang.BaseActivity;
@@ -39,11 +42,16 @@ public class LianMengActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lianmeng);
 
+		
 		initViews();
 	}
-
+	
+	
 	protected void initViews() {
 
+	
+		
+		
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("联盟任务");
 
@@ -110,6 +118,7 @@ public class LianMengActivity extends BaseActivity {
 			//AppConnect.getInstance("APP_ID","APP_PID",this);
 			AppConnect.getInstance(WAPAPPID, "360", this);
 			AppConnect.getInstance(this).showOffers(this);
+			
 			break;
 		case R.id.ll_diancai:// 点财
 			DianCai.initApp(LianMengActivity.this, DIANCAIAPPID, DIANCAIAPPKEY);

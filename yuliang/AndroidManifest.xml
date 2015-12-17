@@ -448,6 +448,22 @@
             android:launchMode="standard"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        
+        <!-- 为什么收徒 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.WhyAppActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        
+        <!-- 怎么收更多收徒 -->
+        <activity
+            android:name="com.zykj.yuliang.activity.MoreAppActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 
 </manifest>

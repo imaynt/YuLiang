@@ -13,8 +13,9 @@ import com.zykj.yuliang.R;
 public class ApprenticeActivity extends Activity implements OnClickListener {
 
 	private ImageButton btn_apprentice_back;
-	private LinearLayout ll_ac_more;
-	private LinearLayout ll_new_app;
+	private LinearLayout ll_why_app;	//为什么收徒
+	private LinearLayout ll_ac_more;	
+	private LinearLayout ll_new_app;	//怎么样收新徒弟
 	private Intent intent;
 	
 	@Override
@@ -32,12 +33,14 @@ public class ApprenticeActivity extends Activity implements OnClickListener {
 		btn_apprentice_back.setOnClickListener(this);
 		ll_ac_more.setOnClickListener(this);
 		ll_new_app.setOnClickListener(this);
+		ll_why_app.setOnClickListener(this);
 	}
 
 	protected void initViews() {
 		btn_apprentice_back = (ImageButton) findViewById(R.id.btn_apprentice_back);
 		ll_ac_more = (LinearLayout) findViewById(R.id.ll_ac_more);
 		ll_new_app = (LinearLayout) findViewById(R.id.ll_new_app);
+		ll_why_app = (LinearLayout) findViewById(R.id.ll_why_app);
 	}
 
 	protected void initEvents() {
@@ -53,6 +56,10 @@ public class ApprenticeActivity extends Activity implements OnClickListener {
 		case R.id.ll_ac_more:
 		case R.id.ll_new_app:
 			intent = new Intent(ApprenticeActivity.this, ApprenticeContentActivity.class);
+			startActivity(intent);
+			break;
+		case R.id.ll_why_app:
+			intent = new Intent(ApprenticeActivity.this, MoreAppActivity.class);
 			startActivity(intent);
 			break;
 			
