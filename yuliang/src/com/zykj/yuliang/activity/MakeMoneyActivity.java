@@ -9,11 +9,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.view.MyCommonTitle;
 
-public class MakeMoneyActivity extends Activity implements OnClickListener{
+public class MakeMoneyActivity extends BaseActivity{
 
-	private ImageButton btn_makemoney_back;		//返回按钮
+	
+	private MyCommonTitle myCommonTitle;
 	private LinearLayout ll_lianmeng;  			//联盟任务
 	private LinearLayout ll_ziliao;   			//个人资料
 	private LinearLayout ll_youchang;			//有偿转发
@@ -32,7 +35,6 @@ public class MakeMoneyActivity extends Activity implements OnClickListener{
 	}
 
 	protected void initClick() {
-		btn_makemoney_back.setOnClickListener(this);
 		ll_lianmeng.setOnClickListener(this);
 		ll_ziliao.setOnClickListener(this);
 		ll_youchang.setOnClickListener(this);
@@ -40,7 +42,8 @@ public class MakeMoneyActivity extends Activity implements OnClickListener{
 	}
 
 	protected void initViews() {
-		btn_makemoney_back = (ImageButton) findViewById(R.id.btn_makemoney_back);
+		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
+		myCommonTitle.setTitle("赚钱");
 		ll_lianmeng = (LinearLayout) findViewById(R.id.ll_lianmeng);
 		ll_ziliao = (LinearLayout)findViewById(R.id.ll_ziliao);
 		ll_youchang = (LinearLayout)findViewById(R.id.ll_youchang);
@@ -54,9 +57,6 @@ public class MakeMoneyActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_makemoney_back:
-			this.finish();
-			break;
 		case R.id.ll_lianmeng:
 			intent = new Intent(MakeMoneyActivity.this, LianMengActivity.class);
 			startActivity(intent);

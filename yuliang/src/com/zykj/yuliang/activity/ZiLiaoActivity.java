@@ -45,7 +45,6 @@ import com.zykj.yuliang.view.PickDialog.PickDialogListener;
 
 public class ZiLiaoActivity extends BaseActivity {
 
-	private ImageButton btn_ziliao_back; // ·µ»Ø°´Å¥
 
 	private MyCommonTitle myCommonTitle;
 	private LinearLayout ll_nick, ll_avatar, ll_sex, ll_birth, ll_prefession,

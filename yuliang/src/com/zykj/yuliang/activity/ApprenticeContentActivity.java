@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.view.MyCommonTitle;
 
-public class ApprenticeContentActivity extends Activity implements OnClickListener {
+public class ApprenticeContentActivity extends BaseActivity {
 
-	private ImageButton btn_ac_back;
+	private MyCommonTitle myCommonTitle;
 	private Intent intent;
 	
 	@Override
@@ -26,29 +28,18 @@ public class ApprenticeContentActivity extends Activity implements OnClickListen
 	}
 
 	protected void initClick() {
-		btn_ac_back.setOnClickListener(this);
+		
 	}
 
 	protected void initViews() {
-		btn_ac_back = (ImageButton) findViewById(R.id.btn_ac_back);
+		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
+		myCommonTitle.setTitle(" ’ÕΩ");
 	}
 
 	protected void initEvents() {
 
 	}
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.btn_ac_back:
-			this.finish();
-			break;
-
-		default:
-			break;
-		}
-		
-	}
 
 }
 

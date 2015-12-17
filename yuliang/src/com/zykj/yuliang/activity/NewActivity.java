@@ -11,11 +11,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.view.MyCommonTitle;
 
-public class NewActivity extends Activity implements OnClickListener {
+public class NewActivity extends BaseActivity {
 
-	private ImageButton btn_new_back;
+	private MyCommonTitle myCommonTitle;
 
 	// 两个答案选项
 	private RelativeLayout ll_answer_o;
@@ -52,13 +54,13 @@ public class NewActivity extends Activity implements OnClickListener {
 	}
 
 	protected void initClick() {
-		btn_new_back.setOnClickListener(this);
 		ll_answer_o.setOnClickListener(this);
 		ll_answer_t.setOnClickListener(this);
 	}
 
 	protected void initViews() {
-		btn_new_back = (ImageButton) findViewById(R.id.btn_new_back);
+		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
+		myCommonTitle.setTitle("新手任务");
 		ll_answer_o = (RelativeLayout) findViewById(R.id.ll_answer_o);
 		ll_answer_t = (RelativeLayout) findViewById(R.id.ll_answer_t);
 		tv_answer_o = (TextView) findViewById(R.id.tv_answer_o);
@@ -72,9 +74,6 @@ public class NewActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.btn_new_back) {
-			this.finish();
-		}
 		if (click == 6) {
 			Intent intent = new Intent();
 			intent.putExtra("result", "6");

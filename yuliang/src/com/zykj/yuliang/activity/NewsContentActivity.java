@@ -8,11 +8,13 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.view.MyCommonTitle;
 
-public class NewsContentActivity extends Activity implements OnClickListener {
+public class NewsContentActivity extends BaseActivity{
 
-	private ImageButton btn_nc_back;
+	private MyCommonTitle myCommonTitle;
 	private Intent intent;
 	
 	@Override
@@ -27,11 +29,11 @@ public class NewsContentActivity extends Activity implements OnClickListener {
 	}
 
 	protected void initClick() {
-		btn_nc_back.setOnClickListener(this);
 	}
 
 	protected void initViews() {
-		btn_nc_back = (ImageButton) findViewById(R.id.btn_nc_back);
+		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
+		myCommonTitle.setTitle("ฯ๊ว้");
 	}
 
 	protected void initEvents() {
@@ -40,15 +42,7 @@ public class NewsContentActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.btn_nc_back:
-			this.finish();
-			break;
-			
-
-		default:
-			break;
-		}
+		
 		
 	}
 

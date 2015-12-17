@@ -12,32 +12,19 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
 
-public class DetailContentActivity extends Activity implements OnClickListener {
+public class DetailContentActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quanbu_content);
-		initViews();
-		initClick();
-		initEvents();
 		
 		
 	}
 
-	protected void initClick() {
-
-	}
-
-	protected void initViews() {
-
-	}
-
-	protected void initEvents() {
-
-	}
 
 	@Override
 	public void onClick(View v) {

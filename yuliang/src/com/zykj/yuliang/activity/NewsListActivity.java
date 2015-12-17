@@ -8,11 +8,13 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.view.MyCommonTitle;
 
-public class NewsListActivity extends Activity implements OnClickListener {
+public class NewsListActivity extends BaseActivity {
 
-	private ImageButton btn_nl_back;
+	private MyCommonTitle myCommonTitle;
 	private LinearLayout ll_news_id;
 	private Intent intent;
 	
@@ -28,12 +30,12 @@ public class NewsListActivity extends Activity implements OnClickListener {
 	}
 
 	protected void initClick() {
-		btn_nl_back.setOnClickListener(this);
 		ll_news_id.setOnClickListener(this);
 	}
 
 	protected void initViews() {
-		btn_nl_back = (ImageButton) findViewById(R.id.btn_nl_back);
+		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
+		myCommonTitle.setTitle("新闻公告");
 		ll_news_id = (LinearLayout) findViewById(R.id.news_id);
 	}
 
@@ -44,9 +46,6 @@ public class NewsListActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_nl_back:
-			this.finish();
-			break;
 		case R.id.news_id:
 			startActivity(new Intent(NewsListActivity.this,NewsContentActivity.class));
 			break;

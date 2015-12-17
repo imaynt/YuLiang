@@ -1,18 +1,14 @@
 package com.zykj.yuliang.activity;
 
-import net.youmi.android.AdManager;
-import net.youmi.android.offers.OffersManager;
+import ger.oiu.dsl.AdManager;
+import ger.oiu.dsl.os.OffersManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import com.dc.wall.DianCai;
 import cn.dow.android.DOW;
 import cn.waps.AppConnect;
-import cn.waps.UpdatePointsNotifier;
 
+import com.dc.wall.DianCai;
 import com.yql.dr.sdk.DRSdk;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
@@ -20,8 +16,7 @@ import com.zykj.yuliang.R;
 import com.zykj.yuliang.view.MyCommonTitle;
 import com.zykjyulia.DevInit;
 
-public class LianMengActivity extends BaseActivity implements
-		UpdatePointsNotifier {
+public class LianMengActivity extends BaseActivity {
 
 	private MyCommonTitle myCommonTitle;
 	private RelativeLayout ll_yiyuan;// 一元夺宝
@@ -47,68 +42,9 @@ public class LianMengActivity extends BaseActivity implements
 		initViews();
 	}
 
-	/**
-	 * 万普所须开始==================================================================
-	 * ================
-	 */
 
-	private TextView pointsTextView;
-	private TextView SDKVersionView;
-
-	private String displayPointsText;
-
-	final Handler mHandler = new Handler();
-
-	@Override
-	protected void onResume() {
-		// 从服务器端获取当前用户的虚拟货币.
-		// 返回结果在回调函数getUpdatePoints(...)中处理
-		AppConnect.getInstance(this).getPoints(this);
-		super.onResume();
-	}
-
-	// 创建一个线程
-	final Runnable mUpdateResults = new Runnable() {
-		public void run() {
-			if (pointsTextView != null) {
-				pointsTextView.setText(displayPointsText);
-			}
-		}
-	};
-
-	/**
-	 * AppConnect.getPoints()方法的实现，必须实现
-	 * 
-	 * @param currencyName
-	 *            虚拟货币名称.
-	 * @param pointTotal
-	 *            虚拟货币余额.
-	 */
-	public void getUpdatePoints(String currencyName, int pointTotal) {
-		displayPointsText = currencyName + ": " + pointTotal;
-		mHandler.post(mUpdateResults);
-	}
-
-	/**
-	 * AppConnect.getPoints() 方法的实现，必须实现
-	 * 
-	 * @param error
-	 *            请求失败的错误信息
-	 */
-	public void getUpdatePointsFailed(String error) {
-		displayPointsText = error;
-		mHandler.post(mUpdateResults);
-	}
-
-	/**
-	 * 万普所须结束==================================================================
-	 * ==================
-	 */
 
 	protected void initViews() {
-
-		// 万普积分
-		pointsTextView = (TextView) findViewById(R.id.pointsTextView);
 
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("联盟任务");
@@ -178,7 +114,7 @@ public class LianMengActivity extends BaseActivity implements
 			 */
 			// AppConnect.getInstance("APP_ID","APP_PID",this);
 			AppConnect.getInstance(WAPAPPID, "360", this);
-			AppConnect.getInstance(this).showOffers(this);
+			AppConnect.getInstance(this).showOffers(this,BaseApp.getModel().getDeviceId());
 
 			break;
 		case R.id.ll_diancai:// 点财
