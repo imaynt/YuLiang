@@ -73,7 +73,7 @@
                         <com.zykj.yuliang.utils.CircleImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/icon_1"
+                            android:src="@drawable/pic_1_lianmeng"
                             app:border_color="@color/transparent"
                             app:border_width="0dp" />
                        
@@ -137,7 +137,7 @@
                         <com.zykj.yuliang.utils.CircleImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/icon_1"
+                            android:src="@drawable/pic_1_xinshou"
                             app:border_color="@color/transparent"
                             app:border_width="0dp" />
                        
@@ -201,7 +201,7 @@
                         <com.zykj.yuliang.utils.CircleImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/icon_1"
+                            android:src="@drawable/pic_1_geren"
                             app:border_color="@color/transparent"
                             app:border_width="0dp" />
                        
@@ -264,7 +264,7 @@
                         <com.zykj.yuliang.utils.CircleImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/icon_1"
+                            android:src="@drawable/pic_1_youchang"
                             app:border_color="@color/transparent"
                             app:border_width="0dp" />
                        

@@ -23,7 +23,7 @@ public class CustomServiceActivity extends BaseActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_detail);
+		setContentView(R.layout.activity_income_detail);
 		initViews();
 
 	}

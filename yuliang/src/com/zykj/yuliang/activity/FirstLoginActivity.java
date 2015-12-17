@@ -28,7 +28,7 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 			rl_huodeyes; // 有邀请id，无邀请id，确定按钮,获得金额
 	private LinearLayout ll_yaoqingid, ll_text_t, ll_text_s; // 输入邀请id
 	private EditText et_inputid; // id输入框
-	private String userId;//用户的ID是服务器自动生成返回的
+	private String userId;// 用户的ID是服务器自动生成返回的
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,31 +38,32 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 		initClick();
 		initEvents();
 
-//		// 获得手机的唯一标识
-//		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-//		final String DEVICE_ID = tm.getDeviceId();
-//
-//		RequestParams params = new RequestParams();
-//		params.put("deviceId", DEVICE_ID);
-//		HttpUtils.autoReg(new HttpErrorHandler() {
-//
-//			@Override
-//			public void onRecevieSuccess(JSONObject json) {
-//				JSONObject jsonObject = json
-//						.getJSONObject(UrlContants.jsonData);
-//				userId = jsonObject.getString("id");
-//				BaseApp.getModel().setUserid(userId);
-//				BaseApp.getModel().setDeviceId(DEVICE_ID);
-//				Tools.toast(FirstLoginActivity.this, "注册成功");
-//			}
-//
-//			@Override
-//			public void onFailure(int statusCode, Header[] headers,
-//					byte[] responseBody, Throwable throwable) {
-//				super.onFailure(statusCode, headers, responseBody, throwable);
-//				Tools.toast(FirstLoginActivity.this, "此手机已注册");
-//			}
-//		}, params);
+		// // 获得手机的唯一标识
+		// TelephonyManager tm = (TelephonyManager)
+		// getSystemService(Context.TELEPHONY_SERVICE);
+		// final String DEVICE_ID = tm.getDeviceId();
+		//
+		// RequestParams params = new RequestParams();
+		// params.put("deviceId", DEVICE_ID);
+		// HttpUtils.autoReg(new HttpErrorHandler() {
+		//
+		// @Override
+		// public void onRecevieSuccess(JSONObject json) {
+		// JSONObject jsonObject = json
+		// .getJSONObject(UrlContants.jsonData);
+		// userId = jsonObject.getString("id");
+		// BaseApp.getModel().setUserid(userId);
+		// BaseApp.getModel().setDeviceId(DEVICE_ID);
+		// Tools.toast(FirstLoginActivity.this, "注册成功");
+		// }
+		//
+		// @Override
+		// public void onFailure(int statusCode, Header[] headers,
+		// byte[] responseBody, Throwable throwable) {
+		// super.onFailure(statusCode, headers, responseBody, throwable);
+		// Tools.toast(FirstLoginActivity.this, "此手机已注册");
+		// }
+		// }, params);
 	}
 
 	protected void initViews() {
@@ -115,7 +116,7 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 			ll_text_s.setVisibility(View.VISIBLE);
 
 			RequestParams params = new RequestParams();
-			// params.put("", BaseApp.getModel().getDeviceId());//deviceId没有获得,
+			params.put("uid", BaseApp.getModel().getDeviceId());// deviceId没有获得,
 			params.put("", shifuID);
 			/**
 			 * 提交数据

@@ -53,9 +53,8 @@
 			Pocket         http://getpocket.com/developer/apps/new
     -->
 
-    <ShareSDK AppKey="androidv1101" />
+    <ShareSDK AppKey="d20096a7d56e" />
  <!-- 修改成你在sharesdk后台注册的应用的appkey" -->
-
 
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
 
@@ -75,7 +74,7 @@
     <Wechat
         AppId="wx5be25b5428c62494"
         AppSecret="00df05d60dbcd6457c6aa2e6307248d2"
-        BypassApproval="true"
+        BypassApproval="false"
         Enable="true"
         Id="1"
         SortId="1" />
@@ -83,7 +82,7 @@
     <WechatMoments
         AppId="wx5be25b5428c62494"
         AppSecret="00df05d60dbcd6457c6aa2e6307248d2"
-        BypassApproval="true"
+        BypassApproval="false"
         Enable="true"
         Id="2"
         SortId="2" />
@@ -117,7 +116,7 @@
         Enable="true"
         Id="6"
         RedirectUrl="http://www.sharesdk.cn"
-        ShareByAppClient="true"
+        ShareByAppClient="false"
         SortId="6" />
 
     <TencentWeibo

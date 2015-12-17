@@ -4,6 +4,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.view.MyCommonTitle;
 import com.zykj.yuliang.view.RoundImageView;
@@ -173,7 +174,7 @@ public class MoreActivity extends BaseActivity {
 		user_id.setText(BaseApp.getModel().getUserid());
 		String avatar = BaseApp.getModel().getAvatar();
 		ImageLoader.getInstance().displayImage(
-				StringUtil.toString(avatar, "http://"), img_avatar);
+				StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), img_avatar);
 		String nick = BaseApp.getModel().getUsername();
 		user_nick.setText(StringUtil.isEmpty(nick) ? "«Î ‰»ÎÍ«≥∆" : nick);
 		String mobile = BaseApp.getModel().getMobile();

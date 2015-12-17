@@ -36,8 +36,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 	private LinearLayout ll_apprentice;// 收徒
 	private LinearLayout ll_duobao, ll_youhuiquan, ll_shengqian, ll_duihuan;// 一元夺宝,优惠券,省钱,兑换
 	private Intent intent;
-	private String userId;
+	private String userId,points;
 	private TextView tv_yue;
+	private RequestParams params;
 	
 	
 	@Override
@@ -75,7 +76,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		tv_yue=(TextView) findViewById(R.id.tv_yue);
 		tv_yue.setText(BaseApp.getModel().getMoney());
 		String avatar=BaseApp.getModel().getAvatar();
-		ImageLoader.getInstance().displayImage(StringUtil.toString(avatar, "http://"), iv_header);
+		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), iv_header);
 		
 	}
 
@@ -87,7 +88,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_detail:
-			intent = new Intent(MainActivity.this, DetailActivity.class);
+			intent = new Intent(MainActivity.this, IncomeDetailActivity.class);
 			startActivity(intent);
 			break;
 		case R.id.more:
@@ -107,12 +108,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 			startActivity(intent);
 			break;
 		case R.id.ll_youhuiquan:
-			/***
-			 * 临时代码,参数(uid,points)待修改...................................
+			requestData();
+			/**
+			 * 跳转兑吧
 			 */
-			RequestParams params=new RequestParams();
+			params=new RequestParams();
 			params.put("uid", BaseApp.getModel().getUserid());
-			params.put("points", BaseApp.getModel().getIntegral());
+			params.put("points", points);
 			HttpUtils.getLoginUrl(new HttpErrorHandler() {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
@@ -122,7 +124,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 					intent.putExtra("navColor", "#50bf83");// 配置导航条的背景颜色，请用#ffffff长格式。
 					intent.putExtra("titleColor", "#ffffff");// 配置导航条标题的颜色，请用#ffffff长格式。
 					intent.putExtra("url", url);// 配置自动登陆地址，每次需服务端动态生成。
-					startActivity(intent);
+					startActivityForResult(intent, 11);
 				}
 			}, params);
 			break;
@@ -140,6 +142,34 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		}
 
 	}
+	/***
+	 * 获取积分
+	 */
+	private void requestData() {
+	
+		params=new RequestParams();
+		params.put("deviceId", BaseApp.getModel().getDeviceId());
+		HttpUtils.getPoints(new HttpErrorHandler() {
+			
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				points = json.getJSONObject(UrlContants.jsonData).getString("points");
+			}
+		}, params);		
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode) {
+		case 11:
+			requestData();
+			break;
+		default:
+			break;
+		}
+	}
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onDestroy() {

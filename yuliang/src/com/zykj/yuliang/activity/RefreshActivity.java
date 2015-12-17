@@ -37,9 +37,9 @@ public class RefreshActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_apprentice_back:
-			this.finish();
-			break;
+//		case R.id.btn_apprentice_back:
+//			this.finish();
+//			break;
 
 		default:
 			break;
