@@ -1,8 +1,7 @@
 package com.zykj.yuliang.activity;
 
-import ger.oiu.dsl.AdManager;
-import ger.oiu.dsl.os.OffersBrowserConfig;
-import ger.oiu.dsl.os.OffersManager;
+import net.youmi.android.AdManager;
+import net.youmi.android.offers.OffersManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -21,7 +20,8 @@ import com.zykj.yuliang.R;
 import com.zykj.yuliang.view.MyCommonTitle;
 import com.zykjyulia.DevInit;
 
-public class LianMengActivity extends BaseActivity {
+public class LianMengActivity extends BaseActivity implements
+		UpdatePointsNotifier {
 
 	private MyCommonTitle myCommonTitle;
 	private RelativeLayout ll_yiyuan;// 一元夺宝
@@ -44,16 +44,72 @@ public class LianMengActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lianmeng);
 
-		
 		initViews();
 	}
-	
-	
+
+	/**
+	 * 万普所须开始==================================================================
+	 * ================
+	 */
+
+	private TextView pointsTextView;
+	private TextView SDKVersionView;
+
+	private String displayPointsText;
+
+	final Handler mHandler = new Handler();
+
+	@Override
+	protected void onResume() {
+		// 从服务器端获取当前用户的虚拟货币.
+		// 返回结果在回调函数getUpdatePoints(...)中处理
+		AppConnect.getInstance(this).getPoints(this);
+		super.onResume();
+	}
+
+	// 创建一个线程
+	final Runnable mUpdateResults = new Runnable() {
+		public void run() {
+			if (pointsTextView != null) {
+				pointsTextView.setText(displayPointsText);
+			}
+		}
+	};
+
+	/**
+	 * AppConnect.getPoints()方法的实现，必须实现
+	 * 
+	 * @param currencyName
+	 *            虚拟货币名称.
+	 * @param pointTotal
+	 *            虚拟货币余额.
+	 */
+	public void getUpdatePoints(String currencyName, int pointTotal) {
+		displayPointsText = currencyName + ": " + pointTotal;
+		mHandler.post(mUpdateResults);
+	}
+
+	/**
+	 * AppConnect.getPoints() 方法的实现，必须实现
+	 * 
+	 * @param error
+	 *            请求失败的错误信息
+	 */
+	public void getUpdatePointsFailed(String error) {
+		displayPointsText = error;
+		mHandler.post(mUpdateResults);
+	}
+
+	/**
+	 * 万普所须结束==================================================================
+	 * ==================
+	 */
+
 	protected void initViews() {
 
-	
-		
-		
+		// 万普积分
+		pointsTextView = (TextView) findViewById(R.id.pointsTextView);
+
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("联盟任务");
 
@@ -95,16 +151,13 @@ public class LianMengActivity extends BaseActivity {
 			 */
 			// AdManager.getInstance(Context context).init(String appId, String
 			// appSecret, boolean isTestModel);
-			AdManager.getInstance(this).init(YOUMIAPPID, YOUMIAPPSECRET, false);//通用初始化
-			OffersManager.getInstance(this).setCustomUserId(BaseApp.getModel().getDeviceId());
+			AdManager.getInstance(this).init(YOUMIAPPID, YOUMIAPPSECRET, false);// 通用初始化
+			OffersManager.getInstance(this).setCustomUserId(
+					BaseApp.getModel().getDeviceId());
 			OffersManager.getInstance(this).setUsingServerCallBack(true);
 			OffersManager.getInstance(this).onAppLaunch();// 使用积分墙功能之前进行初始化
 			OffersManager.getInstance(this).showOffersWall();
-			// 设置积分余额区域是否显示
-			// true ：显示（默认值）
-			// false：不显示
-			OffersBrowserConfig.setPointsLayoutVisibility(true);
-			// 获取当前积分余额区域是否显示
+
 			break;
 		case R.id.ll_dianru:// 点入
 			/**
@@ -126,7 +179,7 @@ public class LianMengActivity extends BaseActivity {
 			// AppConnect.getInstance("APP_ID","APP_PID",this);
 			AppConnect.getInstance(WAPAPPID, "360", this);
 			AppConnect.getInstance(this).showOffers(this);
-			
+
 			break;
 		case R.id.ll_diancai:// 点财
 			DianCai.initApp(LianMengActivity.this, DIANCAIAPPID, DIANCAIAPPKEY);
