@@ -1,7 +1,7 @@
 package com.zykj.yuliang.activity;
 
-import net.youmi.android.AdManager;
-import net.youmi.android.offers.OffersManager;
+import ger.oiu.dsl.AdManager;
+import ger.oiu.dsl.os.OffersManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -152,8 +152,7 @@ public class LianMengActivity extends BaseActivity implements
 			// AdManager.getInstance(Context context).init(String appId, String
 			// appSecret, boolean isTestModel);
 			AdManager.getInstance(this).init(YOUMIAPPID, YOUMIAPPSECRET, false);// 通用初始化
-			OffersManager.getInstance(this).setCustomUserId(
-					BaseApp.getModel().getDeviceId());
+			OffersManager.getInstance(this).setCustomUserId(BaseApp.getModel().getUserid());
 			OffersManager.getInstance(this).setUsingServerCallBack(true);
 			OffersManager.getInstance(this).onAppLaunch();// 使用积分墙功能之前进行初始化
 			OffersManager.getInstance(this).showOffersWall();

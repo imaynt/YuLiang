@@ -95,28 +95,28 @@
         SortId="3" />
  <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
     <QQ
-        AppId="2803689424"
-        AppKey="aed9b0303e3ed1e27bae87c33761161d"
+        AppId="1105025974"
+        AppKey="dB3ptippLJosOQwr"
         Enable="true"
         Id="4"
         ShareByAppClient="true"
         SortId="4" />
 
     <QZone
-        AppId="2803689424"
-        AppKey="aed9b0303e3ed1e27bae87c33761161d"
+        AppId="1105025974"
+        AppKey="dB3ptippLJosOQwr"
         Enable="true"
         Id="5"
         ShareByAppClient="true"
         SortId="5" />
 
     <SinaWeibo
-        AppKey="210873005"
-        AppSecret="b4d91c8efdd899b2eae40af9cc6c9829"
+        AppKey="4250869188"
+        AppSecret="2dc53eeb605e3f1456c4ebf90118821e"
         Enable="true"
         Id="6"
         RedirectUrl="http://www.sharesdk.cn"
-        ShareByAppClient="false"
+        ShareByAppClient="true"
         SortId="6" />
 
     <TencentWeibo

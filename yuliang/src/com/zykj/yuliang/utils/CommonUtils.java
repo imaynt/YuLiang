@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 import android.app.AlertDialog;
@@ -21,6 +22,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
@@ -129,20 +132,36 @@ public class CommonUtils {
 	}
 	
 
-	public static void showShare(Context context, String title, String content, String url) {
+	public static void showShare(final Context context, String title, String content, String url) {
 
 		ShareSDK.initSDK(context);
 		 OnekeyShare oks = new OnekeyShare();
 		 //关闭sso授权
 		 oks.disableSSOWhenAuthorize(); 
+			// 分享时Notification的图标和文字  2.5.9以后的版本不调用此方法
+			oks.setCallback(new PlatformActionListener() {
+				@Override
+				public void onError(Platform arg0, int arg1, Throwable arg2) {
+					Tools.toast(context, "分享失败");
+				}
+				@Override
+				public void onComplete(Platform arg0, int arg1, HashMap<String, Object> arg2) {
+					Tools.toast(context, "分享成功");
+				}
+				@Override
+				public void onCancel(Platform arg0, int arg1) {
+					Tools.toast(context, "取消分享");
+				}
+			});
 		 // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
 		 oks.setTitle(title);
 		 // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
 		 oks.setTitleUrl(url);
 		 // text是分享文本，所有平台都需要这个字段
 		 oks.setText(content);
-		 // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数::::::::::::::::::::::::::::::::::::::::::::记得修改哦
-		 oks.setImagePath("http://dashboard.mob.com/Uploads/db95c30283c2aa827e6831170d70808d.png");//确保SDcard下面存在此张图片
+		 // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数记得修改哦        
+		 //oks.setImagePath为sdk图片路径
+		 oks.setImageUrl("http://dashboard.mob.com/Uploads/db95c30283c2aa827e6831170d70808d.png");//确保SDcard下面存在此张图片
 		 // url仅在微信（包括好友和朋友圈）中使用
 		 oks.setUrl(url);
 		 // comment是我对这条分享的评论，仅在人人网和QQ空间使用
