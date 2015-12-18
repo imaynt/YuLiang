@@ -24,6 +24,8 @@ public class ApprenticeActivity extends BaseActivity {
 
 	private MyCommonTitle myCommonTitle;
 	private LinearLayout ll_more_tudi;
+	private LinearLayout ll_why_app;	//为什么要收徒
+	private LinearLayout ll_more_app;  	//如何收取更多徒弟
 	private CircleImageView img_tudi_avatar;
 	private TextView tv_tudi_name;
 	private CommonAdapter<Object> adapter;
@@ -46,10 +48,13 @@ public class ApprenticeActivity extends BaseActivity {
 		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
 		myCommonTitle.setTitle("收徒");
 
+		
+		ll_why_app = (LinearLayout) findViewById(R.id.ll_why_app);
+		ll_more_app = (LinearLayout) findViewById(R.id.ll_more_app);
 		ll_more_tudi = (LinearLayout) findViewById(R.id.ll_tudi_more);
 		img_tudi_avatar = (CircleImageView) findViewById(R.id.img_tudi_avatar);
 		tv_tudi_name = (TextView) findViewById(R.id.tv_tudi_name);
-		setListener(ll_more_tudi);
+		setListener(ll_more_tudi,ll_why_app,ll_more_app);
 	}
 	/**
 	 * 请求服务器数据获得徒弟信息\
@@ -85,6 +90,14 @@ public class ApprenticeActivity extends BaseActivity {
 		case R.id.ll_tudi_more:
 			startActivity(new Intent(ApprenticeActivity.this,
 					ApprenticeContentActivity.class));
+			break;
+		case R.id.ll_why_app://为什么收徒
+			startActivity(new Intent(ApprenticeActivity.this,
+					WhyAppActivity.class));	
+			break;
+		case R.id.ll_more_app://怎么收更多徒弟
+			startActivity(new Intent(ApprenticeActivity.this,
+					MoreAppActivity.class));
 			break;
 		default:
 			break;
