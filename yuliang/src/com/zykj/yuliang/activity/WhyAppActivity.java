@@ -9,9 +9,10 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
 
-public class WhyAppActivity extends Activity implements OnClickListener{
+public class WhyAppActivity extends BaseActivity{
 	
 //	String w1 = "想赚更多的钱吗？那就去收徒吧！！<br/><br/>在余粮，你的徒弟和你徒弟的徒弟（徒孙），他们所做的任务，你都可以得到最高";
 //	String y1 = "20%";

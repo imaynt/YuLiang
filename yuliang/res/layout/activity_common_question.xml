@@ -8,29 +8,10 @@
 
     <!-- 顶部返回栏 -->
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <include layout="@layout/activity_header" />
-
-        <TextView
-            android:id="@+id/title_detail"
-            style="@style/title_head"
-            android:text="@string/title_common_question" />
-
-        <ImageButton
-            android:id="@+id/btn_cq_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:background="@null"
-            android:contentDescription="@string/app_name"
-            android:padding="5dp"
-            android:src="@drawable/symbol_left" />
-    </RelativeLayout>
+    <com.zykj.yuliang.view.MyCommonTitle
+        android:id="@+id/aci_mytitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ScrollView
         android:layout_width="match_parent"

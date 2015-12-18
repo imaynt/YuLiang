@@ -9,10 +9,11 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.view.MyCommonTitle;
 
-public class MoreAppActivity extends Activity implements OnClickListener{
+public class MoreAppActivity extends BaseActivity{
 	
 	String w1 = "亲爱的粮友们：<br/><br/>为了让你赚更多的钱，收更多的徒弟，小编煞费苦心，整理出以下攻略，请认真阅读，积极实践！最全最真的攻略就在这里！<br/><br/><font color=\"yellow\">QQ好友、QQ群、微信好友</font><br/><br/>首先肯定是把赚钱这种好事推荐给朋友啦，相信小伙伴们都会喜欢上余粮的，输入你的ID，朋友就能免费领取3元红包，从此踏上赚钱之旅，绝对会对你感激不尽。<br/><br/>";
 	String w2 = "<font color=\"yellow\">微信朋友圈、QQ空间、新浪微博、腾讯微博、人人网等社交网络</font><br/><br/>在社交网络，主要是发动态、发微博、发日志，内容可以是余粮使用心得、经验传授等，还可以晒出你的收入截图，重点是带上邀请链接或者ID。微信朋友圈是个非常靠谱的方式，建议每2天就发布一条晒收入的动态，求好友点赞，求转发，吸引更多朋友加入。<br/><br/> ";

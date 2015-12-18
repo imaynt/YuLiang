@@ -8,9 +8,11 @@ import android.widget.LinearLayout;
 
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.view.MyCommonTitle;
 
 public class JiFenActivity extends BaseActivity{
-	private ImageView iv_jf_back;
+	
+	private MyCommonTitle myCommonTitle;
 	
 	private LinearLayout ll_jifenwenti;		//积分问题
 	
@@ -24,9 +26,10 @@ public class JiFenActivity extends BaseActivity{
 	
 
 	private void initViews() {
-		iv_jf_back=(ImageView)findViewById(R.id.btn_jf_back);
+		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
+		myCommonTitle.setTitle("积分问题");
 		ll_jifenwenti=(LinearLayout)findViewById(R.id.ll_jifenwenti);
-		setListener(ll_jifenwenti,iv_jf_back);
+		setListener(ll_jifenwenti);
 	}
 
 	@Override
@@ -36,9 +39,6 @@ public class JiFenActivity extends BaseActivity{
 		case R.id.ll_jifenwenti:
 			Intent intent=new Intent(JiFenActivity.this,JiFenProblemActivity.class);
 			startActivity(intent);
-			break;
-		case R.id.btn_jf_back:
-			this.finish();
 			break;
 		default:
 			break;

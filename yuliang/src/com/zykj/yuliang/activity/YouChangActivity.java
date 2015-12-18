@@ -8,11 +8,13 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.view.MyCommonTitle;
 
-public class YouChangActivity extends Activity implements OnClickListener {
+public class YouChangActivity extends BaseActivity {
 
-	private ImageButton btn_youchang_back; // 返回按钮
+	private MyCommonTitle myCommonTitle;
 	private LinearLayout ll_item;
 
 	@Override
@@ -26,12 +28,13 @@ public class YouChangActivity extends Activity implements OnClickListener {
 	}
 
 	protected void initClick() {
-		btn_youchang_back.setOnClickListener(this);
+		
 		ll_item.setOnClickListener(this);
 	}
 
 	protected void initViews() {
-		btn_youchang_back = (ImageButton) findViewById(R.id.btn_youchang_back);
+		myCommonTitle = (MyCommonTitle) findViewById(R.id.aci_mytitle);
+		myCommonTitle.setTitle("有偿转发");
 		ll_item = (LinearLayout) findViewById(R.id.ll_yiyuan);
 	}
 
@@ -42,9 +45,6 @@ public class YouChangActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_youchang_back:
-			this.finish();
-			break;
 		case R.id.ll_yiyuan:
 			startActivity(new Intent(YouChangActivity.this, YouChangDetailsActivity.class));
 			break;

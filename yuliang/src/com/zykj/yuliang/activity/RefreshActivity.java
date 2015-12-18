@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
+import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
 
-public class RefreshActivity extends Activity implements OnClickListener {
+public class RefreshActivity extends BaseActivity {
 
 	private Intent intent;
 	
