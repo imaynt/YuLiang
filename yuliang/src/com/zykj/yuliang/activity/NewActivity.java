@@ -87,7 +87,7 @@ public class NewActivity extends BaseActivity {
 			tv_answer_t.setText(answer_t[click]);
 			tv_answer_title.setText(answer_title[click]);
 			return;
-		}
+		}//122121
 		if (v.getId() == R.id.ll_answer_t && answer_num[click] == 2) {
 			click++;
 			tv_answer_o.setText(answer_o[click]);

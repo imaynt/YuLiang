@@ -97,9 +97,9 @@ public class LianMengActivity extends BaseActivity {
 		case R.id.ll_dianru:// 点入
 			/**
 			 * 如果是 Activity,在第一个启动的 Acitivty 里面的 onCreate 的开始写上下面的代码 context
-			 * :上下文 isLoc :是否开启定位 appuserid:用户 id 一般游戏的角色 id ，如果没有 id 的话传””
+			 * :上下文 isLoc :是否开启定位 :用户 id 一般游戏的角色 id ，如果没有 id 的话传””
 			 */
-			DRSdk.initialize(this, false, "");// 初始化
+			DRSdk.initialize(this, false, BaseApp.getModel().getDeviceId());// 初始化
 			/**
 			 * DRSdk.showOfferWall (context, SDK显示类型); DRSdk.DR_FREE 免费墙 DRSdk.
 			 * DR_OFFER 积分墙
@@ -120,6 +120,7 @@ public class LianMengActivity extends BaseActivity {
 			DianCai.initApp(LianMengActivity.this, DIANCAIAPPID, DIANCAIAPPKEY);
 			DianCai.showOfferWall();// 展示有虚拟金币的推荐墙
 			// DianCai.showGoodApps();//展示无虚拟金币的推荐墙
+			DianCai.setUserId(BaseApp.getModel().getUserid());
 			break;
 		default:
 			break;

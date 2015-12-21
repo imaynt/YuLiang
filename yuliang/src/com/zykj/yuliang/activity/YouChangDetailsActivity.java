@@ -42,7 +42,7 @@ public class YouChangDetailsActivity extends BaseActivity {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.ll_zhuanfa:
-			CommonUtils.showShare(this, "余粮赚钱", "余粮赚钱余粮赚钱", "http://fir.im");
+			CommonUtils.showShare(this, "余粮", "余粮是一款通过下载应用广告获得积分的APP", "http://fir.im");
 			break;
 		default:
 			break;

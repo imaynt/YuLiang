@@ -47,6 +47,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		setContentView(R.layout.activity_main);  
 //		userId=getIntent().getStringExtra("userId");
 		initViews();
+		requestData();
+		
 		initClick();
 		initEvents();
 
@@ -61,10 +63,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		ll_youhuiquan.setOnClickListener(this);
 		ll_shengqian.setOnClickListener(this);
 		ll_duihuan.setOnClickListener(this);
+//		iv_header.setOnClickListener(this);
 	}
 
 	protected void initViews() {
-		iv_header=(CircleImageView) findViewById(R.id.iv_header);
 		btn_detail = (Button) findViewById(R.id.btn_detail);//明细
 		btn_more = (Button) findViewById(R.id.more);//更多
 		ll_makemaoney = (LinearLayout) findViewById(R.id.ll_zhuanqian);//赚钱
@@ -73,10 +75,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		ll_youhuiquan = (LinearLayout) findViewById(R.id.ll_youhuiquan);//优惠券
 		ll_shengqian = (LinearLayout) findViewById(R.id.ll_shengqian);//省钱
 		ll_duihuan = (LinearLayout) findViewById(R.id.ll_duihuan);//兑换
-		tv_yue=(TextView) findViewById(R.id.tv_yue);
-		tv_yue.setText(BaseApp.getModel().getMoney());
-		String avatar=BaseApp.getModel().getAvatar();
-		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), iv_header);
+		
+		tv_yue=(TextView) findViewById(R.id.tv_yue);//我的余额
+		
+		iv_header=(CircleImageView) findViewById(R.id.iv_header);//我的头像
+		
 		
 	}
 
@@ -87,34 +90,31 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_detail:
-			intent = new Intent(MainActivity.this, IncomeDetailActivity.class);
-			startActivity(intent);
+		case R.id.iv_header:
+			startActivityForResult(new Intent(MainActivity.this, ZiLiaoActivity.class), 11);
 			break;
-		case R.id.more:
-			intent = new Intent(MainActivity.this, MoreActivity.class);
-			startActivity(intent);
+		case R.id.btn_detail://明细
+			startActivity(new Intent(MainActivity.this, IncomeDetailActivity.class));
 			break;
-		case R.id.ll_zhuanqian:
-			intent = new Intent(MainActivity.this, MakeMoneyActivity.class);
-			startActivity(intent);
+		case R.id.more://更多
+			startActivity(new Intent(MainActivity.this, MoreActivity.class));
 			break;
-		case R.id.ll_shoutu:
-			intent = new Intent(MainActivity.this, ApprenticeActivity.class);
-			startActivity(intent);
+		case R.id.ll_zhuanqian://赚钱
+			startActivity(new Intent(MainActivity.this, MakeMoneyActivity.class));
 			break;
-		case R.id.ll_yiyuanduobao:
-			intent = new Intent(MainActivity.this, ApprenticeActivity.class);
-			startActivity(intent);
+		case R.id.ll_shoutu://收徒
+			startActivity(new Intent(MainActivity.this, ApprenticeActivity.class));
+			break;
+		case R.id.ll_yiyuanduobao://一元夺宝
+//			startActivity(new Intent(MainActivity.this, ApprenticeActivity.class));
 			break;
 		case R.id.ll_youhuiquan:
-			requestData();
 			/**
 			 * 跳转兑吧
 			 */
 			params=new RequestParams();
 			params.put("uid", BaseApp.getModel().getUserid());
-			params.put("points", points);
+			params.put("points", points);//-=============@@@@@@@@@@@@@@@=================此处临时传积分,用该传元宝即我的余额
 			HttpUtils.getLoginUrl(new HttpErrorHandler() {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
@@ -128,25 +128,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 				}
 			}, params);
 			break;
-		case R.id.ll_shengqian:
-			intent = new Intent(MainActivity.this, ApprenticeActivity.class);
-			startActivity(intent);
+		case R.id.ll_shengqian://省钱
+			startActivity(new Intent(MainActivity.this, ApprenticeActivity.class));
 			break;
-		case R.id.ll_duihuan:
-			intent = new Intent(MainActivity.this, DuiHuanActivity.class);
-			startActivity(intent);
+		case R.id.ll_duihuan://兑换
+			startActivity(new Intent(MainActivity.this, DuiHuanActivity.class));
 			break;
-
 		default:
 			break;
 		}
 
 	}
 	/***
-	 * 获取积分
+	 * 请求服务器获取积分
+	 * 从本地获取头像和我的余额
 	 */
 	private void requestData() {
-	
+		
+		tv_yue.setText(BaseApp.getModel().getMoney());
+		String avatar=BaseApp.getModel().getAvatar();
+		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), iv_header);
+		
 		params=new RequestParams();
 		params.put("deviceId", BaseApp.getModel().getDeviceId());
 		HttpUtils.getPoints(new HttpErrorHandler() {
@@ -176,7 +178,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		Tools.Log("当前tabActivity退出");
 		super.onDestroy();
 	}
-	
+	/**
+	 * 点击返回键退出程序
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {// 返回按钮
