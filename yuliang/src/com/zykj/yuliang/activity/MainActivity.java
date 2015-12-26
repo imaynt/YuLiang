@@ -5,6 +5,12 @@ import java.io.File;
 import org.apache.http.Header;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.sdk.android.AlibabaSDK;
+import com.alibaba.sdk.android.ResultCode;
+import com.alibaba.sdk.android.callback.InitResultCallback;
+import com.alibaba.sdk.android.trade.ItemService;
+import com.alibaba.sdk.android.trade.callback.TradeProcessCallback;
+import com.alibaba.sdk.android.trade.model.TradeResult;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
@@ -28,6 +34,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -62,6 +69,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		initClick();
 		initEvents();
 
+		AlibabaSDK.asyncInit(this, new InitResultCallback() {
+			 
+	        @Override
+	        public void onSuccess() {
+	            Toast.makeText(MainActivity.this, "初始化成功", Toast.LENGTH_SHORT)
+	                    .show();
+	        }
+	 
+	        @Override
+	        public void onFailure(int code, String message) {
+	            Toast.makeText(MainActivity.this, "初始化异常", Toast.LENGTH_SHORT)
+	                    .show();
+	        }
+	 
+	    });
 	}
 	
 
@@ -149,6 +171,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 			}, params);
 			break;
 		case R.id.ll_shengqian://省钱
+			showPage();
 			//AppKey     AppSecret
 //			TaobaoClient client = new DefaultTaobaoClient(url, AppKey, AppSecret);//实例化TopClient类
 //	         UserSellerGetRequest req = new UserSellerGetRequest();//实例化具体API对应的Request类
@@ -289,5 +312,28 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		}
 
 		return super.onKeyDown(keyCode, event);
+	}
+	
+	public void showPage() {
+		ItemService itemService = AlibabaSDK.getService(ItemService.class);
+		itemService.showPage(this, new TradeProcessCallback() {
+
+			@Override
+			public void onPaySuccess(TradeResult tradeResult) {
+				Toast.makeText(MainActivity.this,
+						"支付成功" + tradeResult.paySuccessOrders + "   " + tradeResult.payFailedOrders, Toast.LENGTH_SHORT)
+						.show();
+
+			}
+
+			@Override
+			public void onFailure(int code, String msg) {
+				if (code == ResultCode.QUERY_ORDER_RESULT_EXCEPTION.code) {
+					Toast.makeText(MainActivity.this, "确认交易订单失败", Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(MainActivity.this, "交易异常", Toast.LENGTH_SHORT).show();
+				}
+			}
+		}, null, "http://s.m.taobao.com/h5?search-btn=&event_submit_do_new_search_auction=1&_input_charset=utf-8&topSearch=1&atype=b&searchfrom=1&action=home%3Aredirect_app_action&from=1");
 	}
 }
