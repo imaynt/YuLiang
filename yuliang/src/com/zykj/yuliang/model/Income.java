@@ -6,29 +6,49 @@ public class Income implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private String incomeNum;//收入金额
-	private String taskName;//任务名称
-	private String icomedate;//收入日期
+	private String id;//任务ID
+	private String uid;//收入来源者的ID
+	private String description;//任务名称
+	private String money;//收入金额
+	private String deviceid;
+	private String timestamp;//收入日期
 	private String incomeAvatar;//头像
-	private String incomerId;//收入来源者的ID
 	
-	public String getIncomeNum() {
-		return incomeNum;
+	public String getId() {
+		return id;
 	}
-	public void setIncomeNum(String incomeNum) {
-		this.incomeNum = incomeNum;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getTaskName() {
-		return taskName;
+	public String getUid() {
+		return uid;
 	}
-	public void setTaskName(String taskName) {
-		this.taskName = taskName;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
-	public String getIcomedate() {
-		return icomedate;
+	public String getDescription() {
+		return description;
 	}
-	public void setIcomedate(String icomedate) {
-		this.icomedate = icomedate;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getMoney() {
+		return money;
+	}
+	public void setMoney(String money) {
+		this.money = money;
+	}
+	public String getDeviceid() {
+		return deviceid;
+	}
+	public void setDeviceid(String deviceid) {
+		this.deviceid = deviceid;
+	}
+	public String getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
 	}
 	public String getIncomeAvatar() {
 		return incomeAvatar;
@@ -36,13 +56,6 @@ public class Income implements Serializable{
 	public void setIncomeAvatar(String incomeAvatar) {
 		this.incomeAvatar = incomeAvatar;
 	}
-	public String getIncomerId() {
-		return incomerId;
-	}
-	public void setIncomerId(String incomerId) {
-		this.incomerId = incomerId;
-	}
-	
 	
 	
 	

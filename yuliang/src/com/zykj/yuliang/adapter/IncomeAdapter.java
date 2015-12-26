@@ -12,6 +12,7 @@ import com.zykj.yuliang.utils.CircleImageView;
 import com.zykj.yuliang.utils.StringUtil;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,20 +87,22 @@ public class IncomeAdapter extends BaseAdapter {
 		}
 		Income income = incomes.get(position);
 		ImageLoader.getInstance().displayImage(
-				StringUtil.toString(UrlContants.IMAGE_URL
-						+ BaseApp.getModel().getAvatar(), "http://"),
+				StringUtil.toString(UrlContants.IMAGE_URL + BaseApp.getModel().getAvatar(), "http://"),
 				holder.rv_avatar);
-		if(mType==2){
-			holder.aci_incomerId.setText("我");
-		}
-//		holder.aci_incomerId.setText(income.getIncomerId().equals(BaseApp.getModel().getUserid())?"我":income.getIncomerId());//任务显示我的ID,学徒显示徒弟的ID
-//		holder.aci_incomeDate.setText(income.getIcomedate());
-		//任务收入的显示和学徒的显示不同
-//		holder.aci_incomeCotent.setText(text);
-//		holder.aci_incomeNum.setText(income.getIncomeNum());
-//		holder.aci_xuetuCotent.setText(text);
-		holder.aci_xuetuCotent.setVisibility(mType==3?View.VISIBLE:View.GONE);//点击学徒,显示的内容
-		holder.aci_incomeCotent.setVisibility(mType==2?View.VISIBLE:View.GONE);//点击任务显示的内容
+		// if(mType==2){
+		// holder.aci_incomerId.setText("我");
+		// }
+		holder.aci_incomerId.setText(income.getUid().equals(BaseApp.getModel().getUserid()) ? "我" : income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
+		holder.aci_incomeDate.setText(income.getTimestamp());
+		// 任务收入的显示和学徒的显示不同
+		holder.aci_incomeCotent.setText("完成：" + income.getDescription() + "，" + "赚了"
+				+ Html.fromHtml("<font color=#FF0000>" + income.getMoney() + "</font>") + "元");
+		
+//		holder.aci_xuetuCotent.setText(text);//这个为收徒的内容....................................
+		
+		holder.aci_xuetuCotent.setVisibility(mType == 3 ? View.VISIBLE : View.GONE);// 点击学徒,显示的内容
+		holder.aci_incomeCotent.setVisibility(mType == 2 || mType == 1 || mType == 4 ? View.VISIBLE : View.GONE);// 点击任务显示的内容
+
 		
 
 		return convertView;
