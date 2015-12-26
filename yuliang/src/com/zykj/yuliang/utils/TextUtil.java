@@ -5,21 +5,21 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 /**
- * Description: 鏂囨湰鏍￠獙宸ュ叿绫?
+ * Description: 文本校验工具类
  */
  
 public class TextUtil {
 	
 	/**
-	 * 鎵嬫満鍙烽獙璇?
+	 * 手机号验证
 	 * @param str
-	 * @return 楠岃瘉閫氳繃杩斿洖true
+	 * @return 验证通过返回true
 	 */
 	static public boolean isMobile(String mobiles) {
 		Pattern p = null;
 		Matcher m = null;
 		boolean b = false;
-		p = Pattern.compile("^[1][3,4,5,8][0-9]{9}$"); // 楠岃瘉鎵嬫満鍙?
+		p = Pattern.compile("^[1][3,4,5,8][0-9]{9}$"); // 验证手机号
 		m = p.matcher(mobiles);
 		b = m.matches();
 		// Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[^1^4,\\D]))\\d{8}").matcher(mobiles).matches();
@@ -27,16 +27,16 @@ public class TextUtil {
 	}
 
 	/**
-	 * 鐢佃瘽鍙风爜楠岃瘉
+	 * 电话号码验证
 	 * @param str
-	 * @return 楠岃瘉閫氳繃杩斿洖true
+	 * @return 验证通过返回true
 	 */
 	static public boolean isPhone(String str) {
 		Pattern p1 = null, p2 = null;
 		Matcher m = null;
 		boolean b = false;
-		p1 = Pattern.compile("^[0][1-9]{2,3}-[0-9]{5,10}$"); // 楠岃瘉甯﹀尯鍙风殑
-		p2 = Pattern.compile("^[1-9]{1}[0-9]{5,8}$"); // 楠岃瘉娌℃湁鍖哄彿鐨?
+		p1 = Pattern.compile("^[0][1-9]{2,3}-[0-9]{5,10}$"); // 验证带区号的
+		p2 = Pattern.compile("^[1-9]{1}[0-9]{5,8}$"); // 验证没有区号的
 		if (str.length() > 9) {
 			m = p1.matcher(str);
 			b = m.matches();
@@ -48,28 +48,28 @@ public class TextUtil {
 	}
 	
 	/**
-	 * 瀵嗙爜闀垮害鍚堟硶鎬ф牎楠?6-20浣嶄换鎰忓瓧绗?
+	 * 密码长度合法性校验6-20位任意字符
 	 * @param str
-	 * @return 楠岃瘉閫氳繃杩斿洖true
+	 * @return 验证通过返回true
 	 */
 	static public boolean isPasswordLengthLegal(String str) {
 		Pattern p = null;
 		Matcher m = null;
 		boolean b = false;
-		p = Pattern.compile("^\\s*[^\\s\u4e00-\u9fa5]{6,20}\\s*$"); // 瀵嗙爜闀垮害
+		p = Pattern.compile("^\\s*[^\\s\u4e00-\u9fa5]{6,20}\\s*$"); // 密码长度
 		m = p.matcher(str);
 		b = m.matches();
 		return b;
 	}
 	
 	/**
-	 * 瀵嗙爜寮哄害鏍￠獙
+	 * 密码强度校验
 	 * @param str
-	 * @return 楠岃瘉閫氳繃杩斿洖true
+	 * @return 验证通过返回true
 	 */
 	static public boolean isPasswordStrength(String str) {
-		Pattern p1 = Pattern.compile("\\d+");						// 鍙寘鍚暟瀛楃殑瀵嗙爜楠岃瘉
-		Pattern p2 = Pattern.compile("[a-zA-Z]+");					// 鍙寘鍚瓧姣嶇殑瀵嗙爜楠岃瘉
+		Pattern p1 = Pattern.compile("\\d+");						// 只包含数字的密码验证
+		Pattern p2 = Pattern.compile("[a-zA-Z]+");					// 只包含字母的密码验证
 		Matcher m1 = null;
 		Matcher m2 = null;
 		boolean b1 = false;
@@ -82,7 +82,7 @@ public class TextUtil {
 	}
 	
 	/**
-     * 鏍￠獙閾惰鍗″崱鍙?
+     * 校验银行卡卡号
      * @param cardId
      * @return
      */
@@ -96,7 +96,7 @@ public class TextUtil {
     }
    
     /**
-     * 浠庝笉鍚牎楠屼綅鐨勯摱琛屽崱鍗″彿閲囩敤 Luhm 鏍￠獙绠楁硶鑾峰緱鏍￠獙浣?
+     * 从不含校验位的银行卡卡号采用 Luhm 校验算法获得校验位
      * @param nonCheckCodeCardId
      * @return
      */
@@ -104,7 +104,7 @@ public class TextUtil {
     	nonCheckCodeCardId = nonCheckCodeCardId.replaceAll(" ", "");
         if(nonCheckCodeCardId == null || nonCheckCodeCardId.trim().length() == 0
                 || !nonCheckCodeCardId.matches("\\d+")) {
-        	//濡傛灉浼犵殑涓嶆槸鏁版嵁杩斿洖N
+        	//如果传的不是数据返回N
             return 'N';
         }
         char[] chs = nonCheckCodeCardId.trim().toCharArray();
@@ -121,17 +121,17 @@ public class TextUtil {
     }
 
     /*
-     * 杩囨护鐗规畩瀛楃
+     * 过滤特殊字符
      */
     static public String stringFilter(String str) throws PatternSyntaxException {
-    	String regEx = "[`~!@#$%^&*|{}':;',//[//].鈭毭椻啇鈫抇<>銆娿?嬧??/?~锛丂#锟モ?︹??&*鈥斺?攟{}銆愩?戔?橈紱锛氣?濃?溾?欍?傦紝銆侊紵鈾傗檧鈥烩槅鈽呪棆鈼忊棊鈼団梿鈻♀枲鈻斥柌鈩柭э浚銆愩?戙?庛?忋?屻?嶏經锝濃増鈮♀墵鈮も墺鈮壇鈭仿泵封埆鈭垵鈭炩埀鈭ㄢ垜鈭忊埅鈭┾垐鈭碘埓鈯モ垹鈱掆姍鈮屸埥锛匽";
+    	String regEx = "[`~!@#$%^&*|{}':;',//[//].√×←→_<>《》‖/?~！@#￥……&*——|{}【】‘；：”“’。，、？♂♀※☆★○●◎◇◆□■△▲№§￣【】『』「」｛｝≈≡≠≤≥≮≯∷±÷∫∮∝∞∧∨∑∏∪∩∈∵∴⊥∠⌒⊙≌∽％]";
     	Pattern p = Pattern.compile(regEx);
     	Matcher m = p.matcher(str);
     	return m.replaceAll("").trim();
     }
     
     /*
-     * 闄愬埗涓嶈兘浠?0寮?澶?
+     * 限制不能以0开头
      */
     static public String firstZeroFilter(String str) throws PatternSyntaxException {
     	String regEx = "^0";
@@ -144,7 +144,7 @@ public class TextUtil {
 		Pattern p = null;
 		Matcher m = null;
 		boolean b = false;
-		p = Pattern.compile("^[0-9]{"+longth+"}$"); // 楠岃瘉鎵嬫満鍙?
+		p = Pattern.compile("^[0-9]{"+longth+"}$"); // 验证手机号
 		m = p.matcher(mobiles);
 		b = m.matches();
 		return b;

@@ -18,7 +18,7 @@
         android:orientation="vertical" >
 
         <LinearLayout
-            android:id="@+id/ll_nick"
+            android:id="@+id/ll_alipayId"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
@@ -49,7 +49,8 @@
             android:background="@color/more_bg_color" />
 
         <LinearLayout
-            android:id="@+id/ll_sex"
+            android:visibility="gone"
+            android:id="@+id/ll_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@color/white"
@@ -73,13 +74,14 @@
         </LinearLayout>
 
         <View
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginLeft="15dp"
             android:background="@color/more_bg_color" />
 
         <LinearLayout
-            android:id="@+id/ll_sex"
+            android:id="@+id/ll_account"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@color/white"

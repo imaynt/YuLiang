@@ -93,6 +93,7 @@
             </LinearLayout>
             
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/ll_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -157,6 +158,7 @@
             </LinearLayout>
             
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/ll_ziliao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -24,8 +24,7 @@ import com.zykj.yuliang.utils.Tools;
 
 public class WelcomeActivity extends BaseActivity {
 
-	private String userId, coins, points, avatar, nick, sex, birth, profession,
-			mobile;// 用户的ID是服务器自动生成返回的
+	private String userId, account, points, avatar, nick, sex, birth, profession, mobile;// 用户的ID是服务器自动生成返回的
 	private boolean regState;// 注册状态
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,32 +57,32 @@ public class WelcomeActivity extends BaseActivity {
 					saveUserInfo(json);
 				}
 			}
+
 			/**
 			 * 保存个人信息到本地
 			 * 
 			 * @param json
 			 */
 			private void saveUserInfo(JSONObject json) {
-				JSONObject jsonObject = json
-						.getJSONObject(UrlContants.jsonData);
+				JSONObject jsonObject = json.getJSONObject(UrlContants.jsonData);
 				BaseApp.getModel().setDeviceId(DEVICE_ID);
-				coins = jsonObject.getString("coins");//元宝
-				BaseApp.getModel().setMoney(coins);
-				points = jsonObject.getString("points");//积分
+				account = jsonObject.getString("account");// 元宝
+				BaseApp.getModel().setMoney(account);
+				points = jsonObject.getString("points");// 积分
 				BaseApp.getModel().setIntegral(points);
-				userId = jsonObject.getString("id");//用户id
+				userId = jsonObject.getString("id");// 用户id
 				BaseApp.getModel().setUserid(userId);
-				avatar = jsonObject.getString("avatar");//用户头像
+				avatar = jsonObject.getString("avatar");// 用户头像
 				BaseApp.getModel().setAvatar(avatar);
-				nick = jsonObject.getString("username");//用户昵称
+				nick = jsonObject.getString("username");// 用户昵称
 				BaseApp.getModel().setUsername(nick);
-				sex = jsonObject.getString("sex");//用户性别
+				sex = jsonObject.getString("sex");// 用户性别
 				BaseApp.getModel().setSex(sex);
-				birth = jsonObject.getString("birthday").substring(0, 11);//用户生日
+				birth = jsonObject.getString("birthday").substring(0, 11);// 用户生日
 				BaseApp.getModel().setBirth(birth);
-				profession = jsonObject.getString("profession");//用户职业
+				profession = jsonObject.getString("profession");// 用户职业
 				BaseApp.getModel().setPrefession(profession);
-				mobile = jsonObject.getString("mobile");//手机号
+				mobile = jsonObject.getString("mobile");// 手机号
 				BaseApp.getModel().setMobile(mobile);
 			}
 		}, params);
@@ -91,30 +90,26 @@ public class WelcomeActivity extends BaseActivity {
 		// checkLogin();
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
+			
 			public void run() {
 				String is_intro = getSharedPreferenceValue(BaseApp.IS_INTRO);
 				boolean should_intro = false;
 				int version = Tools.getAppVersion(WelcomeActivity.this);
 				String save_version = getSharedPreferenceValue(BaseApp.VERSION);
-				int save_version_int = save_version.equals("") ? -1 : Integer
-						.parseInt(save_version);
+				int save_version_int = save_version.equals("") ? -1 : Integer.parseInt(save_version);
 
 				if (is_intro.length() > 0 && version == save_version_int) {// 已经进行过指引,且版本号符合
 					should_intro = false;
 				} else {
 					should_intro = false;// true为第一次安装进入轮播图
 				}
-
 				if (should_intro) {// 需要指引为true,跳转轮播图,指引过了为false直接跳转主界面
-					Intent intent = new Intent(WelcomeActivity.this,
-							IntroActivity.class);
+					Intent intent = new Intent(WelcomeActivity.this, IntroActivity.class);
 					startActivity(intent);
 				} else if (regState) {
-					startActivity(new Intent(WelcomeActivity.this,
-							FirstLoginActivity.class));
+					startActivity(new Intent(WelcomeActivity.this, FirstLoginActivity.class));
 				} else {
-					startActivity(new Intent(WelcomeActivity.this,
-							MainActivity.class).putExtra("userId", userId));
+					startActivity(new Intent(WelcomeActivity.this, MainActivity.class).putExtra("userId", userId));
 				}
 				finish();
 			}

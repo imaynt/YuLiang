@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -23,6 +25,7 @@ import com.zykj.yuliang.adapter.ViewHolder;
 import com.zykj.yuliang.model.Tudi;
 import com.zykj.yuliang.utils.CircleImageView;
 import com.zykj.yuliang.utils.CommonUtils;
+import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
 import com.zykj.yuliang.view.MyCommonTitle;
 
@@ -65,21 +68,21 @@ public class ApprenticeActivity extends BaseActivity {
 		setListener(ll_more_tudi, ll_why_app, ll_more_app, ll_share_shoutu);
 
 		gv_tudi = (GridView) findViewById(R.id.gv_tudi);
-
-//		String data[][] = {{R.drawable.touxiang, "机器猫" },
-//				{R.drawable.touxiang, "米老鼠" },
-//				{R.drawable.touxiang, "唐老鸭" } };
-//		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-//		for (int i = 0; i < data.length; i++) {
-//			Map<String, String> map = new HashMap<String, String>();
-//			map.put("avatar", data[i][0]);
-//			map.put("nick", data[i][1]);
-//			list.add(map);
-//		}
-//		tudiAdapter = new SimpleAdapter(this, list, R.layout.ui_item_tudi,
-//				new String[] { "avatar", "nick" }, new int[] {
-//						R.id.img_tudi_avatar, R.id.tv_tudi_name });
-//		gv_tudi.setAdapter(tudiAdapter);
+    
+		int[]pic={R.drawable.touxiang,R.drawable.touxiang,R.drawable.touxiang};
+		String data[] = { "机器猫" ,"米老鼠" ,"唐老鸭" };
+		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+		for (int i = 0; i < data.length; i++) {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("avatar", StringUtil.toString(pic[i]));
+			map.put("nick", data[i]);
+			list.add(map);
+		}
+		tudiAdapter = new SimpleAdapter(this, list, R.layout.ui_item_tudi,
+				new String[] { "avatar", "nick" }, new int[] {
+						R.id.img_tudi_avatar, R.id.tv_tudi_name });
+		gv_tudi.setAdapter(tudiAdapter);
+		gv_tudi.setSelector(new ColorDrawable(Color.TRANSPARENT));//去掉点击产生的背景色
 	}
 
 	/**

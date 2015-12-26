@@ -10,7 +10,7 @@ public class Income implements Serializable{
 	private String taskName;//任务名称
 	private String icomedate;//收入日期
 	private String incomeAvatar;//头像
-	private String incomerId;//收入来源者的头像
+	private String incomerId;//收入来源者的ID
 	
 	public String getIncomeNum() {
 		return incomeNum;

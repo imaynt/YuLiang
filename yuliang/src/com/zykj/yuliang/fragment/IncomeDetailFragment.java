@@ -3,10 +3,19 @@ package com.zykj.yuliang.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.Header;
+
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.adapter.CommonAdapter;
 import com.zykj.yuliang.adapter.IncomeAdapter;
 import com.zykj.yuliang.adapter.ViewHolder;
+import com.zykj.yuliang.http.EntityHandler;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.model.Income;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.view.XListView;
@@ -19,16 +28,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class IncomeDetailFragment extends Fragment implements
-		IXListViewListener {
+public class IncomeDetailFragment extends Fragment implements IXListViewListener {
 
-	private static int PERPAGE = 10;// perpage默认每页显示10条信息
+	private static int PERPAGE = 5;// perpage默认每页显示10条信息
 	private int nowpage = 1;// 当前显示的页面
 	private int mType = 1;// 1全部 2任务3学徒4兑换
 	private IncomeAdapter incomeAdapter;
 	private List<Income> incomes = new ArrayList<Income>();
 	private XListView mListView;
 	private Handler mHandler;
+	private RequestParams params;
 
 	/**
 	 * @param type
@@ -47,11 +56,9 @@ public class IncomeDetailFragment extends Fragment implements
 	 * 初始化页面
 	 */
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-		ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
-				ViewGroup.LayoutParams.MATCH_PARENT,
+		ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
 				ViewGroup.LayoutParams.MATCH_PARENT);
 		mListView = new XListView(getActivity(), null);
 		mListView.setDividerHeight(0);
@@ -83,16 +90,81 @@ public class IncomeDetailFragment extends Fragment implements
 	 * 请求服务器数据
 	 */
 	private void requestData() {
-		if (mType == 1) {//全部
-
-		} else if (mType == 2) {//任务
-
-		} else if (mType == 3) {//学徒
-
-		} else if (mType == 4) {//兑换
-
+		if (mType == 1) {// 全部
+			params = new RequestParams();
+			params.put("userid", BaseApp.getModel().getUserid());
+			params.put("nowpage", nowpage);
+			params.put("perpage", PERPAGE);
+			HttpUtils.allTaskList(res_getAllTaskList, params);
+		} else if (mType == 2) {// 任务
+			params = new RequestParams();
+			params.put("userid", BaseApp.getModel().getUserid());
+			params.put("nowpage", nowpage);
+			params.put("perpage", PERPAGE);
+			HttpUtils.taskList(res_getTaskList, params);
+		} else if (mType == 3) {// 学徒
+			params = new RequestParams();
+			params.put("userid", BaseApp.getModel().getUserid());
+			params.put("nowpage", nowpage);
+			params.put("perpage", PERPAGE);
+			HttpUtils.shouTuTaskList(res_getShouTuTaskList, params);
+		} else if (mType == 4) {// 兑换
+			params = new RequestParams();
+			params.put("userid", BaseApp.getModel().getUserid());
+			params.put("nowpage", nowpage);
+			params.put("perpage", PERPAGE);
+			HttpUtils.duiHuanTaskList(res_getDuiHuanTaskList, params);
 		}
 	}
+
+	// 全部
+	private AsyncHttpResponseHandler res_getAllTaskList = new EntityHandler<Income>(Income.class) {
+
+		@Override
+		public void onReadSuccess(List<Income> list) {
+			if (nowpage == 1) {
+				incomes.clear();
+			}
+			incomes.addAll(list);
+			incomeAdapter.notifyDataSetChanged();
+		}
+	};
+	// 任务
+	private AsyncHttpResponseHandler res_getTaskList = new EntityHandler<Income>(Income.class) {
+
+		@Override
+		public void onReadSuccess(List<Income> list) {
+			if (nowpage == 1) {
+				incomes.clear();
+			}
+			incomes.addAll(list);
+			incomeAdapter.notifyDataSetChanged();
+		}
+	};
+	// 学徒
+	private AsyncHttpResponseHandler res_getShouTuTaskList = new EntityHandler<Income>(Income.class) {
+
+		@Override
+		public void onReadSuccess(List<Income> list) {
+			if (nowpage == 1) {
+				incomes.clear();
+			}
+			incomes.addAll(list);
+			incomeAdapter.notifyDataSetChanged();
+		}
+	};
+	// 兑换
+	private AsyncHttpResponseHandler res_getDuiHuanTaskList = new EntityHandler<Income>(Income.class) {
+
+		@Override
+		public void onReadSuccess(List<Income> list) {
+			if (nowpage == 1) {
+				incomes.clear();
+			}
+			incomes.addAll(list);
+			incomeAdapter.notifyDataSetChanged();
+		}
+	};
 
 	/**
 	 * 下拉刷新
@@ -104,7 +176,7 @@ public class IncomeDetailFragment extends Fragment implements
 			@Override
 			public void run() {
 				nowpage = 1;
-				// requestData();
+				requestData();
 				onLoad();
 			}
 		}, 1000);
@@ -120,7 +192,7 @@ public class IncomeDetailFragment extends Fragment implements
 			@Override
 			public void run() {
 				nowpage += 1;
-				// requestData();
+				requestData();
 				onLoad();
 			}
 		}, 1000);

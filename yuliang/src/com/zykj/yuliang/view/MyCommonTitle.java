@@ -48,8 +48,8 @@ public class MyCommonTitle extends RelativeLayout {
 	 * @param editListener
 	 * @param shareListener
 	 */
-	public void setListener(OnClickListener backEditListener,
-			OnClickListener editListener, OnClickListener shareListener) {
+	public void setListener(OnClickListener backEditListener, OnClickListener editListener,
+			OnClickListener shareListener) {
 		if (backEditListener != null) {
 			backEdit.setVisibility(View.VISIBLE);
 			backEdit.setOnClickListener(backEditListener);
@@ -74,16 +74,21 @@ public class MyCommonTitle extends RelativeLayout {
 		titleText.setText(title);
 	}
 
+	public TextView getTitle() {
+		return titleText;
+	}
+
 	public void setSubTitle(String subtitle) {
 		subtitleText = (TextView) findViewById(R.id.aci_subtitle_textview);// 副标题
 		subtitleText.setVisibility(View.VISIBLE);
 		subtitleText.setText(subtitle);
 	}
-/**
- * INVISIBLE是控件不可见,但其位置不被占用,其他控件位置不变
- * GONE 则是控件不可见,但其位置会被其他控件位置改变而占用
- * @param flag
- */
+
+	/**
+	 * INVISIBLE是控件不可见,但其位置不被占用,其他控件位置不变 GONE 则是控件不可见,但其位置会被其他控件位置改变而占用
+	 * 
+	 * @param flag
+	 */
 	public void setBackVisible(Boolean flag) {
 		if (flag) {
 			ll_back_btn.setVisibility(View.VISIBLE);

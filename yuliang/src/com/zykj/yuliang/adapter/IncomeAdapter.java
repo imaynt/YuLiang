@@ -23,7 +23,7 @@ public class IncomeAdapter extends BaseAdapter {
 
 	private static final int TYPE_COUNT = 2;// item类型的总数
 	private static final int TYPE_TASK = 0;// 任务收入
-	private static final int TYPE_XUETU = 1;// 任务收入
+	private static final int TYPE_XUETU = 1;// 收徒收入
 	private LayoutInflater inflater;
 	private List<Income> incomes;
 	private int mType;
@@ -89,8 +89,11 @@ public class IncomeAdapter extends BaseAdapter {
 				StringUtil.toString(UrlContants.IMAGE_URL
 						+ BaseApp.getModel().getAvatar(), "http://"),
 				holder.rv_avatar);
-		holder.aci_incomerId.setText(BaseApp.getModel().getUserid());//任务显示我的ID,学徒显示徒弟的ID
-		holder.aci_incomeDate.setText(BaseApp.getModel().getBirth());
+		if(mType==2){
+			holder.aci_incomerId.setText("我");
+		}
+//		holder.aci_incomerId.setText(income.getIncomerId().equals(BaseApp.getModel().getUserid())?"我":income.getIncomerId());//任务显示我的ID,学徒显示徒弟的ID
+//		holder.aci_incomeDate.setText(income.getIcomedate());
 		//任务收入的显示和学徒的显示不同
 //		holder.aci_incomeCotent.setText(text);
 //		holder.aci_incomeNum.setText(income.getIncomeNum());

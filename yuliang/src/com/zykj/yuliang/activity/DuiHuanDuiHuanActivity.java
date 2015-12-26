@@ -51,8 +51,8 @@ public class DuiHuanDuiHuanActivity extends BaseActivity {
 			list=new ArrayList<String>();
 			list.add("10元(优惠：9.5元)");
 			list.add("30元(优惠：29元)");
-			list.add("50元(优惠：48元)");
-			list.add("100元(优惠：95元)");
+			list.add("50元(优惠：46元)");
+			list.add("100元(优惠：92元)");
 			new PickDialog(DuiHuanDuiHuanActivity.this, "请选择兑换金额", list, new PickDialogListener() {
 				
 				@Override

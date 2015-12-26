@@ -61,4 +61,74 @@ public class HttpUtils {
 				handler);
 	}
 	
+	/* 第一次通过邀请ID获取积分 */
+	public static void getPointsFromInvite(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.INVITEPOINTS), params,
+				handler);
+	}
+	/* 今日收入 */
+	public static void getTodayIncome(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.TODAYINCOME), params,
+				handler);
+	}
+	/* 今日收徒 */
+	public static void getTodayChildren(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.TODAYCHILDREN), params,
+				handler);
+	}
+	/*支付宝提现*/
+	public static void postTiXian(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.POSTTIXIAN), params,
+				handler);
+	}
+	/*手机充值*/
+	public static void postMobileFees(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.POSTMOBILEFEES), params,
+				handler);
+	}
+	
+	/*新手教程和个人资料完善*/
+	public static void postNewAndPersonal(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.NEWANDPERSONAL), params,
+				handler);
+	}
+	
+	/*切换账号*/
+	public static void changeUserId(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.CHANGEUSERID), params,
+				handler);
+	}
+	/*所有赚钱明细*/
+	public static void allTaskList(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.ALLTASKLIST), params,
+				handler);
+	}
+	/*任务赚钱明细*/
+	public static void taskList(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.TASKLIST), params,
+				handler);
+	}
+	/*收徒赚钱明细*/
+	public static void shouTuTaskList(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.SHOUTUTASKLIST), params,
+				handler);
+	}
+	/*兑换赚钱明细*/
+	public static void duiHuanTaskList(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.DUIHUANTASKLIST), params,
+				handler);
+	}
+	
+	
 }

@@ -2,17 +2,7 @@ package com.zykj.yuliang.activity;
 
 import java.io.File;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Environment;
-import android.view.KeyEvent;
-import android.view.View;
-import android.content.DialogInterface.OnClickListener;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import org.apache.http.Header;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
@@ -27,6 +17,18 @@ import com.zykj.yuliang.utils.CircleImageView;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 	private Button btn_detail;
@@ -37,9 +39,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 	private LinearLayout ll_duobao, ll_youhuiquan, ll_shengqian, ll_duihuan;// 一元夺宝,优惠券,省钱,兑换
 	private Intent intent;
 	private String userId,points;
-	private TextView tv_yue;
+	private TextView tv_yue,tv_todaymoney,tv_today_tudi;//余额、今日收入、今日收徒
 	private RequestParams params;
 	
+	 protected static String url =
+	 "http://gw.api.tbsandbox.com/router/rest";//沙箱环境调用地址
+	     //正式环境需要设置为:http://gw.api.taobao.com/router/rest
+//	     protected static String appkey = "test";
+//	     protected static String appSecret = "test";
+	 protected static String sessionkey = "test"; //如 沙箱测试帐号sandbox_c_1授权后得到的sessionkey
+	 protected static String AppKey="23286995";
+	 protected static String AppSecret="bb79863309952a3deff3438c81ea3dbd";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +63,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 		initEvents();
 
 	}
+	
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		requestData();
+	}
+
 
 	protected void initClick() {
 		btn_detail.setOnClickListener(this);
@@ -67,6 +85,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 	}
 
 	protected void initViews() {
+		tv_todaymoney=(TextView) findViewById(R.id.tv_todaymoney);//今日收入
+		tv_today_tudi=(TextView) findViewById(R.id.tv_today_tudi_num);//今日收徒
 		btn_detail = (Button) findViewById(R.id.btn_detail);//明细
 		btn_more = (Button) findViewById(R.id.more);//更多
 		ll_makemaoney = (LinearLayout) findViewById(R.id.ll_zhuanqian);//赚钱
@@ -129,7 +149,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 			}, params);
 			break;
 		case R.id.ll_shengqian://省钱
-			startActivity(new Intent(MainActivity.this, ApprenticeActivity.class));
+			//AppKey     AppSecret
+//			TaobaoClient client = new DefaultTaobaoClient(url, AppKey, AppSecret);//实例化TopClient类
+//	         UserSellerGetRequest req = new UserSellerGetRequest();//实例化具体API对应的Request类
+//	         req.setFields("nick,user_id,type");
+//	         //req.setNick("sandbox_c_1");
+//	         UserSellerGetResponse response;
+//	         try {
+//	             response = client.execute(req,sessionkey); //执行API请求并打印结果
+//	             System.out.println("result:"+response.getBody());
+//	          
+//	         } catch (ApiException e) {
+//	         // deal error
+//	         }
+			
 			break;
 		case R.id.ll_duihuan://兑换
 			startActivity(new Intent(MainActivity.this, DuiHuanActivity.class));
@@ -145,10 +178,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 	 */
 	private void requestData() {
 		
-		tv_yue.setText(BaseApp.getModel().getMoney());
+		tv_yue.setText(BaseApp.getModel().getMoney());//此处暂时为积分,待改为getMoney()
 		String avatar=BaseApp.getModel().getAvatar();
 		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), iv_header);
-		
+		/**
+		 * 获取用户积分
+		 */
 		params=new RequestParams();
 		params.put("deviceId", BaseApp.getModel().getDeviceId());
 		HttpUtils.getPoints(new HttpErrorHandler() {
@@ -157,7 +192,36 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 			public void onRecevieSuccess(JSONObject json) {
 				points = json.getJSONObject(UrlContants.jsonData).getString("points");
 			}
-		}, params);		
+		}, params);	
+		
+		/**
+		 * 今日收入
+		 */
+		params=new RequestParams();
+		params.put("userid", BaseApp.getModel().getUserid());
+		HttpUtils.getTodayIncome(new HttpErrorHandler() {
+			
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				String income = json.getString("datas");
+				tv_todaymoney.setText("今日收入："+income+"元");
+			}
+		}, params);
+		
+		/**
+		 * 今日收徒
+		 */
+		params=new RequestParams();
+		params.put("deviceId", BaseApp.getModel().getDeviceId());
+		HttpUtils.getTodayChildren(new HttpErrorHandler() {
+	
+			
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				String children = json.getString("datas");
+				tv_today_tudi.setText("今日收徒："+children+"个");				
+			}
+		}, params);
 	}
 
 	@Override

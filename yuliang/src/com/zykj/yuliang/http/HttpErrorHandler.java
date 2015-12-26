@@ -47,6 +47,6 @@ public abstract class HttpErrorHandler extends AbstractHttpHandler {
     public abstract void onRecevieSuccess(JSONObject json);
 
     public void onRecevieFailed(String status,JSONObject json){
-//    	onRecevieSuccess(json);
+    	onRecevieSuccess(json);
     };
 }

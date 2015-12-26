@@ -144,8 +144,8 @@ public class MoreActivity extends BaseActivity {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 
-					startActivity(new Intent(MoreActivity.this,
-							BindMobileActivity.class));
+					startActivityForResult(new Intent(MoreActivity.this,
+							BindMobileActivity.class),11);
 				}
 			});
 			builder.create().show();

@@ -362,10 +362,8 @@ public class UserInfoActivity extends BaseActivity {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					Tools.toast(UserInfoActivity.this, "上传头像成功");
-					String imgurl = json.getJSONObject(UrlContants.jsonData)
-							.getString("avatar");
-					BaseApp.getModel()
-							.setAvatar(UrlContants.IMAGE_URL + imgurl);
+					String imgurl = json.getJSONObject(UrlContants.jsonData).getString("avatar");
+					BaseApp.getModel().setAvatar(imgurl);
 					setResult(RESULT_OK);
 					finish();
 				}

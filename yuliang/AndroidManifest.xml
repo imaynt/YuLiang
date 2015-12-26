@@ -8,7 +8,6 @@
     <uses-sdk android:minSdkVersion="11" />
     <!-- android:targetSdkVersion="19"/> -->
 
-
     <!-- 读取手机状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- 允许程序写入外部存储，如SD卡上读写文件 -->
@@ -24,6 +23,11 @@
     <!-- 获取位置信息 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- taobao -->
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <!-- 联盟任务       多盟 积分墙广告 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -64,6 +68,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <!-- QQ -->
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -80,6 +85,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <!-- taobao -->
+        <activity android:name="com.alibaba.sdk.android.webview.BaseWebViewActivity" />
+        <receiver
+            android:name="com.alibaba.sdk.android.hotpatch.HotPatchBroadcastReceiver"
+            android:exported="false"
+            android:process=":hotpatch" >
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.hotpatch.action.HOT_PATCH" />
+            </intent-filter>
+        </receiver>
 
         <!-- 微信分享回调 -->
         <activity
@@ -146,7 +162,7 @@
             android:configChanges="keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <service android:name="com.dlnetwork.DevNativeService" />
+        <service android:name="com.zykjyulia.DevNativeService" />
 
         <!-- 联盟任务    有米     配置积分墙广告组件 -->
         <activity
@@ -193,7 +209,7 @@
 
                 <data android:scheme="package" />
             </intent-filter>
-        </receiver>
+        </receiver>
         -->
 
 
@@ -223,7 +239,7 @@
         <!-- 联盟任务    万普 -->
         <!--
 		<meta-data android:name="APP_ID"android:value="应用标识"/>
-		<meta-data android:name="APP_PID"android:value="分发渠道标识"/>
+		<meta-data android:name="APP_PID"android:value="分发渠道标识"/>
         -->
 
 
@@ -438,7 +454,7 @@
         	 android:configChanges="orientation|keyboardHidden"  键盘显隐状态
         	 android:launchMode="standard"启动模式standard为默认
         	 android:screenOrientation="portrait" 屏幕旋转模式portrait锁定垂直
-        	 android:windowSoftInputMode="stateHidden|adjustResize" 输入时界面重置
+        	 android:windowSoftInputMode="stateHidden|adjustResize" 输入时界面重置
         -->
         <activity
             android:name="com.zykj.yuliang.activity.JiFenActivity"

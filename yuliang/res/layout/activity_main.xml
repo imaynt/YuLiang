@@ -83,7 +83,7 @@
                         android:id="@+id/tv_todaymoney"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="今日收入2.00元"
+                        android:text=""
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -97,9 +97,10 @@
                     android:paddingTop="10dp" >
 
                     <TextView
+                        android:id="@+id/tv_today_tudi_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="今日收徒0个"
+                        android:text=""
                         android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>

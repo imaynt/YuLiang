@@ -24,11 +24,11 @@ import com.zykj.yuliang.utils.Tools;
 
 public class FirstLoginActivity extends BaseActivity implements OnClickListener {
 
-	private RelativeLayout rl_youyaoqing, rl_wuyaoqing, rl_yaoqingyes,
-			rl_huodeyes; // 有邀请id，无邀请id，确定按钮,获得金额
+	private RelativeLayout rl_youyaoqing, rl_wuyaoqing, rl_yaoqingyes, rl_huodeyes; // 有邀请id，无邀请id，确定按钮,获得金额
 	private LinearLayout ll_yaoqingid, ll_text_t, ll_text_s; // 输入邀请id
 	private EditText et_inputid; // id输入框
-	private String userId;// 用户的ID是服务器自动生成返回的
+	private String userId, shifuID;// 用户的ID是服务器自动生成返回的
+	private RequestParams params;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,32 +38,6 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 		initClick();
 		initEvents();
 
-		// // 获得手机的唯一标识
-		// TelephonyManager tm = (TelephonyManager)
-		// getSystemService(Context.TELEPHONY_SERVICE);
-		// final String DEVICE_ID = tm.getDeviceId();
-		//
-		// RequestParams params = new RequestParams();
-		// params.put("deviceId", DEVICE_ID);
-		// HttpUtils.autoReg(new HttpErrorHandler() {
-		//
-		// @Override
-		// public void onRecevieSuccess(JSONObject json) {
-		// JSONObject jsonObject = json
-		// .getJSONObject(UrlContants.jsonData);
-		// userId = jsonObject.getString("id");
-		// BaseApp.getModel().setUserid(userId);
-		// BaseApp.getModel().setDeviceId(DEVICE_ID);
-		// Tools.toast(FirstLoginActivity.this, "注册成功");
-		// }
-		//
-		// @Override
-		// public void onFailure(int statusCode, Header[] headers,
-		// byte[] responseBody, Throwable throwable) {
-		// super.onFailure(statusCode, headers, responseBody, throwable);
-		// Tools.toast(FirstLoginActivity.this, "此手机已注册");
-		// }
-		// }, params);
 	}
 
 	protected void initViews() {
@@ -92,19 +66,31 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.rl_youyaoqing:
+		case R.id.rl_youyaoqing:// 有邀请ID
 			rl_youyaoqing.setVisibility(View.GONE);
 			ll_yaoqingid.setVisibility(View.VISIBLE);
 			break;
-		case R.id.rl_wuyaoqing:
+		case R.id.rl_wuyaoqing:// 无邀请ID、
 			rl_youyaoqing.setVisibility(View.GONE);
 			ll_yaoqingid.setVisibility(View.GONE);
 			rl_wuyaoqing.setVisibility(View.GONE);
 			ll_text_t.setVisibility(View.VISIBLE);
 			ll_text_s.setVisibility(View.VISIBLE);
+			params = new RequestParams();
+			params.put("deviceid", BaseApp.getModel().getDeviceId());// deviceId没有获得,
+			HttpUtils.getPointsFromInvite(new HttpErrorHandler() {
+
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(FirstLoginActivity.this, "无邀请ID获得20积分");
+				}
+			}, params);
+			/**
+			 * 提交数据
+			 */
 			break;
-		case R.id.rl_yaoqingyes:
-			String shifuID = et_inputid.getText().toString().trim();
+		case R.id.rl_yaoqingyes:// 有邀请ID,并输入ID后的确定
+			shifuID = et_inputid.getText().toString().trim();
 			if (StringUtil.isEmpty(shifuID)) {
 				Tools.toast(FirstLoginActivity.this, "邀请ID不能为空，如没有请选择无邀请！");
 				return;
@@ -114,17 +100,23 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 			ll_yaoqingid.setVisibility(View.GONE);
 			ll_text_t.setVisibility(View.VISIBLE);
 			ll_text_s.setVisibility(View.VISIBLE);
+			params = new RequestParams();
+			params.put("deviceid", BaseApp.getModel().getDeviceId());// deviceId没有获得,
+			params.put("parentid", shifuID);
+			HttpUtils.getPointsFromInvite(new HttpErrorHandler() {
 
-			RequestParams params = new RequestParams();
-			params.put("uid", BaseApp.getModel().getDeviceId());// deviceId没有获得,
-			params.put("", shifuID);
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(FirstLoginActivity.this, "有邀请ID获得30积分");
+				}
+			}, params);
 			/**
 			 * 提交数据
 			 */
 			break;
 		case R.id.rl_huodeyes:
-			startActivity(new Intent(FirstLoginActivity.this,
-					MainActivity.class).putExtra("userId", userId));
+			startActivity(new Intent(FirstLoginActivity.this, MainActivity.class).putExtra("userId", userId));
+
 			finish();
 			break;
 		default:
