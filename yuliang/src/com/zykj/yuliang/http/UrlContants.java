@@ -27,7 +27,7 @@ public class UrlContants {
 
 	public static final String jsonData = "datas";
 
-	public static final String ERROR = "{\"code\":\"400\",\"message\":\"请求失败\",\"datas\":null}";
+	public static final String ERROR = "{\"code\":400,\"message\":\"请求失败\",\"datas\":null}";
 
 	public static final String ZERODATA = "{\"code\":200,\"message\":\"没有数据\",\"datas\":\"\"}";
 
