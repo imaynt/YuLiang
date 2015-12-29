@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/pic_main"
+        android:src="@drawable/pic_4"
         android:scaleType="fitXY" 
         android:contentDescription="@string/app_name"/>
 

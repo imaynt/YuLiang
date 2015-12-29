@@ -65,6 +65,10 @@ public class UrlContants {
 	
 	public static final String DUIHUANTASKLIST = "c=points&a=alltask_duihuan";//兑换赚钱明细
 	
+	public static final String ZHUANFA = "c=user&a=forword_get_money";//转发
+	
+	public static final String GETSCORELIST = "c=user&a=children_sum";//成绩单里面的详细
+	
 	
 	
 	

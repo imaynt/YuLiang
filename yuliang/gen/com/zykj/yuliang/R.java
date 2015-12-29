@@ -153,95 +153,97 @@ containing a value of this type.
     public static final class color {
         /**  浅灰 
          */
-        public static final int baby_gray=0x7f040027;
-        public static final int background_rectangles=0x7f040024;
+        public static final int baby_gray=0x7f050029;
+        public static final int background_rectangles=0x7f050026;
         /**  yuliang配色 
  顶部背景色 
          */
-        public static final int background_title=0x7f040023;
-        public static final int black=0x7f040005;
-        public static final int blend_item_divider_color=0x7f040020;
-        public static final int blend_item_pressed_color_transparent=0x7f040021;
-        public static final int blend_item_theme_color=0x7f04001f;
-        public static final int blend_item_theme_color_black=0x7f040022;
+        public static final int background_title=0x7f050025;
+        public static final int black=0x7f050007;
+        public static final int blend_item_divider_color=0x7f050022;
+        public static final int blend_item_pressed_color_transparent=0x7f050023;
+        public static final int blend_item_theme_color=0x7f050021;
+        public static final int blend_item_theme_color_black=0x7f050024;
         /**  深一点的金色 
          */
-        public static final int btn_blue=0x7f04001a;
+        public static final int btn_blue=0x7f05001c;
         /**  橙色按钮 
          */
-        public static final int btn_color=0x7f04001c;
+        public static final int btn_color=0x7f05001e;
         /**  金色按钮 
          */
-        public static final int btn_dgolden=0x7f040019;
+        public static final int btn_dgolden=0x7f05001b;
         /**  绿色按钮 
          */
-        public static final int btn_dgreen=0x7f040013;
+        public static final int btn_dgreen=0x7f050015;
         /**  灰色按钮 
          */
-        public static final int btn_dgrey=0x7f040016;
+        public static final int btn_dgrey=0x7f050018;
         /**  红色按钮 
          */
-        public static final int btn_dred=0x7f040010;
+        public static final int btn_dred=0x7f050012;
         /**  淡一点的灰色 
          */
-        public static final int btn_golden=0x7f040018;
+        public static final int btn_golden=0x7f05001a;
         /**  淡一点的红色 
          */
-        public static final int btn_green=0x7f040012;
+        public static final int btn_green=0x7f050014;
         /**  淡一点的绿色 
          */
-        public static final int btn_grey=0x7f040015;
+        public static final int btn_grey=0x7f050017;
         /**  深一点的绿色 
          */
-        public static final int btn_lgreen=0x7f040014;
+        public static final int btn_lgreen=0x7f050016;
         /**  深一点的灰色 
          */
-        public static final int btn_lgrey=0x7f040017;
+        public static final int btn_lgrey=0x7f050019;
         /**  深一点的红色 
          */
-        public static final int btn_lred=0x7f040011;
+        public static final int btn_lred=0x7f050013;
         /**  蓝色按钮 
          */
-        public static final int btn_orange=0x7f04001b;
+        public static final int btn_orange=0x7f05001d;
         /**  按钮不可点使用颜色 
          */
-        public static final int btn_red=0x7f04000f;
+        public static final int btn_red=0x7f050011;
         /**  按钮背景颜色定义 
          */
-        public static final int btn_unable=0x7f04000e;
-        public static final int dgrey=0x7f040004;
-        public static final int dialog_color=0x7f04002c;
-        public static final int dorange=0x7f040009;
-        public static final int golden=0x7f04000a;
+        public static final int btn_unable=0x7f050010;
+        public static final int dgrey=0x7f050006;
+        public static final int dialog_color=0x7f05002e;
+        public static final int dorange=0x7f05000b;
+        public static final int golden=0x7f05000c;
         /**  灰色 
          */
-        public static final int gray=0x7f040026;
-        public static final int grey=0x7f040002;
-        public static final int lgrey=0x7f040003;
-        public static final int lightblack=0x7f04001e;
+        public static final int gray=0x7f050028;
+        public static final int grey=0x7f050004;
+        public static final int lgrey=0x7f050005;
+        public static final int lightblack=0x7f050020;
         /**  Dialog 
          */
-        public static final int lightgray=0x7f04001d;
-        public static final int money_color=0x7f040029;
-        public static final int more_bg_color=0x7f04000d;
-        public static final int old_blue=0x7f040028;
-        public static final int old_orange=0x7f04002b;
+        public static final int lightgray=0x7f05001f;
+        public static final int money_color=0x7f05002b;
+        public static final int more_bg_color=0x7f05000f;
+        public static final int old_blue=0x7f05002a;
+        public static final int old_orange=0x7f05002d;
         /**  颜色 
  深灰 
          */
-        public static final int ole_gray=0x7f040025;
-        public static final int orange=0x7f040008;
-        public static final int poloere=0x7f04000b;
-        public static final int red=0x7f040001;
+        public static final int ole_gray=0x7f050027;
+        public static final int orange=0x7f05000a;
+        public static final int poloere=0x7f05000d;
+        public static final int red=0x7f050003;
+        public static final int score_bg=0x7f050002;
         /**  基本颜色定义 
          */
-        public static final int score_red=0x7f040000;
-        public static final int theme_color=0x7f04000c;
+        public static final int score_red=0x7f050001;
+        public static final int tae_sdk_login_qr_colors_highlight=0x7f050000;
+        public static final int theme_color=0x7f05000e;
         /**  透明 
          */
-        public static final int transparent=0x7f04002a;
-        public static final int white=0x7f040006;
-        public static final int yellow=0x7f040007;
+        public static final int transparent=0x7f05002c;
+        public static final int white=0x7f050008;
+        public static final int yellow=0x7f050009;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -250,8 +252,8 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f070000;
+        public static final int activity_vertical_margin=0x7f070001;
     }
     public static final class drawable {
         public static final int bg_bottom_lianmeng=0x7f020000;
@@ -264,351 +266,779 @@ containing a value of this type.
         public static final int blend_view_bg_default=0x7f020007;
         public static final int btn_orange=0x7f020008;
         public static final int clock_icon=0x7f020009;
-        public static final int common_title_back=0x7f02000a;
-        public static final int detail_content=0x7f02000b;
-        public static final int dh_bg_right=0x7f02000c;
-        public static final int dh_selected_false=0x7f02000d;
-        public static final int dh_selected_true=0x7f02000e;
-        public static final int edittext_border=0x7f02000f;
-        public static final int ic_launcher=0x7f020010;
-        public static final int icon_1=0x7f020011;
-        public static final int icon_collection_normal=0x7f020012;
-        public static final int icon_collection_select=0x7f020013;
-        public static final int icon_image_default=0x7f020014;
-        public static final int icon_share=0x7f020015;
-        public static final int jx_bg_center=0x7f020016;
-        public static final int jx_selected_false=0x7f020017;
-        public static final int jx_selected_true=0x7f020018;
-        public static final int layout_bg=0x7f020019;
-        public static final int line_rectangles=0x7f02001a;
-        public static final int load_img=0x7f02001b;
-        public static final int main_line_bottom=0x7f02001c;
-        public static final int main_line_rectangles=0x7f02001d;
-        public static final int no_header=0x7f02001e;
-        public static final int pic_chongzhi=0x7f02001f;
-        public static final int pic_duihuan=0x7f020020;
-        public static final int pic_shengqian=0x7f020021;
-        public static final int pic_shoutu=0x7f020022;
-        public static final int pic_translate=0x7f020023;
-        public static final int pic_yiyuanduobao=0x7f020024;
-        public static final int pic_youhuiquan=0x7f020025;
-        public static final int pic_zhifubao=0x7f020026;
-        public static final int pic_zhuanqian=0x7f020027;
-        public static final int qb_bg_left=0x7f020028;
-        public static final int qb_selected_false=0x7f020029;
-        public static final int qb_selected_true=0x7f02002a;
-        public static final int qustion_icon=0x7f02002b;
-        public static final int refresh=0x7f02002c;
-        public static final int selected_txtcolor=0x7f02002d;
-        public static final int shape_background=0x7f02002e;
-        public static final int shape_background_grey=0x7f02002f;
-        public static final int shape_rectangles=0x7f020030;
-        public static final int stroke_rectangles_list=0x7f020031;
-        public static final int symbol_left=0x7f020032;
-        public static final int symbol_right=0x7f020033;
-        public static final int touxiang=0x7f020034;
-        public static final int user_right=0x7f020035;
-        public static final int wheel_bg=0x7f020036;
-        public static final int wheel_val=0x7f020037;
-        public static final int xinfeng=0x7f020038;
-        public static final int xuanzhuan=0x7f020039;
+        public static final int com=0x7f02000a;
+        public static final int com_taobao_tae_sdk_root_cer=0x7f02000b;
+        public static final int com_taobao_tae_sdk_simple_toast_bg=0x7f02000c;
+        public static final int com_taobao_tae_sdk_web_view_menu_item_bg=0x7f02000d;
+        public static final int com_taobao_tae_sdk_web_view_title_bar_back=0x7f02000e;
+        public static final int com_taobao_tae_sdk_web_view_title_bar_close=0x7f02000f;
+        public static final int common_title_back=0x7f020010;
+        public static final int detail_content=0x7f020011;
+        public static final int dh_bg_right=0x7f020012;
+        public static final int dh_selected_false=0x7f020013;
+        public static final int dh_selected_true=0x7f020014;
+        public static final int edittext_border=0x7f020015;
+        public static final int ic_launcher=0x7f020016;
+        public static final int icon_1=0x7f020017;
+        public static final int icon_app=0x7f020018;
+        public static final int icon_collection_normal=0x7f020019;
+        public static final int icon_collection_select=0x7f02001a;
+        public static final int icon_image_default=0x7f02001b;
+        public static final int icon_share=0x7f02001c;
+        public static final int jx_bg_center=0x7f02001d;
+        public static final int jx_selected_false=0x7f02001e;
+        public static final int jx_selected_true=0x7f02001f;
+        public static final int layout_bg=0x7f020020;
+        public static final int line_rectangles=0x7f020021;
+        public static final int load_img=0x7f020022;
+        public static final int main_line_bottom=0x7f020023;
+        public static final int main_line_rectangles=0x7f020024;
+        public static final int news_rectangle=0x7f020025;
+        public static final int no_header=0x7f020026;
+        public static final int pic_1=0x7f020027;
+        public static final int pic_1_geren=0x7f020028;
+        public static final int pic_1_lianmeng=0x7f020029;
+        public static final int pic_1_xinshou=0x7f02002a;
+        public static final int pic_1_youchang=0x7f02002b;
+        public static final int pic_2=0x7f02002c;
+        public static final int pic_3=0x7f02002d;
+        public static final int pic_4=0x7f02002e;
+        public static final int pic_chongzhi=0x7f02002f;
+        public static final int pic_diancai=0x7f020030;
+        public static final int pic_dianle=0x7f020031;
+        public static final int pic_dianru=0x7f020032;
+        public static final int pic_duihuan=0x7f020033;
+        public static final int pic_duobao=0x7f020034;
+        public static final int pic_duomeng=0x7f020035;
+        public static final int pic_guomeng=0x7f020036;
+        public static final int pic_main=0x7f020037;
+        public static final int pic_shengqian=0x7f020038;
+        public static final int pic_shoutu=0x7f020039;
+        public static final int pic_translate=0x7f02003a;
+        public static final int pic_wanpu=0x7f02003b;
+        public static final int pic_xianjin=0x7f02003c;
+        public static final int pic_yiyuanduobao=0x7f02003d;
+        public static final int pic_youhuiquan=0x7f02003e;
+        public static final int pic_youmi=0x7f02003f;
+        public static final int pic_zhifubao=0x7f020040;
+        public static final int pic_zhuanfa=0x7f020041;
+        public static final int pic_zhuanqian=0x7f020042;
+        public static final int qb_bg_left=0x7f020043;
+        public static final int qb_selected_false=0x7f020044;
+        public static final int qb_selected_true=0x7f020045;
+        public static final int qustion_icon=0x7f020046;
+        public static final int refresh=0x7f020047;
+        public static final int selected_txtcolor=0x7f020048;
+        public static final int shape_background=0x7f020049;
+        public static final int shape_background_grey=0x7f02004a;
+        public static final int shape_news_rectangles=0x7f02004b;
+        public static final int shape_rectangles=0x7f02004c;
+        public static final int ssdk_oks_btn_back_nor=0x7f02004d;
+        public static final int ssdk_oks_classic_platform_corners_bg=0x7f02004e;
+        public static final int ssdk_oks_logo_qq=0x7f02004f;
+        public static final int ssdk_oks_logo_qzone=0x7f020050;
+        public static final int ssdk_oks_logo_sinaweibo=0x7f020051;
+        public static final int ssdk_oks_logo_wechat=0x7f020052;
+        public static final int ssdk_oks_logo_wechatfavorite=0x7f020053;
+        public static final int ssdk_oks_logo_wechatmoments=0x7f020054;
+        public static final int ssdk_oks_logo_yixinmoments=0x7f020055;
+        public static final int ssdk_oks_ptr_ptr=0x7f020056;
+        public static final int ssdk_oks_skyblue_actionbar_back_btn=0x7f020057;
+        public static final int ssdk_oks_skyblue_actionbar_ok_btn=0x7f020058;
+        public static final int ssdk_oks_skyblue_editpage_bg=0x7f020059;
+        public static final int ssdk_oks_skyblue_editpage_close=0x7f02005a;
+        public static final int ssdk_oks_skyblue_editpage_divider=0x7f02005b;
+        public static final int ssdk_oks_skyblue_editpage_image_bg=0x7f02005c;
+        public static final int ssdk_oks_skyblue_editpage_image_remove=0x7f02005d;
+        public static final int ssdk_oks_skyblue_platform_checked=0x7f02005e;
+        public static final int ssdk_oks_skyblue_platform_checked_disabled=0x7f02005f;
+        public static final int ssdk_oks_skyblue_platform_list_item=0x7f020060;
+        public static final int ssdk_oks_skyblue_platform_list_item_selected=0x7f020061;
+        public static final int ssdk_oks_skyblue_platform_list_selector=0x7f020062;
+        public static final int stroke_rectangles_list=0x7f020063;
+        public static final int symbol_left=0x7f020064;
+        public static final int symbol_right=0x7f020065;
+        public static final int tae_sdk_login_qr_title_corner=0x7f020066;
+        public static final int touxiang=0x7f020067;
+        public static final int user_right=0x7f020068;
+        public static final int wheel_bg=0x7f020069;
+        public static final int wheel_val=0x7f02006a;
+        public static final int xinfeng=0x7f02006b;
+        public static final int xlistview_arrow=0x7f02006c;
+        public static final int xuanzhuan=0x7f02006d;
+        public static final int yw_1222=0x7f02006e;
     }
     public static final class id {
-        public static final int aci_back_btn=0x7f09008d;
-        public static final int aci_back_textview=0x7f09008e;
-        public static final int aci_edit_textview=0x7f090091;
-        public static final int aci_mytitle=0x7f09001e;
-        public static final int aci_share_btn=0x7f090092;
-        public static final int aci_store_btn=0x7f090093;
-        public static final int aci_subtitle_textview=0x7f090090;
-        public static final int aci_title_textview=0x7f09008f;
-        public static final int action_settings=0x7f09009a;
-        public static final int blend_dialog_cancle_btn=0x7f090065;
-        public static final int blend_dialog_divider=0x7f090064;
-        public static final int blend_dialog_nextview=0x7f090063;
-        public static final int blend_dialog_title=0x7f090062;
-        public static final int btn_ac_back=0x7f090006;
-        public static final int btn_apprentice_back=0x7f090001;
-        public static final int btn_cq_back=0x7f090009;
-        public static final int btn_datetime_cancel=0x7f090098;
-        public static final int btn_datetime_sure=0x7f090099;
-        public static final int btn_detail=0x7f09004e;
-        public static final int btn_detail_back=0x7f090018;
-        public static final int btn_jf_back=0x7f09003e;
-        public static final int btn_jifen_back=0x7f090040;
-        public static final int btn_lianmeng_back=0x7f090046;
-        public static final int btn_makemoney_back=0x7f090017;
-        public static final int btn_new_back=0x7f090059;
-        public static final int btn_submit=0x7f09008b;
-        public static final int btn_youchang_back=0x7f090060;
-        public static final int btn_ziliao_back=0x7f090032;
-        public static final int civ_yuanjiao=0x7f090003;
-        public static final int day=0x7f090097;
-        public static final int dialog_item_textview=0x7f09006b;
-        public static final int dialog_load=0x7f090069;
-        public static final int dialog_modif_1=0x7f090066;
-        public static final int dialog_modif_2=0x7f090067;
-        public static final int dialog_modif_3=0x7f090068;
-        public static final int dialog_text=0x7f09006a;
-        public static final int ed_ID=0x7f090027;
-        public static final int ed_code=0x7f09008a;
-        public static final int ed_mobile=0x7f090023;
-        public static final int ed_mobile_code=0x7f09007e;
-        public static final int ed_mobile_number=0x7f09007d;
-        public static final int ed_name=0x7f090028;
-        public static final int ed_user_nick=0x7f090033;
-        public static final int et_inputid=0x7f09002f;
-        public static final int et_jifen_data=0x7f090044;
-        public static final int et_jifen_id=0x7f090041;
-        public static final int et_jifen_name=0x7f090042;
-        public static final int et_jifen_renwu=0x7f090043;
-        public static final int img_avatar=0x7f090035;
-        public static final int img_weixin=0x7f090089;
-        public static final int iv_header=0x7f090007;
-        public static final int iv_refresh=0x7f09005f;
-        public static final int iv_symbol_right=0x7f090005;
-        public static final int ll_ac_more=0x7f090004;
-        public static final int ll_answer_o=0x7f09005b;
-        public static final int ll_answer_t=0x7f09005d;
-        public static final int ll_avatar=0x7f090034;
-        public static final int ll_back_btn=0x7f09008c;
-        public static final int ll_bind_1=0x7f090078;
-        public static final int ll_bind_2=0x7f09007b;
-        public static final int ll_bind_mobile=0x7f090070;
-        public static final int ll_bind_mobile_ziliao=0x7f09003c;
-        public static final int ll_birthday=0x7f090037;
-        public static final int ll_business_coopration=0x7f090074;
-        public static final int ll_change_userId=0x7f090077;
-        public static final int ll_check_version=0x7f090075;
-        public static final int ll_chongzhi=0x7f09001f;
-        public static final int ll_common_question=0x7f090082;
-        public static final int ll_customer_center=0x7f090072;
-        public static final int ll_dianle=0x7f090049;
-        public static final int ll_dianru=0x7f09004b;
-        public static final int ll_duihuan=0x7f090021;
-        public static final int ll_duomeng=0x7f090048;
-        public static final int ll_jifenwenti=0x7f09003f;
-        public static final int ll_lianmeng=0x7f090055;
-        public static final int ll_new=0x7f090056;
-        public static final int ll_new_app=0x7f090002;
-        public static final int ll_news_notice=0x7f090073;
-        public static final int ll_nick=0x7f090022;
-        public static final int ll_profession=0x7f090039;
-        public static final int ll_score_list=0x7f090071;
-        public static final int ll_score_question=0x7f090080;
-        public static final int ll_sex=0x7f090024;
-        public static final int ll_shengqian=0x7f090054;
-        public static final int ll_shoutu=0x7f090051;
-        public static final int ll_submit=0x7f090026;
-        public static final int ll_text_s=0x7f09002b;
-        public static final int ll_text_t=0x7f09002a;
-        public static final int ll_tixian=0x7f090020;
-        public static final int ll_user_info=0x7f09006d;
-        public static final int ll_wanpu=0x7f09004c;
-        public static final int ll_weixin=0x7f09006f;
-        public static final int ll_weixin_ziliao=0x7f09003b;
-        public static final int ll_wx_custom=0x7f090081;
-        public static final int ll_yaoqingid=0x7f09002e;
-        public static final int ll_yiyuan=0x7f090047;
-        public static final int ll_yiyuanduobao=0x7f090052;
-        public static final int ll_youchang=0x7f090058;
-        public static final int ll_youhuiquan=0x7f090053;
-        public static final int ll_youmi=0x7f09004a;
-        public static final int ll_zhuanqian=0x7f090050;
-        public static final int ll_ziliao=0x7f090057;
-        public static final int log_frame=0x7f09001d;
-        public static final int month=0x7f090096;
-        public static final int more=0x7f09004f;
-        public static final int rb_duihuan=0x7f09001c;
-        public static final int rb_quanbu=0x7f090019;
-        public static final int rb_renwu=0x7f09001a;
-        public static final int rb_xuetu=0x7f09001b;
-        public static final int rl_huodeyes=0x7f09002c;
-        public static final int rl_jifen_click=0x7f090045;
-        public static final int rl_wuyaoqing=0x7f090031;
-        public static final int rl_yaoqingyes=0x7f090030;
-        public static final int rl_youyaoqing=0x7f09002d;
-        public static final int timePicker1=0x7f090094;
-        public static final int title_detail=0x7f090000;
-        public static final int tv_account=0x7f090025;
-        public static final int tv_answer_o=0x7f09005c;
-        public static final int tv_answer_t=0x7f09005e;
-        public static final int tv_answer_title=0x7f09005a;
-        public static final int tv_bind_descrip=0x7f09007c;
-        public static final int tv_bind_new_mobile=0x7f09007a;
-        public static final int tv_binded_mobile=0x7f090079;
-        public static final int tv_birthday=0x7f090038;
-        public static final int tv_content_0=0x7f09000a;
-        public static final int tv_content_1=0x7f09000b;
-        public static final int tv_content_10=0x7f090014;
-        public static final int tv_content_11=0x7f090015;
-        public static final int tv_content_12=0x7f090016;
-        public static final int tv_content_2=0x7f09000c;
-        public static final int tv_content_3=0x7f09000d;
-        public static final int tv_content_4=0x7f09000e;
-        public static final int tv_content_5=0x7f09000f;
-        public static final int tv_content_6=0x7f090010;
-        public static final int tv_content_7=0x7f090011;
-        public static final int tv_content_8=0x7f090012;
-        public static final int tv_content_9=0x7f090013;
-        public static final int tv_identify_code=0x7f09007f;
-        public static final int tv_mobile=0x7f09003d;
-        public static final int tv_o=0x7f090029;
-        public static final int tv_profession=0x7f09003a;
-        public static final int tv_sex=0x7f090036;
-        public static final int tv_task_shouru=0x7f090084;
-        public static final int tv_title=0x7f090061;
+        public static final int aci_back_btn=0x7f0900cc;
+        public static final int aci_back_textview=0x7f0900cd;
+        public static final int aci_edit_textview=0x7f0900d0;
+        public static final int aci_mytitle=0x7f090000;
+        public static final int aci_share_btn=0x7f0900d1;
+        public static final int aci_store_btn=0x7f0900d2;
+        public static final int aci_subtitle_textview=0x7f0900cf;
+        public static final int aci_title_textview=0x7f0900ce;
+        public static final int action_settings=0x7f0900e2;
+        public static final int actionbarLayout=0x7f090080;
+        public static final int atDescTextView=0x7f09008c;
+        public static final int atLayout=0x7f090087;
+        public static final int atTextView=0x7f09008b;
+        public static final int backImageView=0x7f09008f;
+        public static final int blend_dialog_cancle_btn=0x7f09007a;
+        public static final int blend_dialog_divider=0x7f090079;
+        public static final int blend_dialog_nextview=0x7f090078;
+        public static final int blend_dialog_title=0x7f090077;
+        public static final int btn_datetime_cancel=0x7f0900d7;
+        public static final int btn_datetime_sure=0x7f0900d8;
+        public static final int btn_detail=0x7f09004f;
+        public static final int btn_submit=0x7f0900ca;
+        public static final int checkedImageView=0x7f090094;
+        public static final int cimg_avatar=0x7f09009f;
+        public static final int civ_diancai=0x7f09004c;
+        public static final int civ_yuanjiao=0x7f090044;
+        public static final int closeImageView=0x7f090084;
+        public static final int com_taobao_tae_sdk_progress_dialog_body=0x7f09006d;
+        public static final int com_taobao_tae_sdk_progress_dialog_message=0x7f09006e;
+        public static final int com_taobao_tae_sdk_web_view_menu_item_title=0x7f090070;
+        public static final int com_taobao_tae_sdk_web_view_menu_layout=0x7f09006f;
+        public static final int com_taobao_tae_sdk_web_view_title_bar=0x7f090071;
+        public static final int com_taobao_tae_sdk_web_view_title_bar_back_button=0x7f090072;
+        public static final int com_taobao_tae_sdk_web_view_title_bar_close_button=0x7f090074;
+        public static final int com_taobao_tae_sdk_web_view_title_bar_title=0x7f090073;
+        public static final int common_title=0x7f090075;
+        public static final int day=0x7f0900d6;
+        public static final int dialog_item_textview=0x7f09009e;
+        public static final int dialog_load=0x7f09007e;
+        public static final int dialog_modif_1=0x7f09007b;
+        public static final int dialog_modif_2=0x7f09007c;
+        public static final int dialog_modif_3=0x7f09007d;
+        public static final int dialog_text=0x7f09007f;
+        public static final int divider=0x7f090085;
+        public static final int ed_ID=0x7f09001e;
+        public static final int ed_code=0x7f0900c9;
+        public static final int ed_mobile=0x7f090019;
+        public static final int ed_mobile_code=0x7f0900b9;
+        public static final int ed_mobile_number=0x7f0900b8;
+        public static final int ed_name=0x7f090020;
+        public static final int ed_user_nick=0x7f09002b;
+        public static final int et_inputid=0x7f090028;
+        public static final int et_jifen_data=0x7f090040;
+        public static final int et_jifen_id=0x7f09003d;
+        public static final int et_jifen_name=0x7f09003e;
+        public static final int et_jifen_renwu=0x7f09003f;
+        public static final int gridView=0x7f090091;
+        public static final int gv_tudi=0x7f090002;
+        public static final int hScrollView=0x7f090089;
+        public static final int ib_btn_back=0x7f090076;
+        public static final int imageRemoveBtn=0x7f09008e;
+        public static final int imageView=0x7f09008d;
+        public static final int imagesLinearLayout=0x7f09008a;
+        public static final int img_avatar=0x7f09002d;
+        public static final int img_score_avatar=0x7f0900bf;
+        public static final int img_tudi_avatar=0x7f0900a5;
+        public static final int img_weixin=0x7f0900c8;
+        public static final int income_framelayout=0x7f09003b;
+        public static final int iv_header=0x7f090006;
+        public static final int iv_refresh=0x7f090066;
+        public static final int iv_symbol_right=0x7f090045;
+        public static final int ll_account=0x7f090021;
+        public static final int ll_alipayId=0x7f09001d;
+        public static final int ll_answer_o=0x7f090060;
+        public static final int ll_answer_t=0x7f090062;
+        public static final int ll_avatar=0x7f09002c;
+        public static final int ll_back_btn=0x7f0900cb;
+        public static final int ll_bind_1=0x7f0900b3;
+        public static final int ll_bind_2=0x7f0900b6;
+        public static final int ll_bind_mobile=0x7f0900ab;
+        public static final int ll_bind_mobile_ziliao=0x7f090034;
+        public static final int ll_birthday=0x7f09002f;
+        public static final int ll_business_coopration=0x7f0900af;
+        public static final int ll_change_userId=0x7f0900b2;
+        public static final int ll_check_version=0x7f0900b0;
+        public static final int ll_chongzhi=0x7f090015;
+        public static final int ll_common_question=0x7f0900bd;
+        public static final int ll_customer_center=0x7f0900ad;
+        public static final int ll_diancai=0x7f09004b;
+        public static final int ll_dianle=0x7f090047;
+        public static final int ll_dianru=0x7f090049;
+        public static final int ll_duihuan=0x7f090017;
+        public static final int ll_duomeng=0x7f090046;
+        public static final int ll_jifenwenti=0x7f09003c;
+        public static final int ll_lianmeng=0x7f090056;
+        public static final int ll_more_app=0x7f090005;
+        public static final int ll_name=0x7f09001f;
+        public static final int ll_new=0x7f090057;
+        public static final int ll_news_notice=0x7f0900ae;
+        public static final int ll_nick=0x7f090018;
+        public static final int ll_profession=0x7f090031;
+        public static final int ll_score_list=0x7f0900ac;
+        public static final int ll_score_question=0x7f0900bb;
+        public static final int ll_sex=0x7f09001a;
+        public static final int ll_shaiyishai=0x7f0900c7;
+        public static final int ll_share_shoutu=0x7f090003;
+        public static final int ll_shengqian=0x7f090055;
+        public static final int ll_shoutu=0x7f090052;
+        public static final int ll_submit=0x7f09001c;
+        public static final int ll_text_s=0x7f090024;
+        public static final int ll_text_t=0x7f090023;
+        public static final int ll_tixian=0x7f090016;
+        public static final int ll_tudi_more=0x7f090001;
+        public static final int ll_user_info=0x7f0900a8;
+        public static final int ll_wanpu=0x7f09004a;
+        public static final int ll_weixin=0x7f0900aa;
+        public static final int ll_weixin_ziliao=0x7f090033;
+        public static final int ll_why_app=0x7f090004;
+        public static final int ll_wx_custom=0x7f0900bc;
+        public static final int ll_yaoqingid=0x7f090027;
+        public static final int ll_yiyuan=0x7f090043;
+        public static final int ll_yiyuanduobao=0x7f090053;
+        public static final int ll_youchang=0x7f090059;
+        public static final int ll_youhuiquan=0x7f090054;
+        public static final int ll_youmi=0x7f090048;
+        public static final int ll_zhuanfa=0x7f09006c;
+        public static final int ll_zhuanqian=0x7f090051;
+        public static final int ll_ziliao=0x7f090058;
+        public static final int logoImageView=0x7f090092;
+        public static final int ly_item_tudi=0x7f0900a4;
+        public static final int mainRelLayout=0x7f090081;
+        public static final int month=0x7f0900d5;
+        public static final int more=0x7f090050;
+        public static final int nameTextView=0x7f090093;
+        public static final int news_content=0x7f090064;
+        public static final int news_id=0x7f090065;
+        public static final int okImageView=0x7f090090;
+        public static final int pointsTextView=0x7f090042;
+        public static final int rb_duihuan=0x7f09003a;
+        public static final int rb_quanbu=0x7f090037;
+        public static final int rb_renwu=0x7f090038;
+        public static final int rb_xuetu=0x7f090039;
+        public static final int rl_huodeyes=0x7f090025;
+        public static final int rl_jifen_click=0x7f090041;
+        public static final int rl_wuyaoqing=0x7f09002a;
+        public static final int rl_yaoqingyes=0x7f090029;
+        public static final int rl_youyaoqing=0x7f090026;
+        public static final int tab_income=0x7f090036;
+        public static final int tae_sdk_login_qr_button_password=0x7f09009a;
+        public static final int tae_sdk_login_qr_button_scan=0x7f090099;
+        public static final int tae_sdk_login_qr_side_bar=0x7f090098;
+        public static final int tae_sdk_login_qr_text_taobao=0x7f090096;
+        public static final int tae_sdk_login_qr_title_bar=0x7f090095;
+        public static final int tae_sdk_login_qr_web_view=0x7f09009b;
+        public static final int tae_sdk_qr_login_button_close=0x7f090097;
+        public static final int textCounterTextView=0x7f090088;
+        public static final int textEditText=0x7f090086;
+        public static final int timePicker1=0x7f0900d3;
+        public static final int titleEditText=0x7f090083;
+        public static final int titleLayout=0x7f090082;
+        public static final int tv_account=0x7f09001b;
+        public static final int tv_answer_o=0x7f090061;
+        public static final int tv_answer_t=0x7f090063;
+        public static final int tv_answer_title=0x7f09005f;
+        public static final int tv_bind_descrip=0x7f0900b7;
+        public static final int tv_bind_new_mobile=0x7f0900b5;
+        public static final int tv_binded_mobile=0x7f0900b4;
+        public static final int tv_birthday=0x7f090030;
+        public static final int tv_content_0=0x7f090008;
+        public static final int tv_content_1=0x7f090009;
+        public static final int tv_content_10=0x7f090012;
+        public static final int tv_content_11=0x7f090013;
+        public static final int tv_content_12=0x7f090014;
+        public static final int tv_content_2=0x7f09000a;
+        public static final int tv_content_3=0x7f09000b;
+        public static final int tv_content_4=0x7f09000c;
+        public static final int tv_content_5=0x7f09000d;
+        public static final int tv_content_6=0x7f09000e;
+        public static final int tv_content_7=0x7f09000f;
+        public static final int tv_content_8=0x7f090010;
+        public static final int tv_content_9=0x7f090011;
+        public static final int tv_identify_code=0x7f0900ba;
+        public static final int tv_income_content=0x7f0900a3;
+        public static final int tv_income_date=0x7f0900a1;
+        public static final int tv_income_userId=0x7f0900a0;
+        public static final int tv_mobile=0x7f090035;
+        public static final int tv_more_app_1=0x7f09005a;
+        public static final int tv_more_app_2=0x7f09005b;
+        public static final int tv_more_app_3=0x7f09005c;
+        public static final int tv_more_app_4=0x7f09005d;
+        public static final int tv_more_app_5=0x7f09005e;
+        public static final int tv_o=0x7f090022;
+        public static final int tv_profession=0x7f090032;
+        public static final int tv_score_id=0x7f0900c0;
+        public static final int tv_score_income=0x7f0900be;
+        public static final int tv_sex=0x7f09002e;
+        public static final int tv_task_shouru=0x7f0900c2;
+        public static final int tv_title=0x7f09006b;
+        public static final int tv_today_tudi_num=0x7f09004e;
         public static final int tv_todaymoney=0x7f09004d;
-        public static final int tv_tudi_jl=0x7f090087;
-        public static final int tv_tudi_number=0x7f090086;
-        public static final int tv_tusun_jl=0x7f090088;
-        public static final int tv_used_days=0x7f090083;
-        public static final int tv_user_nick=0x7f09006e;
-        public static final int tv_version=0x7f090076;
-        public static final int tv_xuetu_jl=0x7f090085;
-        public static final int tv_yue=0x7f090008;
-        public static final int user_id=0x7f09006c;
-        public static final int year=0x7f090095;
+        public static final int tv_tudi_jl=0x7f0900c5;
+        public static final int tv_tudi_name=0x7f0900a6;
+        public static final int tv_tudi_number=0x7f0900c4;
+        public static final int tv_tusun_jl=0x7f0900c6;
+        public static final int tv_used_days=0x7f0900c1;
+        public static final int tv_user_id=0x7f0900a7;
+        public static final int tv_user_nick=0x7f0900a9;
+        public static final int tv_version=0x7f0900b1;
+        public static final int tv_why_app_1=0x7f090067;
+        public static final int tv_why_app_2=0x7f090068;
+        public static final int tv_why_app_3=0x7f090069;
+        public static final int tv_why_app_4=0x7f09006a;
+        public static final int tv_xuetu_content=0x7f0900a2;
+        public static final int tv_xuetu_jl=0x7f0900c3;
+        public static final int tv_yue=0x7f090007;
+        public static final int viewGroup=0x7f09009d;
+        public static final int viewPager=0x7f09009c;
+        public static final int xlistview_footer_content=0x7f0900d9;
+        public static final int xlistview_footer_hint_textview=0x7f0900db;
+        public static final int xlistview_footer_progressbar=0x7f0900da;
+        public static final int xlistview_header_arrow=0x7f0900e0;
+        public static final int xlistview_header_content=0x7f0900dc;
+        public static final int xlistview_header_hint_textview=0x7f0900de;
+        public static final int xlistview_header_progressbar=0x7f0900e1;
+        public static final int xlistview_header_text=0x7f0900dd;
+        public static final int xlistview_header_time=0x7f0900df;
+        public static final int year=0x7f0900d4;
     }
     public static final class layout {
         public static final int activity_apprentice=0x7f030000;
         public static final int activity_apprentice_content=0x7f030001;
         public static final int activity_common_question=0x7f030002;
         public static final int activity_custom_service=0x7f030003;
-        public static final int activity_detail=0x7f030004;
-        public static final int activity_duihuan=0x7f030005;
-        public static final int activity_duihuan_chongzhi=0x7f030006;
-        public static final int activity_duihuan_duihuan=0x7f030007;
-        public static final int activity_duihuan_tixian=0x7f030008;
-        public static final int activity_first=0x7f030009;
-        public static final int activity_geren=0x7f03000a;
-        public static final int activity_header=0x7f03000b;
+        public static final int activity_duihuan=0x7f030004;
+        public static final int activity_duihuan_chongzhi=0x7f030005;
+        public static final int activity_duihuan_duihuan=0x7f030006;
+        public static final int activity_duihuan_tixian=0x7f030007;
+        public static final int activity_first=0x7f030008;
+        public static final int activity_geren=0x7f030009;
+        public static final int activity_header=0x7f03000a;
+        public static final int activity_income_detail=0x7f03000b;
         public static final int activity_jifen=0x7f03000c;
         public static final int activity_jifen_problem=0x7f03000d;
         public static final int activity_lianmeng=0x7f03000e;
         public static final int activity_main=0x7f03000f;
         public static final int activity_makemoney=0x7f030010;
-        public static final int activity_new=0x7f030011;
-        public static final int activity_quanbu_content=0x7f030012;
-        public static final int activity_refresh=0x7f030013;
-        public static final int activity_refresh_icon=0x7f030014;
-        public static final int activity_renwu_content=0x7f030015;
-        public static final int activity_xuetu_content=0x7f030016;
-        public static final int activity_youchang=0x7f030017;
-        public static final int dialog_listview=0x7f030018;
-        public static final int dialog_picture=0x7f030019;
-        public static final int dialog_request=0x7f03001a;
-        public static final int ui_item_dialog=0x7f03001b;
-        public static final int ui_more=0x7f03001c;
-        public static final int ui_more_bind_mobile=0x7f03001d;
-        public static final int ui_more_business_cooperation=0x7f03001e;
-        public static final int ui_more_customer_center=0x7f03001f;
-        public static final int ui_more_news_notice=0x7f030020;
-        public static final int ui_more_score_list=0x7f030021;
-        public static final int ui_more_user_info=0x7f030022;
-        public static final int ui_more_weixin=0x7f030023;
-        public static final int ui_mycommontitle=0x7f030024;
-        public static final int ui_myshareandstoretitle=0x7f030025;
-        public static final int ui_time_layout=0x7f030026;
+        public static final int activity_more_app=0x7f030011;
+        public static final int activity_new=0x7f030012;
+        public static final int activity_news_content=0x7f030013;
+        public static final int activity_news_list=0x7f030014;
+        public static final int activity_quanbu_content=0x7f030015;
+        public static final int activity_refresh=0x7f030016;
+        public static final int activity_refresh_icon=0x7f030017;
+        public static final int activity_renwu_content=0x7f030018;
+        public static final int activity_why_app=0x7f030019;
+        public static final int activity_xuetu_content=0x7f03001a;
+        public static final int activity_youchang=0x7f03001b;
+        public static final int activity_youchang_details=0x7f03001c;
+        public static final int com_taobao_tae_sdk_progress_dialog=0x7f03001d;
+        public static final int com_taobao_tae_sdk_web_view_activity=0x7f03001e;
+        public static final int com_taobao_tae_sdk_web_view_menu=0x7f03001f;
+        public static final int com_taobao_tae_sdk_web_view_menu_item=0x7f030020;
+        public static final int com_taobao_tae_sdk_web_view_title_bar=0x7f030021;
+        public static final int common_title=0x7f030022;
+        public static final int dialog_listview=0x7f030023;
+        public static final int dialog_picture=0x7f030024;
+        public static final int dialog_request=0x7f030025;
+        public static final int ssdk_oks_skyblue_editpage=0x7f030026;
+        public static final int ssdk_oks_skyblue_editpage_at_layout=0x7f030027;
+        public static final int ssdk_oks_skyblue_editpage_inc_image_layout=0x7f030028;
+        public static final int ssdk_oks_skyblue_share_actionbar=0x7f030029;
+        public static final int ssdk_oks_skyblue_share_platform_list=0x7f03002a;
+        public static final int ssdk_oks_skyblue_share_platform_list_item=0x7f03002b;
+        public static final int tae_sdk_login_qr_activity_layout=0x7f03002c;
+        public static final int ui_intro=0x7f03002d;
+        public static final int ui_item_dialog=0x7f03002e;
+        public static final int ui_item_income=0x7f03002f;
+        public static final int ui_item_tudi=0x7f030030;
+        public static final int ui_more=0x7f030031;
+        public static final int ui_more_bind_mobile=0x7f030032;
+        public static final int ui_more_business_cooperation=0x7f030033;
+        public static final int ui_more_customer_center=0x7f030034;
+        public static final int ui_more_news_notice=0x7f030035;
+        public static final int ui_more_score_list=0x7f030036;
+        public static final int ui_more_user_info=0x7f030037;
+        public static final int ui_more_weixin=0x7f030038;
+        public static final int ui_mycommontitle=0x7f030039;
+        public static final int ui_myshareandstoretitle=0x7f03003a;
+        public static final int ui_time_layout=0x7f03003b;
+        public static final int ui_welcome=0x7f03003c;
+        public static final int xlistview_footer=0x7f03003d;
+        public static final int xlistview_header=0x7f03003e;
     }
     public static final class menu {
         public static final int main=0x7f080000;
     }
     public static final class string {
-        public static final int ID=0x7f060020;
-        public static final int action_settings=0x7f060016;
+        public static final int ID=0x7f040126;
+        public static final int action_settings=0x7f04011c;
+        public static final int alisdk_message_10000_action=0x7f040054;
+        public static final int alisdk_message_10000_message=0x7f040053;
+        public static final int alisdk_message_10000_name=0x7f040052;
+        public static final int alisdk_message_10000_type=0x7f040055;
+        public static final int alisdk_message_10002_action=0x7f040012;
+        public static final int alisdk_message_10002_message=0x7f040011;
+        public static final int alisdk_message_10002_name=0x7f040010;
+        public static final int alisdk_message_10002_type=0x7f040013;
+        public static final int alisdk_message_10003_action=0x7f040058;
+        public static final int alisdk_message_10003_message=0x7f040057;
+        public static final int alisdk_message_10003_name=0x7f040056;
+        public static final int alisdk_message_10003_type=0x7f040059;
+        public static final int alisdk_message_10004_action=0x7f04005c;
+        public static final int alisdk_message_10004_message=0x7f04005b;
+        public static final int alisdk_message_10004_name=0x7f04005a;
+        public static final int alisdk_message_10004_type=0x7f04005d;
+        public static final int alisdk_message_10005_action=0x7f04006c;
+        public static final int alisdk_message_10005_message=0x7f04006b;
+        public static final int alisdk_message_10005_name=0x7f04006a;
+        public static final int alisdk_message_10005_type=0x7f04006d;
+        public static final int alisdk_message_10008_action=0x7f040074;
+        public static final int alisdk_message_10008_message=0x7f040073;
+        /**  trade  801-900 
+         */
+        public static final int alisdk_message_10008_name=0x7f040072;
+        public static final int alisdk_message_10008_type=0x7f040075;
+        public static final int alisdk_message_10009_action=0x7f040078;
+        public static final int alisdk_message_10009_message=0x7f040077;
+        public static final int alisdk_message_10009_name=0x7f040076;
+        public static final int alisdk_message_10009_type=0x7f040079;
+        public static final int alisdk_message_10010_action=0x7f04000a;
+        public static final int alisdk_message_10010_message=0x7f040009;
+        public static final int alisdk_message_10010_name=0x7f040008;
+        public static final int alisdk_message_10010_type=0x7f04000b;
+        public static final int alisdk_message_10011_action=0x7f040070;
+        public static final int alisdk_message_10011_message=0x7f04006f;
+        public static final int alisdk_message_10011_name=0x7f04006e;
+        public static final int alisdk_message_10011_type=0x7f040071;
+        public static final int alisdk_message_10012_action=0x7f04001a;
+        public static final int alisdk_message_10012_message=0x7f040019;
+        public static final int alisdk_message_10012_name=0x7f040018;
+        public static final int alisdk_message_10012_type=0x7f04001b;
+        public static final int alisdk_message_10014_action=0x7f040036;
+        public static final int alisdk_message_10014_message=0x7f040035;
+        public static final int alisdk_message_10014_name=0x7f040034;
+        public static final int alisdk_message_10014_type=0x7f040037;
+        public static final int alisdk_message_10015_action=0x7f04003a;
+        public static final int alisdk_message_10015_message=0x7f040039;
+        public static final int alisdk_message_10015_name=0x7f040038;
+        public static final int alisdk_message_10015_type=0x7f04003b;
+        public static final int alisdk_message_10016_action=0x7f040050;
+        public static final int alisdk_message_10016_message=0x7f04004f;
+        public static final int alisdk_message_10016_type=0x7f040051;
+        public static final int alisdk_message_10022_action=0x7f040016;
+        public static final int alisdk_message_10022_message=0x7f040015;
+        public static final int alisdk_message_10022_name=0x7f040014;
+        public static final int alisdk_message_10022_type=0x7f040017;
+        public static final int alisdk_message_100_action=0x7f04000e;
+        public static final int alisdk_message_100_message=0x7f04000d;
+        public static final int alisdk_message_100_name=0x7f04000c;
+        public static final int alisdk_message_100_type=0x7f04000f;
+        public static final int alisdk_message_101_action=0x7f040068;
+        public static final int alisdk_message_101_message=0x7f040067;
+        public static final int alisdk_message_101_name=0x7f040066;
+        public static final int alisdk_message_101_type=0x7f040069;
+        public static final int alisdk_message_12_action=0x7f04001e;
+        public static final int alisdk_message_12_message=0x7f04001d;
+        public static final int alisdk_message_12_name=0x7f04001c;
+        public static final int alisdk_message_12_type=0x7f04001f;
+        public static final int alisdk_message_13_action=0x7f040022;
+        public static final int alisdk_message_13_message=0x7f040021;
+        public static final int alisdk_message_13_name=0x7f040020;
+        public static final int alisdk_message_13_type=0x7f040023;
+        public static final int alisdk_message_14_action=0x7f040026;
+        public static final int alisdk_message_14_message=0x7f040025;
+        public static final int alisdk_message_14_name=0x7f040024;
+        public static final int alisdk_message_14_type=0x7f040027;
+        public static final int alisdk_message_15_action=0x7f04002a;
+        public static final int alisdk_message_15_message=0x7f040029;
+        public static final int alisdk_message_15_name=0x7f040028;
+        public static final int alisdk_message_15_type=0x7f04002b;
+        public static final int alisdk_message_16_action=0x7f04002e;
+        public static final int alisdk_message_16_message=0x7f04002d;
+        public static final int alisdk_message_16_name=0x7f04002c;
+        public static final int alisdk_message_16_type=0x7f04002f;
+        public static final int alisdk_message_17_action=0x7f040032;
+        public static final int alisdk_message_17_message=0x7f040031;
+        public static final int alisdk_message_17_name=0x7f040030;
+        public static final int alisdk_message_17_type=0x7f040033;
+        public static final int alisdk_message_1_action=0x7f040002;
+        public static final int alisdk_message_1_message=0x7f040001;
+        public static final int alisdk_message_1_name=0x7f040000;
+        public static final int alisdk_message_1_type=0x7f040003;
+        public static final int alisdk_message_2_action=0x7f040006;
+        public static final int alisdk_message_2_message=0x7f040005;
+        public static final int alisdk_message_2_name=0x7f040004;
+        public static final int alisdk_message_2_type=0x7f040007;
+        public static final int alisdk_message_651_action=0x7f04003e;
+        public static final int alisdk_message_651_message=0x7f04003d;
+        /**  651-700 
+         */
+        public static final int alisdk_message_651_name=0x7f04003c;
+        public static final int alisdk_message_651_type=0x7f04003f;
+        public static final int alisdk_message_701_action=0x7f040041;
+        public static final int alisdk_message_701_message=0x7f040040;
+        public static final int alisdk_message_701_type=0x7f040042;
+        public static final int alisdk_message_702_action=0x7f040044;
+        public static final int alisdk_message_702_message=0x7f040043;
+        public static final int alisdk_message_702_type=0x7f040045;
+        public static final int alisdk_message_703_action=0x7f040047;
+        public static final int alisdk_message_703_message=0x7f040046;
+        public static final int alisdk_message_703_type=0x7f040048;
+        public static final int alisdk_message_704_action=0x7f04004a;
+        public static final int alisdk_message_704_message=0x7f040049;
+        public static final int alisdk_message_704_type=0x7f04004b;
+        public static final int alisdk_message_705_action=0x7f04004d;
+        public static final int alisdk_message_705_message=0x7f04004c;
+        public static final int alisdk_message_705_type=0x7f04004e;
+        public static final int alisdk_message_801_action=0x7f04007c;
+        public static final int alisdk_message_801_message=0x7f04007b;
+        public static final int alisdk_message_801_name=0x7f04007a;
+        public static final int alisdk_message_801_type=0x7f04007d;
+        public static final int alisdk_message_802_action=0x7f040080;
+        public static final int alisdk_message_802_message=0x7f04007f;
+        public static final int alisdk_message_802_name=0x7f04007e;
+        public static final int alisdk_message_802_type=0x7f040081;
+        public static final int alisdk_message_803_action=0x7f040084;
+        public static final int alisdk_message_803_message=0x7f040083;
+        public static final int alisdk_message_803_name=0x7f040082;
+        public static final int alisdk_message_803_type=0x7f040085;
+        public static final int alisdk_message_804_action=0x7f040088;
+        public static final int alisdk_message_804_message=0x7f040087;
+        public static final int alisdk_message_804_name=0x7f040086;
+        public static final int alisdk_message_804_type=0x7f040089;
+        public static final int alisdk_message_805_action=0x7f04008c;
+        public static final int alisdk_message_805_message=0x7f04008b;
+        public static final int alisdk_message_805_name=0x7f04008a;
+        public static final int alisdk_message_805_type=0x7f04008d;
+        public static final int alisdk_message_806_action=0x7f040090;
+        public static final int alisdk_message_806_message=0x7f04008f;
+        public static final int alisdk_message_806_name=0x7f04008e;
+        public static final int alisdk_message_806_type=0x7f040091;
+        public static final int alisdk_message_807_action=0x7f040094;
+        public static final int alisdk_message_807_message=0x7f040093;
+        public static final int alisdk_message_807_name=0x7f040092;
+        public static final int alisdk_message_807_type=0x7f040095;
+        public static final int alisdk_message_808_action=0x7f040098;
+        public static final int alisdk_message_808_message=0x7f040097;
+        public static final int alisdk_message_808_name=0x7f040096;
+        public static final int alisdk_message_808_type=0x7f040099;
+        public static final int alisdk_message_951_action=0x7f040060;
+        public static final int alisdk_message_951_message=0x7f04005f;
+        public static final int alisdk_message_951_name=0x7f04005e;
+        public static final int alisdk_message_951_type=0x7f040061;
+        public static final int alisdk_message_952_action=0x7f040064;
+        public static final int alisdk_message_952_message=0x7f040063;
+        public static final int alisdk_message_952_name=0x7f040062;
+        public static final int alisdk_message_952_type=0x7f040065;
+        public static final int app_content=0x7f040105;
+        /**  点入的appkey 
+         */
+        public static final int app_key=0x7f040103;
         /**  更多 
          */
-        public static final int app_name=0x7f060015;
-        public static final int avatar=0x7f06002d;
-        public static final int bind_descrip=0x7f060036;
-        public static final int birthday=0x7f06002f;
-        public static final int business=0x7f060026;
-        public static final int business_custom=0x7f060034;
-        public static final int business_descrip=0x7f060035;
-        public static final int changeuser=0x7f060028;
-        public static final int chongzhi_account=0x7f06000f;
+        public static final int app_name=0x7f04011b;
+        public static final int app_name1=0x7f040104;
+        public static final int avatar=0x7f040133;
+        public static final int bind_descrip=0x7f04013c;
+        public static final int birthday=0x7f040135;
+        public static final int business=0x7f04012c;
+        public static final int business_custom=0x7f04013a;
+        public static final int business_descrip=0x7f04013b;
+        public static final int changeuser=0x7f04012e;
+        public static final int chongzhi_account=0x7f040115;
         /**  兑换         充值 
          */
-        public static final int chongzhi_desp=0x7f06000d;
-        public static final int chongzhi_mobile=0x7f06000e;
-        public static final int common_question=0x7f060033;
-        public static final int cuntomer=0x7f060024;
-        public static final int duihuan=0x7f06000a;
-        public static final int duihuan_account=0x7f060014;
+        public static final int chongzhi_desp=0x7f040113;
+        public static final int chongzhi_mobile=0x7f040114;
+        public static final int com_taobao_tae_sdk_alert_message=0x7f04009e;
+        public static final int com_taobao_tae_sdk_authorize_title=0x7f0400a1;
+        public static final int com_taobao_tae_sdk_back_message=0x7f04009a;
+        public static final int com_taobao_tae_sdk_cart_title=0x7f0400aa;
+        public static final int com_taobao_tae_sdk_close_message=0x7f04009b;
+        public static final int com_taobao_tae_sdk_loading_progress_message=0x7f04009c;
+        public static final int com_taobao_tae_sdk_login_progress_message=0x7f0400a0;
+        public static final int com_taobao_tae_sdk_logout_fail_message=0x7f0400a7;
+        public static final int com_taobao_tae_sdk_network_not_available_message=0x7f04009f;
+        public static final int com_taobao_tae_sdk_qr_login_title_bar_text=0x7f0400a6;
+        public static final int com_taobao_tae_sdk_system_exception=0x7f04009d;
+        public static final int com_taobao_tae_sdk_trade_confirm_progress_message=0x7f0400a8;
+        public static final int com_taobao_tae_sdk_trade_title=0x7f0400a9;
+        public static final int common_question=0x7f040139;
+        public static final int cuntomer=0x7f04012a;
+        public static final int duihuan=0x7f040110;
+        public static final int duihuan_account=0x7f04011a;
         /**  兑换         兑换币兑换 
          */
-        public static final int duihuan_desp=0x7f060013;
-        public static final int duihuan_num=0x7f06000b;
-        public static final int hello_world=0x7f060017;
-        public static final int identify_code=0x7f06001e;
-        public static final int info=0x7f060021;
-        public static final int input_bind_mobile=0x7f06001b;
-        public static final int input_mobile_code=0x7f06001d;
-        public static final int input_mobile_number=0x7f06001a;
-        public static final int input_nick=0x7f06002c;
-        public static final int load_data=0x7f06000c;
-        public static final int mobile=0x7f060018;
-        public static final int mobile_code=0x7f06001c;
-        public static final int mobile_number=0x7f060019;
-        public static final int news=0x7f060025;
-        public static final int nick=0x7f06002b;
-        public static final int positive=0x7f06001f;
-        public static final int profession=0x7f060030;
-        public static final int ren=0x7f060044;
-        public static final int score=0x7f060023;
-        public static final int score_desp=0x7f060045;
-        public static final int score_question=0x7f060031;
-        public static final int sex=0x7f06002e;
-        public static final int shaidan=0x7f060041;
-        public static final int shengqian=0x7f060009;
-        public static final int shengqian_num=0x7f060008;
-        public static final int shoutu=0x7f060002;
-        public static final int shoutu_num=0x7f060003;
-        public static final int step1=0x7f060038;
-        public static final int step2=0x7f060039;
-        public static final int step3=0x7f06003a;
-        public static final int submit=0x7f06002a;
-        public static final int task_shouru=0x7f06003c;
-        public static final int tian=0x7f060043;
-        public static final int title_apprentice=0x7f060048;
-        public static final int title_common_question=0x7f06004f;
+        public static final int duihuan_desp=0x7f040119;
+        public static final int duihuan_num=0x7f040111;
+        public static final int hello_world=0x7f04011d;
+        public static final int identify_code=0x7f040124;
+        public static final int info=0x7f040127;
+        public static final int input_bind_mobile=0x7f040121;
+        public static final int input_mobile_code=0x7f040123;
+        public static final int input_mobile_number=0x7f040120;
+        public static final int input_nick=0x7f040132;
+        public static final int load_data=0x7f040112;
+        public static final int mobile=0x7f04011e;
+        public static final int mobile_code=0x7f040122;
+        public static final int mobile_number=0x7f04011f;
+        public static final int news=0x7f04012b;
+        public static final int nick=0x7f040131;
+        public static final int positive=0x7f040125;
+        public static final int profession=0x7f040136;
+        public static final int ren=0x7f04014a;
+        public static final int score=0x7f040129;
+        public static final int score_desp=0x7f04014b;
+        public static final int score_question=0x7f040137;
+        public static final int sex=0x7f040134;
+        public static final int shaidan=0x7f040147;
+        public static final int shengqian=0x7f04010f;
+        public static final int shengqian_num=0x7f04010e;
+        public static final int shoutu=0x7f040108;
+        public static final int shoutu_num=0x7f040109;
+        public static final int ssdk_alipay=0x7f0400fb;
+        public static final int ssdk_alipay_client_inavailable=0x7f0400cb;
+        public static final int ssdk_baidutieba=0x7f0400f8;
+        public static final int ssdk_baidutieba_client_inavailable=0x7f0400c9;
+        public static final int ssdk_bluetooth=0x7f0400ee;
+        public static final int ssdk_douban=0x7f0400db;
+        public static final int ssdk_dropbox=0x7f0400e5;
+        public static final int ssdk_email=0x7f0400d6;
+        public static final int ssdk_evernote=0x7f0400dd;
+        public static final int ssdk_facebook=0x7f0400d2;
+        public static final int ssdk_facebookmessenger=0x7f0400f7;
+        public static final int ssdk_flickr=0x7f0400e3;
+        public static final int ssdk_foursquare=0x7f0400e0;
+        public static final int ssdk_google_plus_client_inavailable=0x7f0400c0;
+        public static final int ssdk_googleplus=0x7f0400df;
+        public static final int ssdk_instagram=0x7f0400e7;
+        public static final int ssdk_instagram_client_inavailable=0x7f0400c3;
+        public static final int ssdk_instapager_email_or_password_incorrect=0x7f0400f6;
+        public static final int ssdk_instapager_login_html=0x7f0400ab;
+        public static final int ssdk_instapaper=0x7f0400f1;
+        public static final int ssdk_instapaper_email=0x7f0400f2;
+        public static final int ssdk_instapaper_login=0x7f0400f4;
+        public static final int ssdk_instapaper_logining=0x7f0400f5;
+        public static final int ssdk_instapaper_pwd=0x7f0400f3;
+        public static final int ssdk_kaixin=0x7f0400d5;
+        public static final int ssdk_kakaostory=0x7f0400ec;
+        public static final int ssdk_kakaostory_client_inavailable=0x7f0400c7;
+        public static final int ssdk_kakaotalk=0x7f0400eb;
+        public static final int ssdk_kakaotalk_client_inavailable=0x7f0400c6;
+        public static final int ssdk_laiwang=0x7f0400f9;
+        public static final int ssdk_laiwang_client_inavailable=0x7f0400ca;
+        public static final int ssdk_laiwangmoments=0x7f0400fa;
+        public static final int ssdk_line=0x7f0400ed;
+        public static final int ssdk_line_client_inavailable=0x7f0400c5;
+        public static final int ssdk_linkedin=0x7f0400de;
+        public static final int ssdk_mingdao=0x7f0400ea;
+        public static final int ssdk_mingdao_share_content=0x7f0400ff;
+        public static final int ssdk_neteasemicroblog=0x7f0400da;
+        public static final int ssdk_oks_cancel=0x7f0400ac;
+        public static final int ssdk_oks_finish=0x7f0400ad;
+        public static final int ssdk_oks_list_friends=0x7f0400b5;
+        public static final int ssdk_oks_multi_share=0x7f0400b1;
+        public static final int ssdk_oks_pull_to_refresh=0x7f0400b7;
+        public static final int ssdk_oks_refreshing=0x7f0400b9;
+        public static final int ssdk_oks_release_to_refresh=0x7f0400b8;
+        public static final int ssdk_oks_select_a_friend=0x7f0400bb;
+        public static final int ssdk_oks_select_one_plat_at_least=0x7f0400b4;
+        public static final int ssdk_oks_shake2share=0x7f0400ba;
+        public static final int ssdk_oks_share=0x7f0400b0;
+        public static final int ssdk_oks_share_canceled=0x7f0400b3;
+        public static final int ssdk_oks_share_completed=0x7f0400b2;
+        public static final int ssdk_oks_share_failed=0x7f0400b6;
+        public static final int ssdk_oks_share_to=0x7f0400af;
+        public static final int ssdk_oks_sharing=0x7f0400ae;
+        public static final int ssdk_pinterest=0x7f0400e2;
+        public static final int ssdk_pinterest_client_inavailable=0x7f0400c2;
+        public static final int ssdk_pocket=0x7f0400f0;
+        public static final int ssdk_qq=0x7f0400e1;
+        public static final int ssdk_qq_client_inavailable=0x7f0400c1;
+        public static final int ssdk_qzone=0x7f0400ce;
+        public static final int ssdk_renren=0x7f0400d4;
+        public static final int ssdk_share_to_baidutieba=0x7f0400fc;
+        public static final int ssdk_share_to_mingdao=0x7f040100;
+        public static final int ssdk_share_to_qq=0x7f0400fe;
+        public static final int ssdk_share_to_qzone=0x7f0400fd;
+        public static final int ssdk_share_to_qzone_default=0x7f040101;
+        public static final int ssdk_shortmessage=0x7f0400d7;
+        public static final int ssdk_sinaweibo=0x7f0400cc;
+        public static final int ssdk_sohumicroblog=0x7f0400d8;
+        public static final int ssdk_sohusuishenkan=0x7f0400d9;
+        public static final int ssdk_tencentweibo=0x7f0400cd;
+        public static final int ssdk_tumblr=0x7f0400e4;
+        public static final int ssdk_twitter=0x7f0400d3;
+        public static final int ssdk_use_login_button=0x7f040102;
+        public static final int ssdk_vkontakte=0x7f0400e6;
+        public static final int ssdk_website=0x7f0400bd;
+        public static final int ssdk_wechat=0x7f0400cf;
+        public static final int ssdk_wechat_client_inavailable=0x7f0400bf;
+        public static final int ssdk_wechatfavorite=0x7f0400d1;
+        public static final int ssdk_wechatmoments=0x7f0400d0;
+        public static final int ssdk_weibo_oauth_regiseter=0x7f0400bc;
+        public static final int ssdk_weibo_upload_content=0x7f0400be;
+        public static final int ssdk_whatsapp=0x7f0400ef;
+        public static final int ssdk_whatsapp_client_inavailable=0x7f0400c8;
+        public static final int ssdk_yixin=0x7f0400e8;
+        public static final int ssdk_yixin_client_inavailable=0x7f0400c4;
+        public static final int ssdk_yixinmoments=0x7f0400e9;
+        public static final int ssdk_youdao=0x7f0400dc;
+        public static final int step1=0x7f04013e;
+        public static final int step2=0x7f04013f;
+        public static final int step3=0x7f040140;
+        public static final int submit=0x7f040130;
+        public static final int tae_sdk_login_qr_icon_close=0x7f0400a3;
+        public static final int tae_sdk_login_qr_icon_taobao=0x7f0400a2;
+        public static final int tae_sdk_qr_login_icon_password=0x7f0400a5;
+        public static final int tae_sdk_qr_login_icon_scan=0x7f0400a4;
+        public static final int task_shouru=0x7f040142;
+        public static final int tian=0x7f040149;
+        public static final int title_apprentice=0x7f04014e;
+        public static final int title_common_question=0x7f040156;
         /**  顶部文字 
          */
-        public static final int title_detail=0x7f060046;
-        public static final int title_jifen=0x7f06004d;
-        public static final int title_jifenproblem=0x7f06004e;
-        public static final int title_lianmeng=0x7f06004a;
-        public static final int title_makemoney=0x7f060047;
-        public static final int title_my_info=0x7f060049;
-        public static final int title_xinshou=0x7f06004c;
-        public static final int title_ziliao=0x7f06004b;
+        public static final int title_detail=0x7f04014c;
+        public static final int title_jifen=0x7f040154;
+        public static final int title_jifenproblem=0x7f040155;
+        public static final int title_lianmeng=0x7f040150;
+        public static final int title_makemoney=0x7f04014d;
+        public static final int title_my_info=0x7f04014f;
+        public static final int title_newscontent=0x7f040158;
+        public static final int title_newslist=0x7f040157;
+        public static final int title_xinshou=0x7f040153;
+        public static final int title_youchang=0x7f040151;
+        public static final int title_ziliao=0x7f040152;
         /**  兑换         提现 
          */
-        public static final int tixian_ID=0x7f060010;
-        public static final int tixian_account=0x7f060012;
-        public static final int tixian_name=0x7f060011;
-        public static final int tudi_jiangli=0x7f06003f;
-        public static final int tudi_number=0x7f06003e;
-        public static final int tusun_jiangli=0x7f060040;
-        public static final int update=0x7f060027;
+        public static final int tixian_ID=0x7f040116;
+        public static final int tixian_account=0x7f040118;
+        public static final int tixian_name=0x7f040117;
+        public static final int tudi_jiangli=0x7f040145;
+        public static final int tudi_number=0x7f040144;
+        public static final int tusun_jiangli=0x7f040146;
+        public static final int update=0x7f04012d;
         /**  成绩单 
          */
-        public static final int used_days=0x7f06003b;
-        public static final int version=0x7f060029;
-        public static final int weixin=0x7f060022;
-        public static final int wx_custom=0x7f060032;
-        public static final int wx_notice=0x7f060037;
-        public static final int xuetu_jiangli=0x7f06003d;
-        public static final int yiyuanduobao=0x7f060004;
-        public static final int yiyuanduobao_num=0x7f060005;
-        public static final int youhuiquan=0x7f060006;
-        public static final int youhuiquan_num=0x7f060007;
-        public static final int yuan=0x7f060042;
+        public static final int used_days=0x7f040141;
+        public static final int version=0x7f04012f;
+        public static final int weixin=0x7f040128;
+        public static final int wx_custom=0x7f040138;
+        public static final int wx_notice=0x7f04013d;
+        public static final int xlistview_footer_hint_normal=0x7f04015d;
+        public static final int xlistview_footer_hint_ready=0x7f04015e;
+        public static final int xlistview_header_hint_loading=0x7f04015b;
+        /**  按钮上字符串 
+         */
+        public static final int xlistview_header_hint_normal=0x7f040159;
+        public static final int xlistview_header_hint_ready=0x7f04015a;
+        public static final int xlistview_header_last_time=0x7f04015c;
+        public static final int xuetu_jiangli=0x7f040143;
+        public static final int yiyuanduobao=0x7f04010a;
+        public static final int yiyuanduobao_num=0x7f04010b;
+        public static final int youhuiquan=0x7f04010c;
+        public static final int youhuiquan_num=0x7f04010d;
+        public static final int yuan=0x7f040148;
         /**  主页 
          */
-        public static final int zhuanqian=0x7f060000;
-        public static final int zhuanqian_num=0x7f060001;
+        public static final int zhuanqian=0x7f040106;
+        public static final int zhuanqian_num=0x7f040107;
     }
     public static final class style {
         /** 
@@ -638,26 +1068,27 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f060001;
         /**  Application theme. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f060002;
         /**  dialog风格 
          */
-        public static final int CustomDialog=0x7f070006;
+        public static final int CustomDialog=0x7f060007;
         /**  自定义请求dialog的风格 
          */
-        public static final int RequestDialog=0x7f070007;
-        public static final int blend_theme_dialog=0x7f070002;
+        public static final int RequestDialog=0x7f060008;
+        public static final int blend_theme_dialog=0x7f060003;
         /**  收徒字体样式 
          */
-        public static final int shoutu_txt_style=0x7f070005;
+        public static final int shoutu_txt_style=0x7f060006;
+        public static final int tae_sdk_login_qr_activity_style=0x7f060000;
         /**  顶部返回栏 
          */
-        public static final int title_head=0x7f070003;
+        public static final int title_head=0x7f060004;
         /**  顶部我的名片 
          */
-        public static final int title_my_info=0x7f070004;
+        public static final int title_my_info=0x7f060005;
     }
     public static final class styleable {
         /** Attributes that can be used with a ChangeColorIconWithText.
@@ -691,7 +1122,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bg_color
+          @attr name com.zykj.yuliang:bg_color
         */
         public static final int ChangeColorIconWithText_bg_color = 1;
         /**
@@ -701,7 +1132,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:bg_icon
+          @attr name com.zykj.yuliang:bg_icon
         */
         public static final int ChangeColorIconWithText_bg_icon = 0;
         /**
@@ -715,7 +1146,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bg_text
+          @attr name com.zykj.yuliang:bg_text
         */
         public static final int ChangeColorIconWithText_bg_text = 2;
         /**
@@ -731,7 +1162,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bg_text_size
+          @attr name com.zykj.yuliang:bg_text_size
         */
         public static final int ChangeColorIconWithText_bg_text_size = 3;
         /**  圆形imageview 
@@ -761,7 +1192,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:border_color
+          @attr name com.zykj.yuliang:border_color
         */
         public static final int CircleImageView_border_color = 1;
         /**
@@ -777,7 +1208,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:border_width
+          @attr name com.zykj.yuliang:border_width
         */
         public static final int CircleImageView_border_width = 0;
         /** Attributes that can be used with a MyRadioButton.
@@ -809,7 +1240,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:drawableBottom
+          @attr name com.zykj.yuliang:drawableBottom
         */
         public static final int MyRadioButton_drawableBottom = 2;
         /**
@@ -819,7 +1250,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:drawableLeft
+          @attr name com.zykj.yuliang:drawableLeft
         */
         public static final int MyRadioButton_drawableLeft = 4;
         /**
@@ -829,7 +1260,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:drawableRight
+          @attr name com.zykj.yuliang:drawableRight
         */
         public static final int MyRadioButton_drawableRight = 3;
         /**
@@ -839,7 +1270,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:drawableTop
+          @attr name com.zykj.yuliang:drawableTop
         */
         public static final int MyRadioButton_drawableTop = 1;
         /**
@@ -855,7 +1286,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:drawable_size
+          @attr name com.zykj.yuliang:drawable_size
         */
         public static final int MyRadioButton_drawable_size = 0;
         /** Attributes that can be used with a roundedimageview.
@@ -887,7 +1318,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:border_inside_color
+          @attr name com.zykj.yuliang:border_inside_color
         */
         public static final int roundedimageview_border_inside_color = 1;
         /**
@@ -902,7 +1333,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:border_outside_color
+          @attr name com.zykj.yuliang:border_outside_color
         */
         public static final int roundedimageview_border_outside_color = 2;
         /**
@@ -918,7 +1349,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:border_thickness
+          @attr name com.zykj.yuliang:border_thickness
         */
         public static final int roundedimageview_border_thickness = 0;
         /**  自定义imageview 
@@ -953,7 +1384,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:border_size
+          @attr name com.zykj.yuliang:border_size
         */
         public static final int shapeimageview_border_size = 0;
         /**
@@ -968,7 +1399,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:in_border_color
+          @attr name com.zykj.yuliang:in_border_color
         */
         public static final int shapeimageview_in_border_color = 1;
         /**
@@ -983,7 +1414,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:out_border_color
+          @attr name com.zykj.yuliang:out_border_color
         */
         public static final int shapeimageview_out_border_color = 2;
         /**
@@ -997,7 +1428,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:shape_type
+          @attr name com.zykj.yuliang:shape_type
         */
         public static final int shapeimageview_shape_type = 3;
     };

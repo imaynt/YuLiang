@@ -8,9 +8,18 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import org.apache.http.Header;
+
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
 import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.CommonUtils;
+import com.zykj.yuliang.utils.Tools;
 import com.zykj.yuliang.view.MyCommonTitle;
 
 public class YouChangDetailsActivity extends BaseActivity {

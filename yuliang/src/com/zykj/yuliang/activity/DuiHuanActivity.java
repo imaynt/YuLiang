@@ -1,6 +1,10 @@
 package com.zykj.yuliang.activity;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -46,7 +50,18 @@ public class DuiHuanActivity extends BaseActivity {
 			startActivity(new Intent(DuiHuanActivity.this, DuiHuanTiXianiActivity.class));
 			break;
 		case R.id.ll_duihuan:
-			startActivity(new Intent(DuiHuanActivity.this, DuiHuanDuiHuanActivity.class));
+			AlertDialog.Builder builder=new Builder(DuiHuanActivity.this);
+			builder.setTitle("温馨提示");
+			builder.setMessage("此功能暂时未开通，还请谅解！");
+			builder.setPositiveButton("确定", new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+			builder.create().show();
+//			startActivity(new Intent(DuiHuanActivity.this, DuiHuanDuiHuanActivity.class));
 			break;
 		default:
 			break;

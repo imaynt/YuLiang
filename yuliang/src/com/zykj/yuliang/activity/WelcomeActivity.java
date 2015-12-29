@@ -101,7 +101,7 @@ public class WelcomeActivity extends BaseActivity {
 				if (is_intro.length() > 0 && version == save_version_int) {// 已经进行过指引,且版本号符合
 					should_intro = false;
 				} else {
-					should_intro = false;// true为第一次安装进入轮播图
+					should_intro = true;// true为第一次安装进入轮播图
 				}
 				if (should_intro) {// 需要指引为true,跳转轮播图,指引过了为false直接跳转主界面
 					Intent intent = new Intent(WelcomeActivity.this, IntroActivity.class);

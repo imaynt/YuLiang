@@ -129,6 +129,17 @@ public class HttpUtils {
 		client.post(UrlContants.getUrl(UrlContants.DUIHUANTASKLIST), params,
 				handler);
 	}
-	
+	/*转发赚钱*/
+	public static void zhuanFa(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.ZHUANFA), params,
+				handler);
+	}
+	/*成绩单内容数据*/
+	public static void getScoreList(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.GETSCORELIST), params,
+				handler);
+	}
 	
 }

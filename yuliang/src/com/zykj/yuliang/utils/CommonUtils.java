@@ -28,11 +28,16 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.adapter.NumericWheelAdapter;
 import com.zykj.yuliang.adapter.OnWheelChangedListener;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.view.WheelView;
 
 public class CommonUtils {
@@ -183,6 +188,16 @@ public class CommonUtils {
 			public void onComplete(Platform arg0, int arg1,
 					HashMap<String, Object> arg2) {
 				Tools.toast(context, "分享成功");
+				RequestParams params=new RequestParams();
+				params.put("deviceId", BaseApp.getModel().getDeviceId());
+				HttpUtils.zhuanFa(new HttpErrorHandler() {
+					
+					@Override
+					public void onRecevieSuccess(JSONObject json) {
+						String account=json.getJSONObject(UrlContants.jsonData).getString("account");
+						BaseApp.getModel().setMoney(account);
+					}
+				}, params);
 			}
 
 			@Override
@@ -210,6 +225,7 @@ public class CommonUtils {
 		// 启动分享GUI
 		oks.show(context);
 
+		
 		// OnekeyShare oks = new OnekeyShare();
 		// //关闭sso授权
 		// oks.disableSSOWhenAuthorize();

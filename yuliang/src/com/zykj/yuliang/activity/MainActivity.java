@@ -227,6 +227,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
 				String income = json.getString("datas");
+				if(StringUtil.isEmpty(income)){
+					income="0";
+				}
 				tv_todaymoney.setText("今日收入："+income+"元");
 			}
 		}, params);
@@ -242,6 +245,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
 				String children = json.getString("datas");
+				if(StringUtil.isEmpty(children)){
+					children="0";
+				}
 				tv_today_tudi.setText("今日收徒："+children+"个");				
 			}
 		}, params);

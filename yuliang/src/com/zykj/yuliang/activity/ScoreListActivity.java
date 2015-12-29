@@ -6,10 +6,16 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.apache.http.Header;
+
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.HttpErrorHandler;
+import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.CommonUtils;
 import com.zykj.yuliang.utils.StringUtil;
@@ -22,6 +28,8 @@ public class ScoreListActivity extends BaseActivity {
 			tudi_number, tudi_jl, tusun_jl;
 	private RoundImageView img_avatar;
 	private LinearLayout btn_submit;
+	private String data;
+	private RequestParams params;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +65,50 @@ public class ScoreListActivity extends BaseActivity {
 		String avatar=BaseApp.getModel().getAvatar();
 		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), img_avatar);
 		tv_id.setText(BaseApp.getModel().getUserid());
-		
+			params=new RequestParams();
+			params.put("deviceId", BaseApp.getModel().getDeviceId());
+			params.put("type", "1");
+			HttpUtils.getScoreList(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					data=json.getString("datas");
+						used_days.setText(data);
+				}
+			}, params);
+			params=new RequestParams();
+			params.put("deviceId", BaseApp.getModel().getDeviceId());
+			params.put("type", "2");
+			HttpUtils.getScoreList(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					data=json.getString("datas");
+						task_income.setText(data);
+				}
+			}, params);
+			params=new RequestParams();
+			params.put("deviceId", BaseApp.getModel().getDeviceId());
+			params.put("type", "3");
+			HttpUtils.getScoreList(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					data=json.getString("datas");
+						tudi_number.setText(data);
+				}
+			}, params);
+			params=new RequestParams();
+			params.put("deviceId", BaseApp.getModel().getDeviceId());
+			params.put("type", "4");
+			HttpUtils.getScoreList(new HttpErrorHandler() {
+				
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					data=json.getString("datas");
+						tudi_jl.setText(data);
+				}
+			}, params);
 	}
 
 	@Override

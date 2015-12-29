@@ -92,7 +92,8 @@ public class IncomeAdapter extends BaseAdapter {
 		// if(mType==2){
 		// holder.aci_incomerId.setText("我");
 		// }
-		holder.aci_incomerId.setText(income.getUid().equals(BaseApp.getModel().getUserid()) ? "我" : income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
+//		holder.aci_incomerId.setText(income.getUid().equals(BaseApp.getModel().getUserid()) ? "我" : income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
+		holder.aci_incomerId.setText(income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
 		holder.aci_incomeDate.setText(income.getTimestamp());
 		// 任务收入的显示和学徒的显示不同
 		holder.aci_incomeCotent.setText("完成：" + income.getDescription() + "，" + "赚了"
