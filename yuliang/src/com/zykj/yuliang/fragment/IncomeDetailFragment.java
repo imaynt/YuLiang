@@ -50,6 +50,7 @@ public class IncomeDetailFragment extends Fragment implements IXListViewListener
 		bundle.putInt("type", type);
 		fragment.setArguments(bundle);
 		return fragment;
+		
 	}
 
 	/**
