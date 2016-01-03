@@ -2,6 +2,10 @@ package com.zykj.yuliang.activity;
 
 import ger.oiu.dsl.AdManager;
 import ger.oiu.dsl.os.OffersManager;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -66,13 +70,23 @@ public class LianMengActivity extends BaseActivity {
 		switch (v.getId()) {
 
 		case R.id.ll_yiyuan:// 一元夺宝
-
+			AlertDialog.Builder builder=new Builder(LianMengActivity.this);
+			builder.setTitle("温馨提示");
+			builder.setMessage("一元夺宝功能暂时未开通，还请谅解");
+			builder.setPositiveButton("确定", new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+			builder.create().show();
 			break;
-		case R.id.ll_duomeng:// 多盟
-			// openOfferWall();
-			DOW.getInstance(this).init();// 初始化积分墙
-			DOW.getInstance(this).show(this);
-			break;
+//		case R.id.ll_duomeng:// 多盟
+//			// openOfferWall();
+//			DOW.getInstance(this).init();// 初始化积分墙
+//			DOW.getInstance(this).show(this);
+//			break;
 		case R.id.ll_dianle:// 点乐
 			DevInit.initGoogleContext(this, DIANJOY_APP_ID);
 			DevInit.setCurrentUserID(this, BaseApp.getModel().getDeviceId());// 此处为设备ID................................

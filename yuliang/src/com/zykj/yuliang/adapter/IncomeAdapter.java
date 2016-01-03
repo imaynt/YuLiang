@@ -92,16 +92,16 @@ public class IncomeAdapter extends BaseAdapter {
 		// if(mType==2){
 		// holder.aci_incomerId.setText("我");
 		// }
-//		holder.aci_incomerId.setText(income.getUid().equals(BaseApp.getModel().getUserid()) ? "我" : income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
-		holder.aci_incomerId.setText(income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
+		holder.aci_incomerId.setText(income.getParentid().equals(BaseApp.getModel().getUserid())?income.getUid():"我");// 任务显示我的ID,学徒显示徒弟的ID
+//		holder.aci_incomerId.setText(income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
 		holder.aci_incomeDate.setText(income.getTimestamp());
 		// 任务收入的显示和学徒的显示不同
 		holder.aci_incomeCotent.setText("完成：" + income.getDescription() + "，" + "赚了"
 				+ Html.fromHtml("<font color=#FF0000>" + income.getMoney() + "</font>") + "元");
 		
-//		holder.aci_xuetuCotent.setText(text);//这个为收徒的内容....................................
+		holder.aci_xuetuCotent.setText(income.getUid()+"成为您的徒弟");//这个为收徒的内容....................................
 		
-		holder.aci_xuetuCotent.setVisibility(mType == 3 ? View.VISIBLE : View.GONE);// 点击学徒,显示的内容
+		holder.aci_xuetuCotent.setVisibility(mType == 3 || mType == 1 ? View.VISIBLE : View.GONE);// 点击学徒,显示的内容
 		holder.aci_incomeCotent.setVisibility(mType == 2 || mType == 1 || mType == 4 ? View.VISIBLE : View.GONE);// 点击任务显示的内容
 
 		

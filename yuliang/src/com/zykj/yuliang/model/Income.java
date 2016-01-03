@@ -7,12 +7,14 @@ public class Income implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String id;//任务ID
-	private String uid;//收入来源者的ID
+	private String uid;//徒弟的ID
+	private String parentid;//师傅ID
 	private String description;//任务名称
 	private String money;//收入金额
 	private String deviceid;
 	private String timestamp;//收入日期
 	private String incomeAvatar;//头像
+	
 	
 	public String getId() {
 		return id;
@@ -25,6 +27,12 @@ public class Income implements Serializable{
 	}
 	public void setUid(String uid) {
 		this.uid = uid;
+	}
+	public String getParentid() {
+		return parentid;
+	}
+	public void setParentid(String parentid) {
+		this.parentid = parentid;
 	}
 	public String getDescription() {
 		return description;

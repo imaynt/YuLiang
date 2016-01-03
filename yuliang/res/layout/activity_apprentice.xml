@@ -45,6 +45,7 @@
                     android:gravity="right" >
 
                     <TextView
+                        android:id="@+id/tv_income"
                         style="@style/shoutu_txt_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -70,6 +71,7 @@
                     android:gravity="right" >
 
                     <TextView
+                        android:id="@+id/tv_tudi_num"
                         style="@style/shoutu_txt_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -149,7 +151,7 @@
                 android:id="@+id/gv_tudi"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:numColumns="3"
                 android:scrollbars="none" />

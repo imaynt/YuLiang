@@ -3,13 +3,10 @@ package com.zykj.yuliang.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.Header;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -19,9 +16,7 @@ import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
-import com.zykj.yuliang.utils.CommonUtils;
 import com.zykj.yuliang.utils.StringUtil;
-import com.zykj.yuliang.utils.TextUtil;
 import com.zykj.yuliang.utils.Tools;
 import com.zykj.yuliang.view.MyCommonTitle;
 import com.zykj.yuliang.view.PickDialog;

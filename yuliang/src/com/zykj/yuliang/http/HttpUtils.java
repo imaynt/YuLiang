@@ -141,5 +141,23 @@ public class HttpUtils {
 		client.post(UrlContants.getUrl(UrlContants.GETSCORELIST), params,
 				handler);
 	}
+	/*徒弟列表*/
+	public static void getChildrenList(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.GETCHILDRENLIST), params,
+				handler);
+	}
+	/*徒弟详情*/
+	public static void getChildrenInfo(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.GETCHILDRENINFO), params,
+				handler);
+	}
+	/*师傅从徒弟收入获得的提成*/
+	public static void getIncomeFromTudi(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.GETINCOMEFROMTUDI), params,
+				handler);
+	}
 	
 }

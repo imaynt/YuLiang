@@ -3,21 +3,13 @@ package com.zykj.yuliang.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.Header;
-
-import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.yuliang.BaseApp;
-import com.zykj.yuliang.R;
-import com.zykj.yuliang.adapter.CommonAdapter;
 import com.zykj.yuliang.adapter.IncomeAdapter;
-import com.zykj.yuliang.adapter.ViewHolder;
 import com.zykj.yuliang.http.EntityHandler;
-import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.model.Income;
-import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.view.XListView;
 import com.zykj.yuliang.view.XListView.IXListViewListener;
 
@@ -30,7 +22,7 @@ import android.view.ViewGroup;
 
 public class IncomeDetailFragment extends Fragment implements IXListViewListener {
 
-	private static int PERPAGE = 5;// perpage默认每页显示10条信息
+	private static int PERPAGE = 10;// perpage默认每页显示10条信息
 	private int nowpage = 1;// 当前显示的页面
 	private int mType = 1;// 1全部 2任务3学徒4兑换
 	private IncomeAdapter incomeAdapter;

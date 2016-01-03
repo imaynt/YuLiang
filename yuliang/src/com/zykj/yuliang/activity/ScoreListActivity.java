@@ -67,7 +67,7 @@ public class ScoreListActivity extends BaseActivity {
 		tv_id.setText(BaseApp.getModel().getUserid());
 			params=new RequestParams();
 			params.put("deviceId", BaseApp.getModel().getDeviceId());
-			params.put("type", "1");
+			params.put("type", "1");//使用天数1，
 			HttpUtils.getScoreList(new HttpErrorHandler() {
 				
 				@Override
@@ -78,7 +78,7 @@ public class ScoreListActivity extends BaseActivity {
 			}, params);
 			params=new RequestParams();
 			params.put("deviceId", BaseApp.getModel().getDeviceId());
-			params.put("type", "2");
+			params.put("type", "2");//任务收入2，
 			HttpUtils.getScoreList(new HttpErrorHandler() {
 				
 				@Override
@@ -89,7 +89,7 @@ public class ScoreListActivity extends BaseActivity {
 			}, params);
 			params=new RequestParams();
 			params.put("deviceId", BaseApp.getModel().getDeviceId());
-			params.put("type", "3");
+			params.put("type", "3");//徒弟人数3，
 			HttpUtils.getScoreList(new HttpErrorHandler() {
 				
 				@Override
@@ -100,7 +100,7 @@ public class ScoreListActivity extends BaseActivity {
 			}, params);
 			params=new RequestParams();
 			params.put("deviceId", BaseApp.getModel().getDeviceId());
-			params.put("type", "4");
+			params.put("type", "4");//徒弟奖励4
 			HttpUtils.getScoreList(new HttpErrorHandler() {
 				
 				@Override

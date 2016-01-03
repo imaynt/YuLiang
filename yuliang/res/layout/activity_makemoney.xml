@@ -1,290 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:app1="http://schemas.android.com/apk/res/com.yuliang"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/more_bg_color"
     android:orientation="vertical" >
-
-    <!-- 顶部返回栏 -->
 
     <com.zykj.yuliang.view.MyCommonTitle
         android:id="@+id/aci_mytitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:orientation="vertical" 
-            android:background="@drawable/bg_line_topbottom"
-            android:paddingLeft="15dp">
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:id="@+id/ll_lianmeng"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stroke_rectangles_list"              
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <LinearLayout
+                <com.zykj.yuliang.utils.CircleImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/pic_1_lianmeng" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:layout_marginLeft="15dp"
+                    android:text="联盟任务"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                    <!-- 圆形直角图 -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="下载试用立得现金"
+                    android:textColor="@color/gray" />
 
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="17dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginTop="17dp"
-                        android:background="@color/white" >
-
-                        <com.zykj.yuliang.utils.CircleImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/pic_1_lianmeng"
-                            app:border_color="@color/transparent"
-                            app:border_width="0dp" />
-                       
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="联盟任务"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="right|center_vertical"
-                    android:orientation="horizontal" >
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="下载试用立得现金"
-                        android:textColor="@color/gray" />
-                    
-                    <ImageButton 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/symbol_right"
-                        android:background="@color/white"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp"
-                        />
-                    
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/user_right" />
             </LinearLayout>
-            
+
+
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/ll_new"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stroke_rectangles_list"              
-                android:orientation="horizontal" >
+                android:layout_height="50dp"
+                android:layout_marginTop="1dp"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:visibility="gone" >
 
-                <LinearLayout
+                <com.zykj.yuliang.utils.CircleImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/pic_1_xinshou" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:layout_marginLeft="15dp"
+                    android:text="新手任务"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                    <!-- 圆形直角图 -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="完成就赚 0.5元"
+                    android:textColor="@color/gray" />
 
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="17dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginTop="17dp"
-                        android:background="@color/white" >
-
-                        <com.zykj.yuliang.utils.CircleImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/pic_1_xinshou"
-                            app:border_color="@color/transparent"
-                            app:border_width="0dp" />
-                       
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="新手教程"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="right|center_vertical"
-                    android:orientation="horizontal" >
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="完成就赚 0.3 元"
-                        android:textColor="@color/gray" />
-                    
-                    <ImageButton 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/symbol_right"
-                        android:background="@color/white"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp"
-                        />
-                    
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/user_right" />
             </LinearLayout>
-            
+
             <LinearLayout
-                android:visibility="gone"
                 android:id="@+id/ll_ziliao"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stroke_rectangles_list"              
-                android:orientation="horizontal" >
+                android:layout_height="50dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone" >
 
-                <LinearLayout
+                <com.zykj.yuliang.utils.CircleImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/pic_1_geren" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:layout_marginLeft="15dp"
+                    android:text="个人资料"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                    <!-- 圆形直角图 -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="完成就赚 0.5元"
+                    android:textColor="@color/gray" />
 
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="17dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginTop="17dp"
-                        android:background="@color/white" >
-
-                        <com.zykj.yuliang.utils.CircleImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/pic_1_geren"
-                            app:border_color="@color/transparent"
-                            app:border_width="0dp" />
-                       
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="个人资料"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="right|center_vertical"
-                    android:orientation="horizontal" >
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="完成就赚 0.2 元"
-                        android:textColor="@color/gray" />
-                    
-                    <ImageButton 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/symbol_right"
-                        android:background="@color/white"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp"
-                        />
-                    
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/user_right" />
             </LinearLayout>
-            
+
             <LinearLayout
                 android:id="@+id/ll_youchang"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"             
+                android:layout_height="50dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <LinearLayout
+                <com.zykj.yuliang.utils.CircleImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/pic_1_youchang" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:layout_marginLeft="15dp"
+                    android:text="有偿转发"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-                    <!-- 圆形直角图 -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="有人看就有钱"
+                    android:textColor="@color/gray" />
 
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="17dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginTop="17dp"
-                        android:background="@color/white" >
-
-                        <com.zykj.yuliang.utils.CircleImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/pic_1_youchang"
-                            app:border_color="@color/transparent"
-                            app:border_width="0dp" />
-                       
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="有偿转发"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="right|center_vertical"
-                    android:orientation="horizontal" >
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="有人看就有钱!"
-                        android:textColor="@color/gray" />
-                    
-                    <ImageButton 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/symbol_right"
-                        android:background="@color/white"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginLeft="15dp"
-                        />
-                    
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/user_right" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
 
 </LinearLayout>

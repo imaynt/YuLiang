@@ -11,9 +11,12 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.model.Tudi;
 import com.zykj.yuliang.utils.CircleImageView;
+import com.zykj.yuliang.utils.StringUtil;
 
 public class TudiAdapter extends BaseAdapter {
 
@@ -21,11 +24,9 @@ public class TudiAdapter extends BaseAdapter {
 	private LayoutInflater mLayoutInflater;
 	private List<Tudi> list;
 
-	public TudiAdapter(Context context, LayoutInflater mLayoutInflater,
-			List<Tudi> list) {
+	public TudiAdapter(Context context, List<Tudi> list) {
 		super();
-		this.context = context;
-		this.mLayoutInflater = mLayoutInflater;
+		mLayoutInflater = LayoutInflater.from(context);
 		this.list = list;
 	}
 
@@ -49,18 +50,16 @@ public class TudiAdapter extends BaseAdapter {
 		Viewholder holder = null;
 		if (convertView == null) {
 			holder = new Viewholder();
-			convertView = mLayoutInflater.inflate(R.layout.ui_item_tudi,
-					parent, false);
-			holder.img_avatar = (CircleImageView) convertView
-					.findViewById(R.id.img_tudi_avatar);
-			holder.tv_nick = (TextView) convertView
-					.findViewById(R.id.tv_tudi_name);
+			convertView = mLayoutInflater.inflate(R.layout.ui_item_tudi, parent, false);
+			holder.img_avatar = (CircleImageView) convertView.findViewById(R.id.img_tudi_avatar);
+			holder.tv_nick = (TextView) convertView.findViewById(R.id.tv_tudi_name);
 			convertView.setTag(holder);
 		} else {
 			holder = (Viewholder) convertView.getTag();
 		}
-		holder.tv_nick.setText(list.get(position).getNick());
-		ImageLoader.getInstance().displayImage(list.get(position).getAvatar(),
+		Tudi tudi = list.get(position);
+		holder.tv_nick.setText(StringUtil.isEmpty(tudi.getUsername())?tudi.getId():tudi.getUsername());
+		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL + tudi.getAvatar(), "http://"),
 				holder.img_avatar);
 		return convertView;
 	}

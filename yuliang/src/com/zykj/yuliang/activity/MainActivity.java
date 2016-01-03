@@ -24,6 +24,7 @@ import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
 
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -148,15 +149,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 			startActivity(new Intent(MainActivity.this, ApprenticeActivity.class));
 			break;
 		case R.id.ll_yiyuanduobao://一元夺宝
-//			startActivity(new Intent(MainActivity.this, ApprenticeActivity.class));
+			AlertDialog.Builder builder=new Builder(MainActivity.this);
+			builder.setTitle("温馨提示");
+			builder.setMessage("一元夺宝功能暂时未开通，还请谅解");
+			builder.setPositiveButton("确定", new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+			builder.create().show();
 			break;
 		case R.id.ll_youhuiquan:
 			/**
 			 * 跳转兑吧
 			 */
+			String []str=BaseApp.getModel().getMoney().split("[.]");
 			params=new RequestParams();
 			params.put("uid", BaseApp.getModel().getUserid());
-			params.put("points", points);//-=============@@@@@@@@@@@@@@@=================此处临时传积分,用该传元宝即我的余额
+			params.put("points", str[0]);//-=============@@@@@@@@@@@@@@@=================此处临时传积分,用该传元宝即我的余额
 			HttpUtils.getLoginUrl(new HttpErrorHandler() {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
@@ -166,7 +178,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 					intent.putExtra("navColor", "#50bf83");// 配置导航条的背景颜色，请用#ffffff长格式。
 					intent.putExtra("titleColor", "#ffffff");// 配置导航条标题的颜色，请用#ffffff长格式。
 					intent.putExtra("url", url);// 配置自动登陆地址，每次需服务端动态生成。
-					startActivityForResult(intent, 11);
+					startActivity(intent);
 				}
 			}, params);
 			break;
