@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.alibaba.sdk.android.kernel">
 
-    <uses-sdk android:minSdkVersion="8" />
+    <uses-sdk android:minSdkVersion="8"/>
 
    <!-- android:targetSdkVersion="21" <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -12,10 +12,8 @@
     <uses-permission android:name="android.permission.GET_TASKS"/>-->
     <uses-permission android:name="android.permission.READ_SETTINGS"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     
-
     <application android:allowBackup="true">        
     
         <activity android:name="com.alibaba.sdk.android.trade.ui.TradeWebViewActivity">
@@ -30,7 +28,7 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="23286995.nativeTaobao" android:scheme="alisdk"/>
+                <data android:host="23288028.nativeTaobao" android:scheme="alisdk"/>
             </intent-filter>
         </activity>
         <activity android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden">
