@@ -19,6 +19,7 @@ import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.http.UrlContants;
+import com.zykj.yuliang.utils.SharedPreferenceUtils;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
 
@@ -34,7 +35,8 @@ public class WelcomeActivity extends BaseActivity {
 		initView(R.layout.ui_welcome);
 		// 获得手机的唯一标识
 		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-		final String DEVICE_ID = tm.getDeviceId();
+//		final String DEVICE_ID = tm.getDeviceId();
+		final String DEVICE_ID = "830043457187";
 
 		RequestParams params = new RequestParams();
 		params.put("deviceId", DEVICE_ID);
@@ -44,6 +46,7 @@ public class WelcomeActivity extends BaseActivity {
 				if (json.getString("code").equals("200")) {
 					Tools.toast(WelcomeActivity.this, "注册成功");
 					regState = true;
+					SharedPreferenceUtils.init(WelcomeActivity.this).setIsNew("true");
 					saveUserInfo(json);
 				}
 			}
@@ -65,6 +68,7 @@ public class WelcomeActivity extends BaseActivity {
 			 */
 			private void saveUserInfo(JSONObject json) {
 				JSONObject jsonObject = json.getJSONObject(UrlContants.jsonData);
+				SharedPreferenceUtils.init(WelcomeActivity.this).setIsOver("false");
 				BaseApp.getModel().setDeviceId(DEVICE_ID);
 				account = jsonObject.getString("account");// 元宝
 				BaseApp.getModel().setMoney(account);

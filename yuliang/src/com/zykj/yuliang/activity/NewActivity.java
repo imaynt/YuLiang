@@ -11,8 +11,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.Header;
+
+import com.alibaba.fastjson.JSONObject;
+import com.loopj.android.http.RequestParams;
 import com.zykj.yuliang.BaseActivity;
+import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.AbstractHttpHandler;
+import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.utils.SharedPreferenceUtils;
 import com.zykj.yuliang.view.MyCommonTitle;
 
 public class NewActivity extends BaseActivity {
@@ -26,6 +34,8 @@ public class NewActivity extends BaseActivity {
 	private TextView tv_answer_title;
 	private TextView tv_answer_o;
 	private TextView tv_answer_t;
+	
+	private RequestParams params;
 
 	int click = 0;
 
@@ -74,13 +84,15 @@ public class NewActivity extends BaseActivity {
 
 	@Override
 	public void onClick(View v) {
-		if (click == 6) {
+		if (click == 6&& answer_num[click] == 1) {
 			Intent intent = new Intent();
 			intent.putExtra("result", "6");
+			
+			getNew();
 			setResult(1001,intent);
 			this.finish();
 			return;
-		}
+		}		
 		if (v.getId() == R.id.ll_answer_o && answer_num[click] == 1) {
 			click++;
 			tv_answer_o.setText(answer_o[click]);
@@ -96,6 +108,30 @@ public class NewActivity extends BaseActivity {
 			return;
 		}
 
+	}
+	
+	public void getNew(){
+		/**
+		 * 个人资料
+		 */
+		params = new RequestParams();
+		params.put("deviceId", BaseApp.getModel().getDeviceId());// 设备ID
+		params.put("part", "1");// 1或者2（1是新手教程，2是个人资料得分）
+		HttpUtils.postNewAndPersonal(new AbstractHttpHandler() {
+
+			@Override
+			public void onJsonSuccess(JSONObject json) {
+				if (json.getString("code").equals("200")) {//个人资料已完成
+					SharedPreferenceUtils.init(NewActivity.this).setIsOver("true");
+					SharedPreferenceUtils.init(NewActivity.this).setIsNew("false");
+				}				
+			}
+			
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+				
+			}
+		},params); 
 	}
 
 }
