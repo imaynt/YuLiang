@@ -10,6 +10,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.http.Header;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -31,6 +33,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.AbstractHttpHandler;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.http.UrlContants;
@@ -56,6 +59,7 @@ public class ZiLiaoActivity extends BaseActivity {
 	private File file;
 	private List<String> list;
 	private Intent intent;
+	private RequestParams params;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -188,7 +192,7 @@ public class ZiLiaoActivity extends BaseActivity {
 				Tools.toast(ZiLiaoActivity.this, "职业不能为空");
 				return;
 			}
-			RequestParams params = new RequestParams();
+				params = new RequestParams();
 				params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
 				params.put("username", nick);// username必须，新的会员昵称
 				params.put("sex", sex);// sex必须, 性别
@@ -207,6 +211,8 @@ public class ZiLiaoActivity extends BaseActivity {
 						finish();
 					}
 				}, params);
+				
+				getMoneyFromZiLiao();
 
 			break;
 		case R.id.dialog_modif_1:// 启动相机拍照
@@ -239,6 +245,30 @@ public class ZiLiaoActivity extends BaseActivity {
 		}
 	}
 
+	
+	/**
+	 * 个人资料
+	 */
+	private void getMoneyFromZiLiao() {
+
+		params = new RequestParams();
+		params.put("deviceId", BaseApp.getModel().getDeviceId());// 设备ID
+		params.put("part", "2");// 1或者2（1是新手教程，2是个人资料得分）
+		HttpUtils.postNewAndPersonal(new AbstractHttpHandler() {
+
+			@Override
+			public void onJsonSuccess(JSONObject json) {
+				if (json.getString("code").equals("200")) {// 个人资料已完成
+
+				}
+			}
+
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+
+			}
+		}, params);
+	}
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {

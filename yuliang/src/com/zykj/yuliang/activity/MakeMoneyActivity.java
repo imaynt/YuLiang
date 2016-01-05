@@ -31,7 +31,7 @@ public class MakeMoneyActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_makemoney);
-		
+
 		initViews();
 		initClick();
 		initEvents();
@@ -53,10 +53,10 @@ public class MakeMoneyActivity extends BaseActivity {
 		ll_ziliao = (LinearLayout) findViewById(R.id.ll_ziliao);
 		ll_youchang = (LinearLayout) findViewById(R.id.ll_youchang);
 		ll_new = (LinearLayout) findViewById(R.id.ll_new);
-		String nick=BaseApp.getModel().getUsername();
-		if(StringUtil.isEmpty(nick))
+		String nick = BaseApp.getModel().getUsername();
+		if (StringUtil.isEmpty(nick))
 			ll_ziliao.setVisibility(View.VISIBLE);
-		
+
 	}
 
 	protected void initEvents() {
@@ -71,8 +71,7 @@ public class MakeMoneyActivity extends BaseActivity {
 			startActivity(intent);
 			break;
 		case R.id.ll_ziliao:
-			intent = new Intent(MakeMoneyActivity.this, ZiLiaoActivity.class);
-			startActivity(intent);
+			startActivity(new Intent(MakeMoneyActivity.this, ZiLiaoActivity.class));
 			break;
 		case R.id.ll_youchang:
 			intent = new Intent(MakeMoneyActivity.this, YouChangActivity.class);
@@ -109,38 +108,16 @@ public class MakeMoneyActivity extends BaseActivity {
 	 * 
 	 */
 	private void requestData() {
-		
-		
-		if(SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsNew().equals("true")){
-			
-			if(SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsOver().equals("false")){
-				
+
+		if (SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsNew().equals("true")) {
+
+			if (SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsOver().equals("false")) {
+
 				ll_new.setVisibility(View.VISIBLE);
-				
+
 			}
 		}
-		
-
-		/**
-		 * 个人资料
-		 */
-		params = new RequestParams();
-		params.put("deviceId", BaseApp.getModel().getDeviceId());// 设备ID
-		params.put("part", "2");// 1或者2（1是新手教程，2是个人资料得分）
-		HttpUtils.postNewAndPersonal(new AbstractHttpHandler() {
-
-			@Override
-			public void onJsonSuccess(JSONObject json) {
-				if (json.getString("code").equals("200")) {//个人资料已完成
-				
-				}				
-			}
-			
-			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-				
-			}
-		},params); 
 	}
+
 
 }
