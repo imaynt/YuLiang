@@ -47,6 +47,7 @@ public class WelcomeActivity extends BaseActivity {
 					Tools.toast(WelcomeActivity.this, "注册成功");
 					regState = true;
 					SharedPreferenceUtils.init(WelcomeActivity.this).setIsNew("true");
+					SharedPreferenceUtils.init(WelcomeActivity.this).setIsNewFirst("true");
 					saveUserInfo(json);
 				}
 			}
@@ -56,6 +57,7 @@ public class WelcomeActivity extends BaseActivity {
 				super.onRecevieFailed(status, json);
 				if (json.getString("code").equals("403")) {
 					Tools.toast(WelcomeActivity.this, "此手机已注册");
+					SharedPreferenceUtils.init(WelcomeActivity.this).setIsNewFirst("false");
 					regState = false;
 					saveUserInfo(json);
 				}
