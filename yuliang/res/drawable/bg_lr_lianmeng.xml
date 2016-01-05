@@ -8,6 +8,7 @@
         android:right="0dp"
         android:top="-2dp">
         <shape>
+            <solid android:color="@color/more_bg_color"/>
             <stroke
                 android:width="0.5dp"
                 android:color="@color/gray" />

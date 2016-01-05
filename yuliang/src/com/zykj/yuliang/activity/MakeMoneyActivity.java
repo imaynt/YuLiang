@@ -114,6 +114,7 @@ public class MakeMoneyActivity extends BaseActivity {
 		/**
 		 * 新手教程
 		 */
+		String id = BaseApp.getModel().getDeviceId();
 		params = new RequestParams();
 		params.put("deviceId", BaseApp.getModel().getDeviceId());// 设备ID
 		params.put("part", "1");// 1或者2（1是新手教程，2是个人资料得分）

@@ -8,6 +8,7 @@
         android:right="-2dp"
         android:top="-2dp">
         <shape>
+            <solid android:color="@color/more_bg_color"/>
             <stroke
                 android:dashGap="2dp"
                 android:dashWidth="3dp"
