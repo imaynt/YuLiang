@@ -212,7 +212,7 @@ public class CommonUtils {
 		// text是分享文本，所有平台都需要这个字段
 		oks.setText(content);
 		// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数记得修改哦
-		// oks.setImagePath为sdk图片路径
+//		 oks.setImagePath();//为sdk图片路径
 //		oks.setImageUrl("http://dashboard.mob.com/Uploads/db95c30283c2aa827e6831170d70808d.png");// 确保SDcard下面存在此张图片
 		// url仅在微信（包括好友和朋友圈）中使用
 		oks.setUrl(url);

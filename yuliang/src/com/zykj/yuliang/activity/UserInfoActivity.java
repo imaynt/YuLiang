@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import org.apache.http.Header;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -28,6 +31,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.http.AbstractHttpHandler;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.http.UrlContants;
@@ -42,14 +46,15 @@ import com.zykj.yuliang.view.UIDialog;
 
 public class UserInfoActivity extends BaseActivity {
 	private MyCommonTitle myCommonTitle;
-	private LinearLayout ll_nick, ll_avatar, ll_sex, ll_birth, ll_prefession,
-			ll_submit;
+	private LinearLayout ll_nick, ll_avatar, ll_sex, ll_birth, ll_prefession, ll_submit;
 	private TextView tv_sex, tv_birthday, tv_profession, tv_mobile;
 	private RoundImageView img_avatar;
 	private EditText user_nick;
 	private String timeString;// 上传头像字段
+	private String nick, sex, birth, profession;
 	private File file;
 	private List<String> list;
+	private RequestParams params;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +90,15 @@ public class UserInfoActivity extends BaseActivity {
 	private void requestData() {
 		String nick = BaseApp.getModel().getUsername();
 		user_nick.setText(StringUtil.isEmpty(nick) ? "" : nick);
-
+		if (StringUtil.isEmpty(BaseApp.getModel().getUsername())) {
+			submitData();
+			getMoneyFromZiLiao();
+		}else{
+			submitData();
+		}
 		String avatar = BaseApp.getModel().getAvatar();
-		ImageLoader.getInstance().displayImage(
-				StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), img_avatar);
+		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL + avatar, "http://"),
+				img_avatar);
 
 		String sex = BaseApp.getModel().getSex();
 		tv_sex.setText(StringUtil.isEmpty(sex) ? "" : sex);
@@ -100,26 +110,48 @@ public class UserInfoActivity extends BaseActivity {
 		tv_profession.setText(StringUtil.isEmpty(prefession) ? "" : prefession);
 	}
 
+	/**
+	 * 通过完善个人资料获得金钱
+	 */
+	private void getMoneyFromZiLiao() {
+
+		params = new RequestParams();
+		params.put("deviceId", BaseApp.getModel().getDeviceId());// 设备ID
+		params.put("part", "2");// 1或者2（1是新手教程，2是个人资料得分）
+		HttpUtils.postNewAndPersonal(new AbstractHttpHandler() {
+
+			@Override
+			public void onJsonSuccess(JSONObject json) {
+				if (json.getString("code").equals("200")) {// 个人资料已完成
+
+				}
+			}
+
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+
+			}
+		}, params);
+	}
+
 	@Override
 	public void onClick(View view) {
 		super.onClick(view);
 		switch (view.getId()) {
 		case R.id.ll_avatar:
-			UIDialog.ForThreeBtn(UserInfoActivity.this, new String[] { "拍照",
-					"从相册中取", "取消" }, UserInfoActivity.this);
+			UIDialog.ForThreeBtn(UserInfoActivity.this, new String[] { "拍照", "从相册中取", "取消" }, UserInfoActivity.this);
 			break;
 		case R.id.ll_sex:// 性别
 			list = new ArrayList<String>();
 			list.add("男");
 			list.add("女");
-			new PickDialog(UserInfoActivity.this, "请选择性别", list,
-					new PickDialogListener() {
+			new PickDialog(UserInfoActivity.this, "请选择性别", list, new PickDialogListener() {
 
-						@Override
-						public void onListItemClick(int position, String string) {
-							tv_sex.setText(list.get(position));
-						}
-					}).show();
+				@Override
+				public void onListItemClick(int position, String string) {
+					tv_sex.setText(list.get(position));
+				}
+			}).show();
 			break;
 		case R.id.ll_birthday:// 生日
 			CommonUtils.showDateTimePicker(this, tv_birthday);
@@ -136,83 +168,35 @@ public class UserInfoActivity extends BaseActivity {
 			list.add("自由职业者");
 			list.add("退休");
 			list.add("其他");
-			new PickDialog(UserInfoActivity.this, "请选择职业", list,
-					new PickDialogListener() {
-
-						@Override
-						public void onListItemClick(int position, String string) {
-							tv_profession.setText(list.get(position));
-						}
-					}).show();
-			break;
-		case R.id.ll_submit:
-			final String nick = user_nick.getText().toString().trim();
-			final String sex = tv_sex.getText().toString().trim();
-			final String birth = tv_birthday.getText().toString().trim();
-			final String profession = tv_profession.getText().toString().trim();
-			if (StringUtil.isEmpty(nick)) {
-				Tools.toast(UserInfoActivity.this, "昵称不能为空");
-				return;
-			}
-			if (StringUtil.isEmpty(sex)) {
-				Tools.toast(UserInfoActivity.this, "性别不能为空");
-				return;
-			}
-			if (StringUtil.isEmpty(birth)) {
-				Tools.toast(UserInfoActivity.this, "生日不能为空");
-				return;
-			}
-			if (StringUtil.isEmpty(profession)) {
-				Tools.toast(UserInfoActivity.this, "职业不能为空");
-				return;
-			}
-			// submitData();
-			RequestParams params = new RequestParams();
-			/**
-			 * 因为deviceId为空所以提交数据错误,待传deviceId.................................
-			 * ............
-			 */
-			params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
-			params.put("username", nick);// username必须，新的会员昵称
-			params.put("sex", sex);// sex必须, 性别
-			params.put("birthday", birth);// birthday必须, 生日
-			params.put("profession", profession);// profession必须, 职业
-			HttpUtils.updateUserInfo(new HttpErrorHandler() {
+			new PickDialog(UserInfoActivity.this, "请选择职业", list, new PickDialogListener() {
 
 				@Override
-				public void onRecevieSuccess(JSONObject json) {
-					Tools.toast(UserInfoActivity.this, "资料更新成功!");
-					BaseApp.getModel().setUsername(nick);
-					BaseApp.getModel().setBirth(birth);
-					BaseApp.getModel().setSex(sex);
-					BaseApp.getModel().setPrefession(profession);
-					setResult(RESULT_OK);
-					finish();
-
+				public void onListItemClick(int position, String string) {
+					tv_profession.setText(list.get(position));
 				}
-			}, params);
+			}).show();
+			break;
+		case R.id.ll_submit:
+
+			submitData();
 
 			break;
 		case R.id.dialog_modif_1:// 启动相机拍照
 			/* 拍照 */
 			UIDialog.closeDialog();
 			Date date = new Date(System.currentTimeMillis());
-			SimpleDateFormat dateFormat = new SimpleDateFormat(
-					"'IMG'_yyyyMMddHHmmss", new Locale("zh", "CN"));
+			SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMddHHmmss", new Locale("zh", "CN"));
 			timeString = dateFormat.format(date);
 			createSDCardDir();
 			Intent shootIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-			shootIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri
-					.fromFile(new File(Environment
-							.getExternalStorageDirectory() + "/DCIM/Camera",
-							timeString + ".jpg")));
+			shootIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(
+					new File(Environment.getExternalStorageDirectory() + "/DCIM/Camera", timeString + ".jpg")));
 			startActivityForResult(shootIntent, 1);
 			break;
 		case R.id.dialog_modif_2:// 从相册中选取
 			UIDialog.closeDialog();
 			Intent photoIntent = new Intent(Intent.ACTION_PICK, null);
-			photoIntent.setDataAndType(
-					MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+			photoIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
 			startActivityForResult(photoIntent, 2);
 			break;
 		case R.id.dialog_modif_3:// 取消
@@ -227,7 +211,48 @@ public class UserInfoActivity extends BaseActivity {
 	 * 提交数据............
 	 */
 	private void submitData() {
+		nick = user_nick.getText().toString().trim();
+		sex = tv_sex.getText().toString().trim();
+		birth = tv_birthday.getText().toString().trim();
+		profession = tv_profession.getText().toString().trim();
+		if (StringUtil.isEmpty(nick)) {
+			Tools.toast(UserInfoActivity.this, "昵称不能为空");
+			return;
+		}
+		if (StringUtil.isEmpty(sex)) {
+			Tools.toast(UserInfoActivity.this, "性别不能为空");
+			return;
+		}
+		if (StringUtil.isEmpty(birth)) {
+			Tools.toast(UserInfoActivity.this, "生日不能为空");
+			return;
+		}
+		if (StringUtil.isEmpty(profession)) {
+			Tools.toast(UserInfoActivity.this, "职业不能为空");
+			return;
+		}
 
+		params = new RequestParams();
+
+		params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
+		params.put("username", nick);// username必须，新的会员昵称
+		params.put("sex", sex);// sex必须, 性别
+		params.put("birthday", birth);// birthday必须, 生日
+		params.put("profession", profession);// profession必须, 职业
+		HttpUtils.updateUserInfo(new HttpErrorHandler() {
+
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				Tools.toast(UserInfoActivity.this, "资料更新成功!");
+				BaseApp.getModel().setUsername(nick);
+				BaseApp.getModel().setBirth(birth);
+				BaseApp.getModel().setSex(sex);
+				BaseApp.getModel().setPrefession(profession);
+				setResult(RESULT_OK);
+				finish();
+
+			}
+		}, params);
 	}
 
 	@Override
@@ -235,8 +260,8 @@ public class UserInfoActivity extends BaseActivity {
 		switch (requestCode) {
 		case 1:
 			/* 如果是调用相机拍照，图片设置名字和路径 */
-			File temp = new File(Environment.getExternalStorageDirectory()
-					.getPath() + "/DCIM/Camera/" + timeString + ".jpg");
+			File temp = new File(
+					Environment.getExternalStorageDirectory().getPath() + "/DCIM/Camera/" + timeString + ".jpg");
 			startPhotoZoom(Uri.fromFile(temp));
 			break;
 		case 2:
@@ -260,8 +285,7 @@ public class UserInfoActivity extends BaseActivity {
 	}
 
 	public void createSDCardDir() {
-		if (Environment.MEDIA_MOUNTED.equals(Environment
-				.getExternalStorageState())) {
+		if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
 			// 创建一个文件夹对象，赋值为外部存储器的目录
 			File sdcardDir = Environment.getExternalStorageDirectory();
 			// 得到一个路径，内容是sdcard的文件夹路径和名字
@@ -316,11 +340,9 @@ public class UserInfoActivity extends BaseActivity {
 	 */
 	public void savaBitmap(Bitmap bitmap) {
 		Date date = new Date(System.currentTimeMillis());
-		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"'IMG'_yyyyMMddHHmmss", new Locale("zh", "CN"));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMddHHmmss", new Locale("zh", "CN"));
 		String cutnameString = dateFormat.format(date);
-		String filename = Environment.getExternalStorageDirectory().getPath()
-				+ "/" + cutnameString + ".jpg";
+		String filename = Environment.getExternalStorageDirectory().getPath() + "/" + cutnameString + ".jpg";
 		file = new File(filename);
 		FileOutputStream fOut = null;
 		try {

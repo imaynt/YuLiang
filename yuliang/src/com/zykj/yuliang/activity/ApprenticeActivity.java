@@ -168,7 +168,7 @@ public class ApprenticeActivity extends BaseActivity {
 			startActivity(new Intent(ApprenticeActivity.this, MoreAppActivity.class));
 			break;
 		case R.id.ll_share_shoutu:
-			CommonUtils.showShare(this, "余粮", "余粮是一款通过下载应用广告获得积分的APP", "http://fir.im");
+			CommonUtils.showShare(this, "余粮", "余粮是一款通过下载应用广告获得积分的APP", "http://www.pgyer.com/yuliang");
 		default:
 			break;
 		}

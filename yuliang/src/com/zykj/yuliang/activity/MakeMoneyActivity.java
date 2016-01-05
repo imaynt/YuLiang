@@ -55,6 +55,7 @@ public class MakeMoneyActivity extends BaseActivity {
 		String nick=BaseApp.getModel().getUsername();
 		if(StringUtil.isEmpty(nick))
 			ll_ziliao.setVisibility(View.VISIBLE);
+		
 	}
 
 	protected void initEvents() {
