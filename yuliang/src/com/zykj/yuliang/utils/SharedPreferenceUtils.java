@@ -95,6 +95,24 @@ public class SharedPreferenceUtils {
 	public String getSign() {
 		return mSharedPreference.getString(SIGN, null);
 	}
+	
+	public String getIsNew() {
+		return mSharedPreference.getString("isNew", null);
+	}
+	
+	public String getIsOver() {
+		return mSharedPreference.getString("isOver", null);
+	}
+	
+	public void setIsOver(String isOver) {
+		mEditor.putString("isOver", isOver);
+		mEditor.commit();
+	}
+	
+	public void setIsNew(String isNew) {
+		mEditor.putString("isNew", isNew);
+		mEditor.commit();
+	}
 
 	public void setSex(String sex) {
 		mEditor.putString(SEX, sex);

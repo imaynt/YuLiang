@@ -12,6 +12,7 @@ import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.AbstractHttpHandler;
 import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.utils.SharedPreferenceUtils;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.view.MyCommonTitle;
 
@@ -108,28 +109,17 @@ public class MakeMoneyActivity extends BaseActivity {
 	 * 
 	 */
 	private void requestData() {
-		/**
-		 * 新手教程
-		 */
-		String id = BaseApp.getModel().getDeviceId();
-		params = new RequestParams();
-		params.put("deviceId", BaseApp.getModel().getDeviceId());// 设备ID
-		params.put("part", "1");// 1或者2（1是新手教程，2是个人资料得分）
-		HttpUtils.postNewAndPersonal(new AbstractHttpHandler() {
-
-			@Override
-			public void onJsonSuccess(JSONObject json) {
-				if (json.getString("code").equals("200")) {// 不是新手,新手任务已完成
-					ll_new.setVisibility(View.VISIBLE);
-				}
+		
+		
+		if(SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsNew().equals("true")){
+			
+			if(SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsOver().equals("false")){
+				
+				ll_new.setVisibility(View.VISIBLE);
+				
 			}
-
-			@Override
-			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
-
-			}
-
-		}, params);
+		}
+		
 
 		/**
 		 * 个人资料
