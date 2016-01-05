@@ -1,25 +1,18 @@
 package com.zykj.yuliang.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-
 import org.apache.http.Header;
-
 import com.alibaba.fastjson.JSONObject;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.AbstractHttpHandler;
-import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.view.MyCommonTitle;
 
 public class MakeMoneyActivity extends BaseActivity {
@@ -59,6 +52,9 @@ public class MakeMoneyActivity extends BaseActivity {
 		ll_ziliao = (LinearLayout) findViewById(R.id.ll_ziliao);
 		ll_youchang = (LinearLayout) findViewById(R.id.ll_youchang);
 		ll_new = (LinearLayout) findViewById(R.id.ll_new);
+		String nick=BaseApp.getModel().getUsername();
+		if(StringUtil.isEmpty(nick))
+			ll_ziliao.setVisibility(View.VISIBLE);
 	}
 
 	protected void initEvents() {
@@ -141,11 +137,11 @@ public class MakeMoneyActivity extends BaseActivity {
 		params.put("deviceId", BaseApp.getModel().getDeviceId());// 设备ID
 		params.put("part", "2");// 1或者2（1是新手教程，2是个人资料得分）
 		HttpUtils.postNewAndPersonal(new AbstractHttpHandler() {
-		
+
 			@Override
 			public void onJsonSuccess(JSONObject json) {
 				if (json.getString("code").equals("200")) {//个人资料已完成
-					ll_ziliao.setVisibility(View.VISIBLE);
+				
 				}				
 			}
 			

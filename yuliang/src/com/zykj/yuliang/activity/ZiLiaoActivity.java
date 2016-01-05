@@ -168,16 +168,12 @@ public class ZiLiaoActivity extends BaseActivity {
 					}).show();
 			break;
 		case R.id.ll_submit:
-			String nick = user_nick.getText().toString().trim();
-			String sex = tv_sex.getText().toString().trim();
-			String birth = tv_birthday.getText().toString().trim();
-			String profession = tv_profession.getText().toString().trim();
+			final String nick = user_nick.getText().toString().trim();
+			final String sex = tv_sex.getText().toString().trim();
+			final String birth = tv_birthday.getText().toString().trim();
+			final String profession = tv_profession.getText().toString().trim();
 			if (StringUtil.isEmpty(nick)) {
 				Tools.toast(ZiLiaoActivity.this, "昵称不能为空");
-				return;
-			}
-			if (file == null) {
-				Tools.toast(ZiLiaoActivity.this, "头像不能为空");
 				return;
 			}
 			if (StringUtil.isEmpty(sex)) {
@@ -193,21 +189,24 @@ public class ZiLiaoActivity extends BaseActivity {
 				return;
 			}
 			RequestParams params = new RequestParams();
-			try {
-				params.put("", nick);
-				params.put("", file);
-				params.put("", sex);
-				params.put("", birth);
-				params.put("", profession);
-				/**
-				 * 提交数据............
-				 */
+				params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
+				params.put("username", nick);// username必须，新的会员昵称
+				params.put("sex", sex);// sex必须, 性别
+				params.put("birthday", birth);// birthday必须, 生日
+				params.put("profession", profession);// profession必须, 职业
+				HttpUtils.updateUserInfo(new HttpErrorHandler() {
 
-				setResult(RESULT_OK);
-				finish();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
+					@Override
+					public void onRecevieSuccess(JSONObject json) {
+						Tools.toast(ZiLiaoActivity.this, "资料更新成功!");
+						BaseApp.getModel().setUsername(nick);
+						BaseApp.getModel().setBirth(birth);
+						BaseApp.getModel().setSex(sex);
+						BaseApp.getModel().setPrefession(profession);
+						setResult(RESULT_OK);
+						finish();
+					}
+				}, params);
 
 			break;
 		case R.id.dialog_modif_1:// 启动相机拍照
