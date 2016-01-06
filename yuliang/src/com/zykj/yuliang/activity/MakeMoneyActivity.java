@@ -34,9 +34,8 @@ public class MakeMoneyActivity extends BaseActivity {
 
 		initViews();
 		initClick();
-		initEvents();
 
-		requestData();
+		// requestData();
 	}
 
 	protected void initClick() {
@@ -53,14 +52,15 @@ public class MakeMoneyActivity extends BaseActivity {
 		ll_ziliao = (LinearLayout) findViewById(R.id.ll_ziliao);
 		ll_youchang = (LinearLayout) findViewById(R.id.ll_youchang);
 		ll_new = (LinearLayout) findViewById(R.id.ll_new);
+		
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
 		String nick = BaseApp.getModel().getUsername();
 		if (StringUtil.isEmpty(nick))
 			ll_ziliao.setVisibility(View.VISIBLE);
-
-	}
-
-	protected void initEvents() {
-
 	}
 
 	@Override
@@ -107,17 +107,5 @@ public class MakeMoneyActivity extends BaseActivity {
 	 * 请求服务器数据,查看新手教程和个人资料是否完成,完成后相应的功能不显示
 	 * 
 	 */
-	private void requestData() {
-
-		if (SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsNew().equals("true")) {
-
-			if (SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsOver().equals("false")) {
-
-				ll_new.setVisibility(View.VISIBLE);
-
-			}
-		}
-	}
-
 
 }

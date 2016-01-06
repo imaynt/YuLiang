@@ -88,9 +88,9 @@ public class LianMengActivity extends BaseActivity {
 //			DOW.getInstance(this).show(this);
 //			break;
 		case R.id.ll_dianle:// 点乐
-			DevInit.initGoogleContext(this, DIANJOY_APP_ID);
-			DevInit.setCurrentUserID(this, BaseApp.getModel().getDeviceId());// 此处为设备ID................................
-			DevInit.showOffers(this);
+			DevInit.initGoogleContext(LianMengActivity.this, DIANJOY_APP_ID);
+			DevInit.setCurrentUserID(LianMengActivity.this, BaseApp.getModel().getDeviceId());// 此处为设备ID................................
+			DevInit.showOffers(LianMengActivity.this);
 			break;
 		case R.id.ll_youmi:// 有米
 			/**
