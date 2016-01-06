@@ -1,7 +1,9 @@
 package com.zykj.yuliang.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.LinearLayout;
 import org.apache.http.Header;
@@ -11,9 +13,11 @@ import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.AbstractHttpHandler;
+import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.utils.SharedPreferenceUtils;
 import com.zykj.yuliang.utils.StringUtil;
+import com.zykj.yuliang.utils.Tools;
 import com.zykj.yuliang.view.MyCommonTitle;
 
 public class MakeMoneyActivity extends BaseActivity {
@@ -26,6 +30,7 @@ public class MakeMoneyActivity extends BaseActivity {
 	private Intent intent;
 	private String part = "1";// 1是新手教程，2是个人资料得分
 	private RequestParams params;
+	private String state="";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -109,13 +114,30 @@ public class MakeMoneyActivity extends BaseActivity {
 	 */
 	private void requestData() {
 
-		if (SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsNew().equals("true")) {
-
-			if (SharedPreferenceUtils.init(MakeMoneyActivity.this).getIsOver().equals("false")) {
-
-				ll_new.setVisibility(View.VISIBLE);
-
+		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+		final String DEVICE_ID = tm.getDeviceId();
+		
+		RequestParams params = new RequestParams();
+		params.put("deviceId", DEVICE_ID);
+		HttpUtils.postNewAndPersonalstate(new HttpErrorHandler() {
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				state = json.getString("new").toString();
+					
+				
 			}
+
+			@Override
+			public void onRecevieFailed(String status, JSONObject json) {
+				super.onRecevieFailed(status, json);
+				
+			}
+		}, params);
+		
+		if (state.equals("0")) {
+
+			ll_new.setVisibility(View.VISIBLE);
+
 		}
 	}
 
