@@ -15,6 +15,7 @@ import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.AbstractHttpHandler;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.SharedPreferenceUtils;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
@@ -122,7 +123,8 @@ public class MakeMoneyActivity extends BaseActivity {
 		HttpUtils.postNewAndPersonalstate(new HttpErrorHandler() {
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
-				state = json.getString("new").toString();
+				JSONObject jsonObject = json.getJSONObject(UrlContants.jsonData);
+				state = jsonObject.getString("new").toString();
 					
 				
 			}

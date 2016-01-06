@@ -35,8 +35,8 @@ public class WelcomeActivity extends BaseActivity {
 		initView(R.layout.ui_welcome);
 		// 获得手机的唯一标识
 		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-//		final String DEVICE_ID = tm.getDeviceId();
-		final String DEVICE_ID = "830043457186";
+		final String DEVICE_ID = tm.getDeviceId();
+//		final String DEVICE_ID = "830043457186";
 
 		RequestParams params = new RequestParams();
 		params.put("deviceId", DEVICE_ID);
