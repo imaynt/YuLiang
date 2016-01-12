@@ -30,7 +30,7 @@ public class MakeMoneyActivity extends BaseActivity {
 	private Intent intent;
 	private String part = "1";// 1是新手教程，2是个人资料得分
 	private RequestParams params;
-	private String state="";
+	private String state="1";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -119,14 +119,18 @@ public class MakeMoneyActivity extends BaseActivity {
 		
 		RequestParams params = new RequestParams();
 		params.put("deviceId", DEVICE_ID);
-		HttpUtils.postNewAndPersonal(new HttpErrorHandler() {
+		HttpUtils.postNewAndPersonalstate(new HttpErrorHandler() {
 		
 			
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
 				JSONObject jsonObject = json.getJSONObject(UrlContants.jsonData);
-				state = jsonObject.getString("new").toString();
-					
+				state = jsonObject.getString("new").toString()!=null?jsonObject.getString("new").toString():"1";
+				if (state.equals("0")) {
+
+					ll_new.setVisibility(View.VISIBLE);
+
+				}
 			}
 			@Override
 			public void onRecevieFailed(String status, JSONObject json) {
