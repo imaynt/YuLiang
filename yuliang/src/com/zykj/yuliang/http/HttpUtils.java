@@ -38,7 +38,7 @@ public class HttpUtils {
 	/* 修改个人资料 */
 	public static void updateUserInfo(AsyncHttpResponseHandler handler,
 			RequestParams params) {
-		client.get(UrlContants.getUrl(UrlContants.UPDATEUSERINFO), params,
+		client.post(UrlContants.getUrl(UrlContants.UPDATEUSERINFO), params,
 				handler);
 	}
 

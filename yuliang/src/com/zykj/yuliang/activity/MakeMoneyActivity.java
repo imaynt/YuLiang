@@ -30,7 +30,7 @@ public class MakeMoneyActivity extends BaseActivity {
 	private Intent intent;
 	private String part = "1";// 1是新手教程，2是个人资料得分
 	private RequestParams params;
-	private String state="";
+	private String state = "1";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class MakeMoneyActivity extends BaseActivity {
 		ll_youchang = (LinearLayout) findViewById(R.id.ll_youchang);
 		ll_new = (LinearLayout) findViewById(R.id.ll_new);
 		String nick = BaseApp.getModel().getUsername();
-		if (StringUtil.isEmpty(nick))
+		if (!StringUtil.isEmpty(nick))
 			ll_ziliao.setVisibility(View.VISIBLE);
 
 	}
@@ -116,28 +116,28 @@ public class MakeMoneyActivity extends BaseActivity {
 
 		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 		final String DEVICE_ID = tm.getDeviceId();
-		
+
 		RequestParams params = new RequestParams();
 		params.put("deviceId", DEVICE_ID);
-		HttpUtils.postNewAndPersonal(new HttpErrorHandler() {
-		
-			
+		HttpUtils.postNewAndPersonalstate(new HttpErrorHandler() {
+
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
 				JSONObject jsonObject = json.getJSONObject(UrlContants.jsonData);
 				state = jsonObject.getString("new").toString();
-					
+				if (state.equals("0")) {
+					ll_new.setVisibility(View.VISIBLE);
+				}
+
 			}
+
 			@Override
 			public void onRecevieFailed(String status, JSONObject json) {
 				super.onRecevieFailed(status, json);
 			}
 		}, params);
-		
 		if (state.equals("0")) {
-
 			ll_new.setVisibility(View.VISIBLE);
-
 		}
 	}
 }

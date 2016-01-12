@@ -93,7 +93,7 @@ public class UserInfoActivity extends BaseActivity {
 		if (StringUtil.isEmpty(BaseApp.getModel().getUsername())) {
 			submitData();
 			getMoneyFromZiLiao();
-		}else{
+		} else {
 			submitData();
 		}
 		String avatar = BaseApp.getModel().getAvatar();
@@ -231,35 +231,35 @@ public class UserInfoActivity extends BaseActivity {
 			Tools.toast(UserInfoActivity.this, "职业不能为空");
 			return;
 		}
-
-		params = new RequestParams();
-
-		params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
-		params.put("username", nick);// username必须，新的会员昵称
-		params.put("sex", sex);// sex必须, 性别
-		params.put("birthday", birth);// birthday必须, 生日
-		try {
+			params = new RequestParams();
+			try {
+				
+			params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
+			params.put("username", nick);// username必须，新的会员昵称
+			params.put("sex", sex);// sex必须, 性别
+			params.put("birthday", birth);// birthday必须, 生日
+			params.put("profession", profession);// profession必须, 职业
+			params.put("id", BaseApp.getModel().getUserid());// birthday必须, 生日
 			params.put("imgURL", file);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}// birthday必须, 生日
-		params.put("profession", profession);// profession必须, 职业
-		HttpUtils.updateUserInfo(new HttpErrorHandler() {
+			HttpUtils.updateUserInfo(new HttpErrorHandler() {
 
-			@Override
-			public void onRecevieSuccess(JSONObject json) {
-				Tools.toast(UserInfoActivity.this, "资料更新成功!");
-				BaseApp.getModel().setUsername(nick);
-				BaseApp.getModel().setBirth(birth);
-				BaseApp.getModel().setSex(sex);
-				BaseApp.getModel().setPrefession(profession);
-				setResult(RESULT_OK);
-				finish();
-
-			}
-		}, params);
-	}
+				@Override
+				public void onRecevieSuccess(JSONObject json) {
+					Tools.toast(UserInfoActivity.this, "资料更新成功!");
+					String avatar=json.getJSONObject(UrlContants.jsonData).getString("avatar");
+					BaseApp.getModel().setUsername(nick);
+					BaseApp.getModel().setBirth(birth);
+					BaseApp.getModel().setSex(sex);
+					BaseApp.getModel().setPrefession(profession);
+					BaseApp.getModel().setAvatar(avatar);
+					setResult(RESULT_OK);
+					finish();
+				}
+			}, params);
+		} 
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -365,7 +365,7 @@ public class UserInfoActivity extends BaseActivity {
 			e.printStackTrace();
 		}
 		img_avatar.setImageBitmap(bitmap);// 把头像设置到本地
-		updateUserAvatar(file);// 提交数据,更新头像
+//		updateUserAvatar(file);// 提交数据,更新头像
 
 		// if (type == 1) {
 		// img_avator.setImageBitmap(bitmap);//头像
@@ -393,7 +393,7 @@ public class UserInfoActivity extends BaseActivity {
 					String imgurl = json.getJSONObject(UrlContants.jsonData).getString("avatar");
 					BaseApp.getModel().setAvatar(imgurl);
 					setResult(RESULT_OK);
-//					finish();
+					// finish();
 				}
 			}, params);
 		} catch (FileNotFoundException e) {

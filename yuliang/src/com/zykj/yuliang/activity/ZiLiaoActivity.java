@@ -199,6 +199,7 @@ public class ZiLiaoActivity extends BaseActivity {
 				params.put("sex", sex);// sex必须, 性别
 				params.put("birthday", birth);// birthday必须, 生日
 				params.put("profession", profession);// profession必须, 职业
+				params.put("id", BaseApp.getModel().getUserid());// birthday必须, 生日
 				params.put("imgURL", file);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
@@ -208,10 +209,12 @@ public class ZiLiaoActivity extends BaseActivity {
 					@Override
 					public void onRecevieSuccess(JSONObject json) {
 						Tools.toast(ZiLiaoActivity.this, "资料更新成功!");
+						String avatar=json.getJSONObject(UrlContants.jsonData).getString("avatar");
 						BaseApp.getModel().setUsername(nick);
 						BaseApp.getModel().setBirth(birth);
 						BaseApp.getModel().setSex(sex);
 						BaseApp.getModel().setPrefession(profession);
+						BaseApp.getModel().setAvatar(avatar);
 						setResult(RESULT_OK);
 						finish();
 					}
@@ -381,7 +384,7 @@ public class ZiLiaoActivity extends BaseActivity {
 			e.printStackTrace();
 		}
 		img_avatar.setImageBitmap(bitmap);// 头像
-		updateUserAvatar(file);
+//		updateUserAvatar(file);
 		// if (type == 1) {
 		// img_avator.setImageBitmap(bitmap);//头像
 		// file1=file;
