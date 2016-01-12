@@ -99,6 +99,13 @@ public class HttpUtils {
 				handler);
 	}
 	
+	/*新手教程和个人资料完善状态*/
+	public static void postNewAndPersonalstate(AsyncHttpResponseHandler handler,
+			RequestParams params) {
+		client.post(UrlContants.getUrl(UrlContants.NEWANDPERSONALSTATE), params,
+				handler);
+	}
+	
 	/*切换账号*/
 	public static void changeUserId(AsyncHttpResponseHandler handler,
 			RequestParams params) {

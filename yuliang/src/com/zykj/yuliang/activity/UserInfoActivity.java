@@ -238,6 +238,12 @@ public class UserInfoActivity extends BaseActivity {
 		params.put("username", nick);// username必须，新的会员昵称
 		params.put("sex", sex);// sex必须, 性别
 		params.put("birthday", birth);// birthday必须, 生日
+		try {
+			params.put("imgURL", file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}// birthday必须, 生日
 		params.put("profession", profession);// profession必须, 职业
 		HttpUtils.updateUserInfo(new HttpErrorHandler() {
 
@@ -387,7 +393,7 @@ public class UserInfoActivity extends BaseActivity {
 					String imgurl = json.getJSONObject(UrlContants.jsonData).getString("avatar");
 					BaseApp.getModel().setAvatar(imgurl);
 					setResult(RESULT_OK);
-					finish();
+//					finish();
 				}
 			}, params);
 		} catch (FileNotFoundException e) {

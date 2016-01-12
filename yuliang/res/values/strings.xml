@@ -3,7 +3,7 @@
 
     <!-- 点入的appkey -->
     <string name="app_key">0000B1422300006F</string>
-    <string name="app_name1">余粮</string>
+    <string name="app_name">余粮</string>
     <string name="app_content">余粮是一款利用业余时间赚钱的项目</string>
 
     <!-- 主页 -->
@@ -34,7 +34,6 @@
     <string name="duihuan_account">金&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;额：</string>
 
     <!-- 更多 -->
-    <string name="app_name">yuliang</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="mobile">手机</string>

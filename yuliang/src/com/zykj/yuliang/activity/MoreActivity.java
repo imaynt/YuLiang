@@ -22,8 +22,7 @@ import android.widget.TextView;
 
 public class MoreActivity extends BaseActivity {
 	private MyCommonTitle myCommonTitle;
-	private LinearLayout ll_user_info, ll_weixin, ll_bind_mobile,
-			ll_score_list, ll_customer_center, ll_new_notice,
+	private LinearLayout ll_user_info, ll_weixin, ll_bind_mobile, ll_score_list, ll_customer_center, ll_new_notice,
 			ll_business_coopration, ll_check_update, ll_change_userId;
 	private TextView user_id, user_nick, user_mobile, version_code;
 	private RoundImageView img_avatar;
@@ -58,9 +57,8 @@ public class MoreActivity extends BaseActivity {
 		user_mobile = (TextView) findViewById(R.id.tv_mobile);// 手机号
 		version_code = (TextView) findViewById(R.id.tv_version);// 版本号
 
-		setListener(ll_user_info, ll_weixin, ll_bind_mobile, ll_score_list,
-				ll_customer_center, ll_new_notice, ll_business_coopration,
-				ll_check_update, ll_change_userId);
+		setListener(ll_user_info, ll_weixin, ll_bind_mobile, ll_score_list, ll_customer_center, ll_new_notice,
+				ll_business_coopration, ll_check_update, ll_change_userId);
 	}
 
 	@Override
@@ -71,8 +69,7 @@ public class MoreActivity extends BaseActivity {
 			/**
 			 * 请求数据获得 昵称 和 头像 传 给user_nick和img_avatar
 			 */
-			startActivityForResult((new Intent(MoreActivity.this,
-					UserInfoActivity.class)), 22);
+			startActivityForResult((new Intent(MoreActivity.this, UserInfoActivity.class)), 22);
 			break;
 		case R.id.ll_weixin:
 			AlertDialog.Builder builder = new Builder(MoreActivity.this);
@@ -93,24 +90,27 @@ public class MoreActivity extends BaseActivity {
 			/**
 			 * 请求数据获得 手机号 传给 user_mobile 如果已绑定,则传mobile
 			 */
+
 			String mobile = user_mobile.getText().toString().trim();
-			startActivityForResult(new Intent(MoreActivity.this,
-					BindMobileActivity.class).putExtra("mobile", mobile), 11);
+//			if (StringUtil.isEmpty(mobile)) {
+//				startActivity(new Intent(MoreActivity.this, BindMobileActivity.class));
+//			} else {
+				startActivityForResult(
+						new Intent(MoreActivity.this, BindMobileActivity.class).putExtra("mobile", mobile), 11);
+//			}
+
 			break;
 		case R.id.ll_score_list:
 			startActivity(new Intent(MoreActivity.this, ScoreListActivity.class));
 			break;
 		case R.id.ll_customer_center:
-			startActivity(new Intent(MoreActivity.this,
-					CustomerCenterActivity.class));
+			startActivity(new Intent(MoreActivity.this, CustomerCenterActivity.class));
 			break;
 		case R.id.ll_news_notice:
-			startActivity(new Intent(MoreActivity.this,
-					NewsListActivity.class));
+			startActivity(new Intent(MoreActivity.this, NewsListActivity.class));
 			break;
 		case R.id.ll_business_coopration:
-			startActivity(new Intent(MoreActivity.this,
-					BusinessCooperationActivity.class));
+			startActivity(new Intent(MoreActivity.this, BusinessCooperationActivity.class));
 			break;
 		case R.id.ll_check_version:
 			/**
@@ -144,8 +144,7 @@ public class MoreActivity extends BaseActivity {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 
-					startActivityForResult(new Intent(MoreActivity.this,
-							BindMobileActivity.class),11);
+					startActivityForResult(new Intent(MoreActivity.this, BindMobileActivity.class), 11);
 				}
 			});
 			builder.create().show();
@@ -173,8 +172,8 @@ public class MoreActivity extends BaseActivity {
 	private void requestData() {
 		user_id.setText(BaseApp.getModel().getUserid());
 		String avatar = BaseApp.getModel().getAvatar();
-		ImageLoader.getInstance().displayImage(
-				StringUtil.toString(UrlContants.IMAGE_URL+avatar, "http://"), img_avatar);
+		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL + avatar, "http://"),
+				img_avatar);
 		String nick = BaseApp.getModel().getUsername();
 		user_nick.setText(StringUtil.isEmpty(nick) ? "请输入昵称" : nick);
 		String mobile = BaseApp.getModel().getMobile();

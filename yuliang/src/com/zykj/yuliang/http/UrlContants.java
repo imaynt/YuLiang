@@ -54,6 +54,8 @@ public class UrlContants {
 	public static final String POSTMOBILEFEES = "c=user&a=postfees";// 手机充值
 
 	public static final String NEWANDPERSONAL = "c=user&a=new_and_personal";// 新手教程和个人资料完善
+	
+	public static final String NEWANDPERSONALSTATE = "c=user&a=is_new_and_personal";// 新手教程和个人资料完善状态
 
 	public static final String CHANGEUSERID = "c=user&a=login_v";// 切换账号
 	

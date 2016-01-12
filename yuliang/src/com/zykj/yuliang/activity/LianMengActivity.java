@@ -142,22 +142,25 @@ public class LianMengActivity extends BaseActivity {
 
 	}
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		/**
-		 * 在应用退出的地方（如：Activity的 onDestroy 方法中）调用以下代码进行资源回收：
-		 */
-		OffersManager.getInstance(this).onAppExit();
-		// 万普退出
-		AppConnect.getInstance(this).close();
-	}
-
-	/**
-	 * 打开积分墙
-	 */
-	private void openOfferWall() {
-		DOW.getInstance(this).show(this);
-	}
+//	@Override
+//	protected void onDestroy() {
+//		super.onDestroy();
+//		/**
+//		 * 在应用退出的地方（如：Activity的 onDestroy 方法中）调用以下代码进行资源回收：
+//		 */
+//		if(OffersManager.getInstance(this)!=null){
+//			OffersManager.getInstance(this).onAppExit();
+//			// 万普退出
+//			AppConnect.getInstance(this).close();
+//		}
+//		
+//	}
+//
+//	/**
+//	 * 打开积分墙
+//	 */
+//	private void openOfferWall() {
+//		DOW.getInstance(this).show(this);
+//	}
 
 }

@@ -11,11 +11,7 @@ import static com.mob.tools.utils.R.getBitmapRes;
 import static com.mob.tools.utils.R.getStringRes;
 import static com.mob.tools.utils.R.getStyleRes;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.json.JSONObject;
 
 import android.app.Dialog;
@@ -68,8 +64,6 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 	private String currentId;
 	private String currentCode;
 	private EventHandler handler;
-	// 国家号码规则
-	private HashMap<String, String> countryRules;
 	private Dialog pd;
 	private OnSendMessageHandler osmHandler;
 
@@ -138,7 +132,6 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 			viewCountry.setOnClickListener(this);
 
 			handler = new EventHandler() {
-				@SuppressWarnings("unchecked")
 				public void afterEvent(final int event, final int result,
 						final Object data) {
 					runOnUIThread(new Runnable() {
@@ -147,10 +140,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 								pd.dismiss();
 							}
 							if (result == SMSSDK.RESULT_COMPLETE) {
-								if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
-									// 请求支持国家列表
-									onCountryListGot((ArrayList<HashMap<String, Object>>) data);
-								} else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+								if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
 									// 请求验证码后，跳转到验证码填写页面
 									boolean smart = (Boolean)data;
 									afterVerificationCodeRequested(smart);
@@ -163,6 +153,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 									return;
 								}
 
+								int status = 0;
 								// 根据服务器返回的网络错误，给toast提示
 								try {
 									((Throwable) data).printStackTrace();
@@ -171,6 +162,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 									JSONObject object = new JSONObject(
 											throwable.getMessage());
 									String des = object.optString("detail");
+									status = object.optInt("status");
 									if (!TextUtils.isEmpty(des)) {
 										Toast.makeText(activity, des, Toast.LENGTH_SHORT).show();
 										return;
@@ -179,8 +171,15 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 									SMSLog.getInstance().w(e);
 								}
 								// 如果木有找到资源，默认提示
-								int resId = getStringRes(activity,
-										"smssdk_network_error");
+								int resId = 0;
+								if(status >= 400) {
+									resId = getStringRes(activity,
+											"smssdk_error_desc_"+status);
+								} else {
+									resId = getStringRes(activity,
+											"smssdk_network_error");
+								}
+
 								if (resId > 0) {
 									Toast.makeText(activity, resId, Toast.LENGTH_SHORT).show();
 								}
@@ -267,25 +266,12 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 			// 国家列表
 			CountryPage countryPage = new CountryPage();
 			countryPage.setCountryId(currentId);
-			countryPage.setCountryRuls(countryRules);
 			countryPage.showForResult(activity, null, this);
 		} else if (id == id_btn_next) {
 			// 请求发送短信验证码
-			if (countryRules == null || countryRules.size() <= 0) {
-				if (pd != null && pd.isShowing()) {
-					pd.dismiss();
-				}
-				pd = CommonDialog.ProgressDialog(activity);
-				if (pd != null) {
-					pd.show();
-				}
-
-				SMSSDK.getSupportedCountries();
-			} else {
-				String phone = etPhoneNum.getText().toString().trim().replaceAll("\\s*", "");
-				String code = tvCountryNum.getText().toString().trim();
-				checkPhoneNum(phone, code);
-			}
+			String phone = etPhoneNum.getText().toString().trim().replaceAll("\\s*", "");
+			String code = tvCountryNum.getText().toString().trim();
+			showDialog(phone, code);
 		} else if (id == id_iv_clear) {
 			// 清除电话号码输入框
 			etPhoneNum.getText().clear();
@@ -299,7 +285,6 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 			if (page == 1) {
 				// 国家列表返回
 				currentId = (String) data.get("id");
-				countryRules = (HashMap<String, String>) data.get("rules");
 				String[] country = SMSSDK.getCountry(currentId);
 				if (country != null) {
 					currentCode = country[1];
@@ -329,26 +314,6 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 		}
 	}
 
-	private void onCountryListGot(ArrayList<HashMap<String, Object>> countries) {
-		// 解析国家列表
-		for (HashMap<String, Object> country : countries) {
-			String code = (String) country.get("zone");
-			String rule = (String) country.get("rule");
-			if (TextUtils.isEmpty(code) || TextUtils.isEmpty(rule)) {
-				continue;
-			}
-
-			if (countryRules == null) {
-				countryRules = new HashMap<String, String>();
-			}
-			countryRules.put(code, rule);
-		}
-		// 检查手机号码
-		String phone = etPhoneNum.getText().toString().trim().replaceAll("\\s*", "");
-		String code = tvCountryNum.getText().toString().trim();
-		checkPhoneNum(phone, code);
-	}
-
 	/** 分割电话号码 */
 	private String splitPhoneNum(String phone) {
 		StringBuilder builder = new StringBuilder(phone);
@@ -358,53 +323,6 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 		}
 		builder.reverse();
 		return builder.toString();
-	}
-
-	/** 检查电话号码 */
-	private void checkPhoneNum(String phone, String code) {
-		if (code.startsWith("+")) {
-			code = code.substring(1);
-		}
-
-		if (TextUtils.isEmpty(phone)) {
-			int resId = getStringRes(activity, "smssdk_write_mobile_phone");
-			if (resId > 0) {
-				Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
-			}
-			return;
-		}
-
-		if (countryRules == null || countryRules.size() <= 0) {
-			if (code == "86") {
-				if(phone.length() != 11) {
-					int resId = getStringRes(activity, "smssdk_write_right_mobile_phone");
-					if (resId > 0) {
-						Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
-					}
-					return;
-				}
-				showDialog(phone, code);
-			} else {
-				int resId = getStringRes(activity, "smssdk_country_not_support_currently");
-				if (resId > 0) {
-					Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
-				}
-			}
-			return;
-		}
-
-		String rule = countryRules.get(code);
-		Pattern p = Pattern.compile(rule);
-		Matcher m = p.matcher(phone);
-		int resId = 0;
-		if (!m.matches()) {
-			resId = getStringRes(activity, "smssdk_write_right_mobile_phone");
-			if (resId > 0) {
-				Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
-			}
-			return;
-		}
-		showDialog(phone, code);
 	}
 
 	/** 是否请求发送验证码，对话框 */

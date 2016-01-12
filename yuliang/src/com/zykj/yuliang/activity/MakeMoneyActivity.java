@@ -1,7 +1,9 @@
 package com.zykj.yuliang.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.LinearLayout;
 import org.apache.http.Header;
@@ -11,7 +13,9 @@ import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
 import com.zykj.yuliang.http.AbstractHttpHandler;
+import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
+import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.SharedPreferenceUtils;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.view.MyCommonTitle;
@@ -26,6 +30,7 @@ public class MakeMoneyActivity extends BaseActivity {
 	private Intent intent;
 	private String part = "1";// 1是新手教程，2是个人资料得分
 	private RequestParams params;
+	private String state="";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,9 @@ public class MakeMoneyActivity extends BaseActivity {
 
 		initViews();
 		initClick();
+		initEvents();
 
-		// requestData();
+		requestData();
 	}
 
 	protected void initClick() {
@@ -52,15 +58,14 @@ public class MakeMoneyActivity extends BaseActivity {
 		ll_ziliao = (LinearLayout) findViewById(R.id.ll_ziliao);
 		ll_youchang = (LinearLayout) findViewById(R.id.ll_youchang);
 		ll_new = (LinearLayout) findViewById(R.id.ll_new);
-		
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
 		String nick = BaseApp.getModel().getUsername();
 		if (StringUtil.isEmpty(nick))
 			ll_ziliao.setVisibility(View.VISIBLE);
+
+	}
+
+	protected void initEvents() {
+
 	}
 
 	@Override
@@ -107,5 +112,32 @@ public class MakeMoneyActivity extends BaseActivity {
 	 * 请求服务器数据,查看新手教程和个人资料是否完成,完成后相应的功能不显示
 	 * 
 	 */
+	private void requestData() {
 
+		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+		final String DEVICE_ID = tm.getDeviceId();
+		
+		RequestParams params = new RequestParams();
+		params.put("deviceId", DEVICE_ID);
+		HttpUtils.postNewAndPersonal(new HttpErrorHandler() {
+		
+			
+			@Override
+			public void onRecevieSuccess(JSONObject json) {
+				JSONObject jsonObject = json.getJSONObject(UrlContants.jsonData);
+				state = jsonObject.getString("new").toString();
+					
+			}
+			@Override
+			public void onRecevieFailed(String status, JSONObject json) {
+				super.onRecevieFailed(status, json);
+			}
+		}, params);
+		
+		if (state.equals("0")) {
+
+			ll_new.setVisibility(View.VISIBLE);
+
+		}
+	}
 }

@@ -159,7 +159,6 @@ public class CommonUtils {
 
 	public static void showShare(final Context context, String title,String content, String url) {
 
-		ShareSDK.initSDK(context);
 //		ShareSDK.initSDK(context,"d20096a7d56e");
 //		HashMap<String, Object> hashMap=new HashMap<String, Object>();
 //		hashMap.put("Id", "1");
@@ -174,6 +173,7 @@ public class CommonUtils {
 //		sinaWeibo.removeAccount();
 //		ShareSDK.removeCookieOnAuthorize(true);
 		
+		ShareSDK.initSDK(context);
 		OnekeyShare oks = new OnekeyShare();
 		// 关闭sso授权
 		oks.disableSSOWhenAuthorize();
@@ -213,7 +213,7 @@ public class CommonUtils {
 		oks.setText(content);
 		// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数记得修改哦
 //		 oks.setImagePath();//为sdk图片路径
-//		oks.setImageUrl("http://dashboard.mob.com/Uploads/db95c30283c2aa827e6831170d70808d.png");// 确保SDcard下面存在此张图片
+		oks.setImageUrl("http://www.mob.com/files/apps/icon/1450493564.jpeg");// 确保SDcard下面存在此张图片
 		// url仅在微信（包括好友和朋友圈）中使用
 		oks.setUrl(url);
 		// comment是我对这条分享的评论，仅在人人网和QQ空间使用

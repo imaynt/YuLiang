@@ -218,7 +218,7 @@ public class CountryPage extends FakeActivity implements OnClickListener, TextWa
 		//start activity for result
 		HashMap<String, Object> res = new HashMap<String, Object>();
 		res.put("id", id);
-		res.put("rules", countryRules);
+		//res.put("rules", countryRules);
 		res.put("page", 1);
 		setResult(res);
 		return super.onFinish();

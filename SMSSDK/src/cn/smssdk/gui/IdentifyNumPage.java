@@ -373,7 +373,7 @@ public class IdentifyNumPage extends FakeActivity implements OnClickListener,
 									public void onClick(View v) {
 										// TODO 发送语言
 										dialog.dismiss();
-										SMSSDK.getVoiceVerifyCode(phone, code);
+										SMSSDK.getVoiceVerifyCode(code,phone);
 									}
 					});
 
@@ -466,9 +466,11 @@ public class IdentifyNumPage extends FakeActivity implements OnClickListener,
 					((Throwable) data).printStackTrace();
 					Throwable throwable = (Throwable) data;
 					// 根据服务器返回的网络错误，给toast提示
+					int status = 0;
 					try {
 						JSONObject object = new JSONObject(throwable.getMessage());
 						String des = object.optString("detail");
+						status = object.optInt("status");
 						if (!TextUtils.isEmpty(des)) {
 							Toast.makeText(activity, des, Toast.LENGTH_SHORT).show();
 							return;
@@ -477,7 +479,14 @@ public class IdentifyNumPage extends FakeActivity implements OnClickListener,
 						SMSLog.getInstance().w(e);
 					}
 					// / 如果木有找到资源，默认提示
-					int resId = getStringRes(activity, "smssdk_network_error");
+					int resId = 0;
+					if(status >= 400) {
+						resId = getStringRes(activity,
+								"smssdk_error_desc_"+status);
+					} else {
+						resId = getStringRes(activity,
+								"smssdk_network_error");
+					}
 					if (resId > 0) {
 						Toast.makeText(activity, resId, Toast.LENGTH_SHORT).show();
 					}
@@ -509,10 +518,12 @@ public class IdentifyNumPage extends FakeActivity implements OnClickListener,
 					((Throwable) data).printStackTrace();
 					Throwable throwable = (Throwable) data;
 					// 根据服务器返回的网络错误，给toast提示
+					int status = 0;
 					try {
 						JSONObject object = new JSONObject(
 								throwable.getMessage());
 						String des = object.optString("detail");
+						status = object.optInt("status");
 						if (!TextUtils.isEmpty(des)) {
 							Toast.makeText(activity, des, Toast.LENGTH_SHORT).show();
 							return;
@@ -521,7 +532,15 @@ public class IdentifyNumPage extends FakeActivity implements OnClickListener,
 						SMSLog.getInstance().w(e);
 					}
 					//  如果木有找到资源，默认提示
-					int resId = getStringRes(activity, "smssdk_network_error");
+					int resId = 0;
+					if(status >= 400) {
+						resId = getStringRes(activity,
+								"smssdk_error_desc_"+status);
+					} else {
+						resId = getStringRes(activity,
+								"smssdk_network_error");
+					}
+
 					if (resId > 0) {
 						Toast.makeText(activity, resId, Toast.LENGTH_SHORT).show();
 					}

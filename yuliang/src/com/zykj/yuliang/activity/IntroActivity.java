@@ -2,6 +2,7 @@ package com.zykj.yuliang.activity;
 
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.R;
+import com.zykj.yuliang.utils.SharedPreferenceUtils;
 import com.zykj.yuliang.utils.Tools;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -136,10 +137,15 @@ public class IntroActivity extends BaseActivity implements OnPageChangeListener 
 			putSharedPreferenceValue("version", Tools.getAppVersion(this) + "");
 			// 存储已经进行过索引的标识
 			putSharedPreferenceValue("is_intro", "1");
-
-			Intent intent = new Intent(this, MainActivity.class);
-			startActivity(intent);
-			finish();
+			if (SharedPreferenceUtils.init(IntroActivity.this).getIsNewFirst().equals("true")) {
+				SharedPreferenceUtils.init(IntroActivity.this).setIsNewFirst("false");
+				startActivity(new Intent(this,FirstLoginActivity.class));
+			}else{
+				Intent intent = new Intent(this, MainActivity.class);
+				startActivity(intent);
+				finish();
+			}
+			
 		} else {
 			viewPager.setCurrentItem(position + 1);
 		}

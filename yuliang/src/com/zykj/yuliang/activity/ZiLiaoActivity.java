@@ -193,11 +193,16 @@ public class ZiLiaoActivity extends BaseActivity {
 				return;
 			}
 				params = new RequestParams();
+				try {
 				params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
 				params.put("username", nick);// username必须，新的会员昵称
 				params.put("sex", sex);// sex必须, 性别
 				params.put("birthday", birth);// birthday必须, 生日
 				params.put("profession", profession);// profession必须, 职业
+				params.put("imgURL", file);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}// birthday必须, 生日
 				HttpUtils.updateUserInfo(new HttpErrorHandler() {
 
 					@Override
@@ -399,12 +404,10 @@ public class ZiLiaoActivity extends BaseActivity {
 				@Override
 				public void onRecevieSuccess(JSONObject json) {
 					Tools.toast(ZiLiaoActivity.this, "上传头像成功");
-					String imgurl = json.getJSONObject(UrlContants.jsonData)
-							.getString("avatar");
-					BaseApp.getModel()
-							.setAvatar(UrlContants.IMAGE_URL + imgurl);
+					String imgurl = json.getJSONObject(UrlContants.jsonData).getString("avatar");
+					BaseApp.getModel().setAvatar(imgurl);
 					setResult(RESULT_OK);
-					finish();
+//					finish();
 				}
 			}, params);
 		} catch (FileNotFoundException e) {

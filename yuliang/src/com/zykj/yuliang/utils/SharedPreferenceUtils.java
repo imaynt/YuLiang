@@ -104,6 +104,15 @@ public class SharedPreferenceUtils {
 		return mSharedPreference.getString("isOver", null);
 	}
 	
+	public String getIsNewFirst() {
+		return mSharedPreference.getString("isNewFirst", null);
+	}
+	
+	public void setIsNewFirst(String isNewFirst) {
+		mEditor.putString("isNewFirst", isNewFirst);
+		mEditor.commit();
+	}
+	
 	public void setIsOver(String isOver) {
 		mEditor.putString("isOver", isOver);
 		mEditor.commit();

@@ -1,11 +1,7 @@
 package com.zykj.yuliang.activity;
 
-import org.apache.http.Header;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -18,7 +14,6 @@ import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
-import com.zykj.yuliang.http.UrlContants;
 import com.zykj.yuliang.utils.StringUtil;
 import com.zykj.yuliang.utils.Tools;
 
@@ -101,7 +96,7 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 			ll_text_t.setVisibility(View.VISIBLE);
 			ll_text_s.setVisibility(View.VISIBLE);
 			params = new RequestParams();
-			params.put("deviceid", BaseApp.getModel().getDeviceId());// deviceId没有获得,
+			params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId没有获得,
 			params.put("parentid", shifuID);
 			HttpUtils.getPointsFromInvite(new HttpErrorHandler() {
 
@@ -115,7 +110,7 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 			 */
 			break;
 		case R.id.rl_huodeyes:
-			startActivity(new Intent(FirstLoginActivity.this, MainActivity.class).putExtra("userId", userId));
+			startActivity(new Intent(FirstLoginActivity.this, MainActivity.class));
 
 			finish();
 			break;

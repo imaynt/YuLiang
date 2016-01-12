@@ -1,16 +1,11 @@
 package com.zykj.yuliang.activity;
 
-import static cn.smssdk.framework.utils.R.getStringRes;
-
-import org.apache.http.Header;
-
+//import static cn.smssdk.framework.utils.R.getStringRes;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -21,12 +16,9 @@ import cn.smssdk.SMSSDK;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
-import com.zykj.yuliang.R.id;
-import com.zykj.yuliang.R.string;
 import com.zykj.yuliang.http.HttpErrorHandler;
 import com.zykj.yuliang.http.HttpUtils;
 import com.zykj.yuliang.http.UrlContants;
@@ -41,8 +33,8 @@ public class BindMobileActivity extends BaseActivity {
 	private TextView bind_descrip, identify_code, binded_mobile, bind_new_mobile;
 	private EditText mobile_number, mobile_code;
 	public String mobile, mobileCode;
-	private static String APPKEY = "d1ff3bafe382";
-	private static String APPSECRET = "6cb8331f1f929ec5de0c3b79e484a21a";
+	private static String APPKEY = "e8f63ead3b6b";
+	private static String APPSECRET = "703490972fa3a201c3e87d88b720fe5c";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -167,15 +159,16 @@ public class BindMobileActivity extends BaseActivity {
 				} else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
 					Tools.toast(BindMobileActivity.this, "验证码已经发送");
 				}
-			} else {
-				((Throwable) data).printStackTrace();
-				int resId = getStringRes(BindMobileActivity.this, "smssdk_network_error");
-				Tools.toast(BindMobileActivity.this,
-						event == SMSSDK.EVENT_GET_VERIFICATION_CODE ? "验证码频繁，请稍后再试！" : "验证码错误");
-				if (resId > 0) {
-					Tools.toast(BindMobileActivity.this, resId + "");
-				}
-			}
+			} 
+//			else {
+//				((Throwable) data).printStackTrace();
+//				int resId = getStringRes(BindMobileActivity.this, "smssdk_network_error");
+//				Tools.toast(BindMobileActivity.this,
+//						event == SMSSDK.EVENT_GET_VERIFICATION_CODE ? "验证码频繁，请稍后再试！" : "验证码错误");
+//				if (resId > 0) {
+//					Tools.toast(BindMobileActivity.this, resId + "");
+//				}
+//			}
 		}
 
 		/**

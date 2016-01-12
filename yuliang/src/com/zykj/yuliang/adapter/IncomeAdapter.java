@@ -69,18 +69,12 @@ public class IncomeAdapter extends BaseAdapter {
 		ViewHolder1 holder = null;
 		if (convertView == null) {
 			holder = new ViewHolder1();
-			convertView = inflater.inflate(R.layout.ui_item_income, parent,
-					false);
-			holder.rv_avatar = (CircleImageView) convertView
-					.findViewById(R.id.cimg_avatar);
-			holder.aci_incomerId = (TextView) convertView
-					.findViewById(R.id.tv_income_userId);
-			holder.aci_incomeDate = (TextView) convertView
-					.findViewById(R.id.tv_income_date);
-			holder.aci_incomeCotent = (TextView) convertView
-					.findViewById(R.id.tv_income_content);
-			holder.aci_xuetuCotent = (TextView) convertView
-					.findViewById(R.id.tv_xuetu_content);
+			convertView = inflater.inflate(R.layout.ui_item_income, parent, false);
+			holder.rv_avatar = (CircleImageView) convertView.findViewById(R.id.cimg_avatar);
+			holder.aci_incomerId = (TextView) convertView.findViewById(R.id.tv_income_userId);
+			holder.aci_incomeDate = (TextView) convertView.findViewById(R.id.tv_income_date);
+			holder.aci_incomeCotent = (TextView) convertView.findViewById(R.id.tv_income_content);
+			holder.aci_xuetuCotent = (TextView) convertView.findViewById(R.id.tv_xuetu_content);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder1) convertView.getTag();
@@ -92,19 +86,27 @@ public class IncomeAdapter extends BaseAdapter {
 		// if(mType==2){
 		// holder.aci_incomerId.setText("我");
 		// }
-		holder.aci_incomerId.setText(income.getParentid().equals(BaseApp.getModel().getUserid())?income.getUid():"我");// 任务显示我的ID,学徒显示徒弟的ID
-//		holder.aci_incomerId.setText(income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
-		holder.aci_incomeDate.setText(income.getTimestamp());
+		// holder.aci_incomerId.setText(income.getUid());// 任务显示我的ID,学徒显示徒弟的ID
 		// 任务收入的显示和学徒的显示不同
-		holder.aci_incomeCotent.setText("完成：" + income.getDescription() + "，" + "赚了"
-				+ Html.fromHtml("<font color=#FF0000>" + income.getMoney() + "</font>") + "元");
-		
-		holder.aci_xuetuCotent.setText(income.getUid()+"成为您的徒弟");//这个为收徒的内容....................................
-		
-		holder.aci_xuetuCotent.setVisibility(mType == 3 || mType == 1 ? View.VISIBLE : View.GONE);// 点击学徒,显示的内容
+		if (mType == 1 || mType == 2) {
+			holder.aci_incomerId
+					.setText(income.getParentid().equals(BaseApp.getModel().getUserid()) ? income.getUid() : "我");// 任务显示我的ID,学徒显示徒弟的ID
+			holder.aci_incomeDate.setText(income.getTimestamp());
+			holder.aci_incomeCotent.setText("完成：" + income.getDescription() + "，" + "赚了"
+					+ Html.fromHtml("<font color=#FF0000>" + income.getMoney() + "</font>") + "元");
+		}
+		if (mType == 3) {
+			holder.aci_incomerId.setText(income.getUid());
+			holder.aci_incomeDate.setText(income.getTimestamp());
+			holder.aci_xuetuCotent.setText(income.getUid() + "成为您的徒弟");// 这个为收徒的内容....................................
+		}
+		if (mType == 4) {
+			holder.aci_incomerId.setText(income.getUid().equals(BaseApp.getModel().getUserid()) ? "我" : "");
+			holder.aci_incomeDate.setText(income.getAddtime());
+			holder.aci_incomeCotent.setText(income.getAlipay() + income.getState());// 这个为收徒的内容....................................
+		}
+		holder.aci_xuetuCotent.setVisibility(mType == 3 ? View.VISIBLE : View.GONE);// 点击学徒,显示的内容
 		holder.aci_incomeCotent.setVisibility(mType == 2 || mType == 1 || mType == 4 ? View.VISIBLE : View.GONE);// 点击任务显示的内容
-
-		
 
 		return convertView;
 	}
@@ -116,7 +118,7 @@ public class IncomeAdapter extends BaseAdapter {
 		TextView aci_incomeCotent;
 		TextView aci_incomeNum;
 		TextView aci_xuetuCotent;
-		
+
 	}
 
 }

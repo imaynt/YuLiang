@@ -14,6 +14,9 @@ public class Income implements Serializable{
 	private String deviceid;
 	private String timestamp;//收入日期
 	private String incomeAvatar;//头像
+	private String alipay;
+	private String state;
+    private String addtime;
 	
 	
 	public String getId() {
@@ -63,6 +66,24 @@ public class Income implements Serializable{
 	}
 	public void setIncomeAvatar(String incomeAvatar) {
 		this.incomeAvatar = incomeAvatar;
+	}
+	public String getAlipay() {
+		return alipay;
+	}
+	public void setAlipay(String alipay) {
+		this.alipay = alipay;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getAddtime() {
+		return addtime;
+	}
+	public void setAddtime(String addtime) {
+		this.addtime = addtime;
 	}
 	
 	
