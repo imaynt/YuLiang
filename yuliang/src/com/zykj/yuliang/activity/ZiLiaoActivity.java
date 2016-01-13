@@ -191,9 +191,12 @@ public class ZiLiaoActivity extends BaseActivity {
 			if (StringUtil.isEmpty(profession)) {
 				Tools.toast(ZiLiaoActivity.this, "职业不能为空");
 				return;
+			}if(file==null){
+				Tools.toast(ZiLiaoActivity.this, "头像不能为空");
+				return;
 			}
+			try {
 				params = new RequestParams();
-				try {
 				params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
 				params.put("username", nick);// username必须，新的会员昵称
 				params.put("sex", sex);// sex必须, 性别

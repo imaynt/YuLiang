@@ -90,12 +90,7 @@ public class UserInfoActivity extends BaseActivity {
 	private void requestData() {
 		String nick = BaseApp.getModel().getUsername();
 		user_nick.setText(StringUtil.isEmpty(nick) ? "" : nick);
-		if (StringUtil.isEmpty(BaseApp.getModel().getUsername())) {
-			submitData();
-			getMoneyFromZiLiao();
-		} else {
-			submitData();
-		}
+	
 		String avatar = BaseApp.getModel().getAvatar();
 		ImageLoader.getInstance().displayImage(StringUtil.toString(UrlContants.IMAGE_URL + avatar, "http://"),
 				img_avatar);
@@ -108,6 +103,10 @@ public class UserInfoActivity extends BaseActivity {
 
 		String prefession = BaseApp.getModel().getPrefession();
 		tv_profession.setText(StringUtil.isEmpty(prefession) ? "" : prefession);
+		if (StringUtil.isEmpty(BaseApp.getModel().getUsername())) {
+			submitData();
+			getMoneyFromZiLiao();
+		} 
 	}
 
 	/**
@@ -230,10 +229,12 @@ public class UserInfoActivity extends BaseActivity {
 		if (StringUtil.isEmpty(profession)) {
 			Tools.toast(UserInfoActivity.this, "职业不能为空");
 			return;
+		}if(file==null){
+			Tools.toast(UserInfoActivity.this, "头像不能为空");
+			return;
 		}
+		try {
 			params = new RequestParams();
-			try {
-				
 			params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId设备id
 			params.put("username", nick);// username必须，新的会员昵称
 			params.put("sex", sex);// sex必须, 性别

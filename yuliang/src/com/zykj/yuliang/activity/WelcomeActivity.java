@@ -1,18 +1,25 @@
 package com.zykj.yuliang.activity;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import org.apache.http.Header;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Environment;
 import android.telephony.TelephonyManager;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
+import com.pgyersdk.crash.PgyCrashManager;
 import com.zykj.yuliang.BaseActivity;
 import com.zykj.yuliang.BaseApp;
 import com.zykj.yuliang.R;
@@ -27,39 +34,59 @@ public class WelcomeActivity extends BaseActivity {
 
 	private String userId, account, points, avatar, nick, sex, birth, profession, mobile;// 用户的ID是服务器自动生成返回的
 	private boolean regState;// 注册状态
+	private Boolean flag = true;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// 在使用SDK各组件之前初始化context信息，传入ApplicationContext
 		// 注意该方法要再setContentView方法之前实现
 		initView(R.layout.ui_welcome);
+		// 集成蒲公英
+		PgyCrashManager.register(this);
 		// 获得手机的唯一标识
 		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 		final String DEVICE_ID = tm.getDeviceId();
-//		final String DEVICE_ID = "830043457186";
+		// final String DEVICE_ID = "830043457186";
 
 		RequestParams params = new RequestParams();
 		params.put("deviceId", DEVICE_ID);
 		HttpUtils.autoReg(new HttpErrorHandler() {
 			@Override
 			public void onRecevieSuccess(JSONObject json) {
-				if (json.getString("code").equals("200")) {
+				if (json.getString("code").equals("400")) {
+					flag = false;
+					createDialog();
+					
+				} else if (json.getString("code").equals("200")) {
+
 					Tools.toast(WelcomeActivity.this, "注册成功");
 					regState = true;
 					SharedPreferenceUtils.init(WelcomeActivity.this).setIsNew("true");
 					SharedPreferenceUtils.init(WelcomeActivity.this).setIsNewFirst("true");
 					saveUserInfo(json);
 				}
+				if (flag) {
+					startInto();
+				}
 			}
+
 
 			@Override
 			public void onRecevieFailed(String status, JSONObject json) {
 				super.onRecevieFailed(status, json);
-				if (json.getString("code").equals("403")) {
+				if (json.getString("code").equals("400")) {
+					flag = false;
+					
+					createDialog();
+				
+				} else if (json.getString("code").equals("403")) {
 					Tools.toast(WelcomeActivity.this, "此手机已注册");
 					SharedPreferenceUtils.init(WelcomeActivity.this).setIsNewFirst("false");
 					regState = false;
 					saveUserInfo(json);
+				}
+				if (flag) {
+					startInto();
 				}
 			}
 
@@ -92,11 +119,14 @@ public class WelcomeActivity extends BaseActivity {
 				BaseApp.getModel().setMobile(mobile);
 			}
 		}, params);
+		
+	}
 
+	private void startInto() {
 		// checkLogin();
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
-			
+
 			public void run() {
 				String is_intro = getSharedPreferenceValue(BaseApp.IS_INTRO);
 				boolean should_intro = false;
@@ -120,37 +150,39 @@ public class WelcomeActivity extends BaseActivity {
 				finish();
 			}
 		};
+
 		timer.schedule(task, 2000);
 
 	}
+	/**
+	 * 弹框提示信息,点击确定软件退出
+	 */
+	private void createDialog() {
+		AlertDialog.Builder builder = new Builder(WelcomeActivity.this);
+		builder.setTitle("温馨提示");
+		builder.setMessage("由于您的网络信号不稳定，请选择优质的网络再运行软件！");
+		builder.setPositiveButton("确定", new OnClickListener() {
 
-	// private void checkLogin(){
-	// if(StringUtil.isEmpty(BaseApp.getModel().getUsername())){
-	// return;
-	// }
-	// RequestParams params = new RequestParams();
-	// params.put("mob", BaseApp.getModel().getMobile());
-	// params.put("pass", BaseApp.getModel().getPassword());
-	// HttpUtils.login(new HttpErrorHandler() {
-	// @Override
-	// public void onRecevieSuccess(JSONObject json) {
-	// JSONObject data = json.getJSONObject(UrlContants.jsonData);
-	// String avatar = StringUtil.toStringOfObject(data.getString("avatar"));
-	// BaseApp.getModel().setAvatar(avatar.replace("app.do",
-	// UrlContants.SERVERIP));//头像
-	// BaseApp.getModel().setMobile(StringUtil.toStringOfObject(data.getString("mobile")));//手机号
-	// BaseApp.getModel().setMoney(StringUtil.toStringOfObject(data.getString("account")));//我的钱包
-	// BaseApp.getModel().setIntegral(StringUtil.toStringOfObject(data.getString("points")));//积分
-	// BaseApp.getModel().setPassword(BaseApp.getModel().getPassword());//登录密码
-	// BaseApp.getModel().setUserid(StringUtil.toStringOfObject(data.getString("id")));//用户Id
-	// BaseApp.getModel().setUsername(StringUtil.toStringOfObject(data.getString("username")));//真实姓名
-	// BaseApp.getModel().setSign(StringUtil.toStringOfObject(data.getString("sign")));//是否签到
-	// }
-	// @Override
-	// public void onRecevieFailed(String status, JSONObject json) {
-	// BaseApp.getModel().clear();
-	// Tools.toast(WelcomeActivity.this, "登录失效!");
-	// }
-	// }, params);
-	// }
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				try {
+					// 判断是否存在临时创建的文件
+					File temp_file = new File(
+							Environment.getExternalStorageDirectory() + File.separator + BaseApp.FILE_DIR);
+					Tools.Log("文件是否存在：" + temp_file.exists());
+					if (temp_file.exists()) {
+						File[] file_detail = temp_file.listFiles();
+						for (File file_del : file_detail) {
+							file_del.delete();
+						}
+						temp_file.delete();
+					}
+				} catch (Exception e) {
+				}
+				System.exit(0);
+			}
+		});
+		builder.create().show();
+		
+	}
 }

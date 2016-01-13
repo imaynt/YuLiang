@@ -27,7 +27,7 @@ public class MoreActivity extends BaseActivity {
 	private TextView user_id, user_nick, user_mobile, version_code;
 	private RoundImageView img_avatar;
 	private AlertDialog.Builder builder;
-
+    private String mobile;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -91,7 +91,7 @@ public class MoreActivity extends BaseActivity {
 			 * 请求数据获得 手机号 传给 user_mobile 如果已绑定,则传mobile
 			 */
 
-			String mobile = user_mobile.getText().toString().trim();
+			mobile = user_mobile.getText().toString().trim();
 //			if (StringUtil.isEmpty(mobile)) {
 //				startActivity(new Intent(MoreActivity.this, BindMobileActivity.class));
 //			} else {

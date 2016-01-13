@@ -5,8 +5,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="8"
-      android:targetSdkVersion="22"/>
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="22" />
 
     <!-- 读取手机状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -52,6 +53,11 @@
     <!-- 蓝牙分享所需的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- 蒲公英 -->
+    <!-- 允许程序录制音频 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 获取logcat日志 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
         android:name="com.zykj.yuliang.BaseApp"
@@ -68,7 +74,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+        <!--  蒲公英    可选 -->
+        <activity android:name="com.pgyersdk.activity.FeedbackActivity" />
+        <!-- 必选 -->
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="8ee7c12e85f5d94d846f841593ac38d8" >
+        </meta-data>
         <!-- QQ -->
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -85,9 +97,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+
         <!-- taobao -->
         <activity android:name="com.alibaba.sdk.android.webview.BaseWebViewActivity" />
+
         <receiver
             android:name="com.alibaba.sdk.android.hotpatch.HotPatchBroadcastReceiver"
             android:exported="false"
@@ -209,7 +222,7 @@
 
                 <data android:scheme="package" />
             </intent-filter>
-        </receiver>
+        </receiver>
         -->
 
 
@@ -239,7 +252,7 @@
         <!-- 联盟任务    万普 -->
         <!--
 		<meta-data android:name="APP_ID"android:value="应用标识"/>
-		<meta-data android:name="APP_PID"android:value="分发渠道标识"/>
+		<meta-data android:name="APP_PID"android:value="分发渠道标识"/>
         -->
 
 
@@ -454,7 +467,7 @@
         	 android:configChanges="orientation|keyboardHidden"  键盘显隐状态
         	 android:launchMode="standard"启动模式standard为默认
         	 android:screenOrientation="portrait" 屏幕旋转模式portrait锁定垂直
-        	 android:windowSoftInputMode="stateHidden|adjustResize" 输入时界面重置
+        	 android:windowSoftInputMode="stateHidden|adjustResize" 输入时界面重置
         -->
         <activity
             android:name="com.zykj.yuliang.activity.JiFenActivity"

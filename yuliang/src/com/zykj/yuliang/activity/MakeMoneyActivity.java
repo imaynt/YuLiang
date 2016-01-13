@@ -59,7 +59,7 @@ public class MakeMoneyActivity extends BaseActivity {
 		ll_youchang = (LinearLayout) findViewById(R.id.ll_youchang);
 		ll_new = (LinearLayout) findViewById(R.id.ll_new);
 		String nick = BaseApp.getModel().getUsername();
-		if (!StringUtil.isEmpty(nick))
+		if (StringUtil.isEmpty(nick))
 			ll_ziliao.setVisibility(View.VISIBLE);
 
 	}

@@ -6,6 +6,7 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.pgyersdk.crash.PgyCrashManager;
 import com.zykj.yuliang.model.AppModel;
 import com.zykj.yuliang.utils.StringUtil;
 
@@ -32,7 +33,10 @@ public class BaseApp extends Application {
 	private static Stack<Activity> activityStack;
 	private static BaseApp instance;
     private static AppModel model;
-	public BaseApp() {
+	
+    
+    public BaseApp() {
+		
 	}
 
 	public synchronized static BaseApp getInstance() {
@@ -154,6 +158,10 @@ public class BaseApp extends Application {
 		super.onCreate();
 		
         initModel();//初始化 数据
+        /**
+         * 蒲公英捕捉异常
+         */
+        PgyCrashManager.register(this);
 	}
 	
 	/**

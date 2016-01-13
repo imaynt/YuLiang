@@ -37,8 +37,8 @@ public class JiFenActivity extends BaseActivity{
 		super.onClick(view);
 		switch (view.getId()) {
 		case R.id.ll_jifenwenti:
-			Intent intent=new Intent(JiFenActivity.this,JiFenProblemActivity.class);
-			startActivity(intent);
+//			Intent intent=new Intent(JiFenActivity.this,JiFenProblemActivity.class);
+//			startActivity(intent);
 			break;
 		default:
 			break;

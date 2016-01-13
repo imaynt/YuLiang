@@ -72,7 +72,7 @@ public class FirstLoginActivity extends BaseActivity implements OnClickListener 
 			ll_text_t.setVisibility(View.VISIBLE);
 			ll_text_s.setVisibility(View.VISIBLE);
 			params = new RequestParams();
-			params.put("deviceid", BaseApp.getModel().getDeviceId());// deviceId没有获得,
+			params.put("deviceId", BaseApp.getModel().getDeviceId());// deviceId没有获得,
 			HttpUtils.getPointsFromInvite(new HttpErrorHandler() {
 
 				@Override
